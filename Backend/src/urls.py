@@ -16,8 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from Login.views import login_view
+from Mess.views import mess_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('login/',login_view)
+    path('login/',login_view),
+    path('mess/',mess_view)
 ]
