@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from .serializers import ProfileSerializer
 from .models import Profile
+from rest_framework import viewsets
 # Create your views here.
+class ProfileViewSet(viewsets.ModelViewSet):
+    queryset = Profile.objects.all().order_by('full_name')
+    serializer_class = ProfileSerializer
 
 def login_view(request,*args,**kwargs):
     if request.method == "POST" :
