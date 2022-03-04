@@ -85,7 +85,7 @@
 <body>
     <section class="login-clean">
         <h1 style="font-size: 60px;text-align: center;font-family: 'Nunito Sans', sans-serif;font-weight: bold;">&nbsp;DigiCampus</h1>
-        <form method="post">
+        <form method="post"> {% csrf_token %}
             <h2 class="visually-hidden">Login Form</h2>
             <div class="illustration"><i class="icon ion-ios-navigate"></i></div>
             <div class="mb-3"><input class="form-control" type="email" name="User ID" placeholder="User Id"></div>
