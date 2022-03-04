@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import database
+from .models import profile
 # Create your views here.
 
 def login_view(request,*args,**kwargs):
