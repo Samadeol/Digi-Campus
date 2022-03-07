@@ -17,6 +17,7 @@ class Profile(models.Model) :
     is_staff = models.BooleanField()
     is_prof = models.BooleanField()
     #Occupation = models.Choices(occupation_choice)
-
+    def __str__(self):
+        return self.username
     
     
