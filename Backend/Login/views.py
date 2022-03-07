@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .serializers import ProfileSerializer
 from .models import Profile
 from rest_framework import viewsets
@@ -13,12 +13,8 @@ def login_view(request,*args,**kwargs):
         passw = request.POST.get('password')
         #pro = profile.ob
         profiles = Profile.objects.all()
-        flag = False
         for pro in profiles:
             if pro.username == user and pro.password ==passw :
-                print("yooo")
-                flag = True
-                break
-        if not flag : print("no")
+                return redirect("../mess/")
         #print(username+ " " + password)
     return render(request,"login.html",{})
