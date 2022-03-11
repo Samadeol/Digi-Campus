@@ -21,3 +21,8 @@ def login_view(request,*args,**kwargs):
                 return redirect("../mess/")
         #print(username+ " " + password)
     return render(request,"login.html",{})
+
+
+def profile_view(request):
+    context={}
+    return render(request,"profile.html",context)
