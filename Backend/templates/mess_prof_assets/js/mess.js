@@ -16,6 +16,7 @@ function increment_value_1(){
     document.getElementById('number_quant_1').innerHTML=count;
     total1= count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 
 }
 function decrement_value_1(){
@@ -31,6 +32,7 @@ function decrement_value_1(){
     }
     total1=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 }
 function MyFunc_1(){
     var count=parseInt(document.getElementById('number1').value,10);
@@ -65,6 +67,7 @@ function increment_value_2(){
     document.getElementById('number_quant_2').innerHTML=count;
     total2=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 
 
 }
@@ -81,6 +84,7 @@ function decrement_value_2(){
     }
     total2=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 }
 
 function increment_value_3(){
@@ -95,6 +99,7 @@ function increment_value_3(){
 
     total3= count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 
 }
 function decrement_value_3(){
@@ -112,6 +117,7 @@ function decrement_value_3(){
     }
     total3=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 }
 
 function increment_value_4(){
@@ -126,6 +132,7 @@ function increment_value_4(){
 
     total4= count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 
 }
 function decrement_value_4(){
@@ -143,6 +150,7 @@ function decrement_value_4(){
     }
     total4=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 }
 
 function increment_value_5(){
@@ -157,6 +165,7 @@ function increment_value_5(){
 
     total5= count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 
 }
 function decrement_value_5(){
@@ -174,6 +183,7 @@ function decrement_value_5(){
     }
     total5=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 }
 
 function increment_value_6(){
@@ -187,6 +197,7 @@ function increment_value_6(){
 
     total6= count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 
 }
 function decrement_value_6(){
@@ -205,4 +216,5 @@ function decrement_value_6(){
 
     total6=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
+    document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
 }
