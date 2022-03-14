@@ -25,4 +25,4 @@ def login_view(request,*args,**kwargs):
 
 def profile_view(request):
     context={}
-    return render(request,"profile.html",context)
+    return render(request,"mess_profile/profile.html",context)
