@@ -194,13 +194,23 @@
                                                 <h5 class="mb-0 itemname">Extras_1</h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0 itemqt">&nbsp;Qt. 0</h5>
+                                              <h5 class="mb-0 itemqt" >Qt. <span class="mb-0 itemqt" id="number_quant_1">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number1"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_1()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_1()"><i class="fa fa-minus-circle"></i></button></div>
+                                                <body onload="MyFunc_1()">
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </li>
                             <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
@@ -211,7 +221,7 @@
                                                 <h5 class="mb-0 itemname" >Extras_2&nbsp;&nbsp;<br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0 itemqtb" id="number_quant"></h5>
+                                               <h5 class="mb-0 itemqt" id="temp_quant_2" >Qt. <span id="number_quant_2" class="mb-0 itemqt" ></span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -222,24 +232,9 @@
                                                 <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
                                             </div>
                                             <div class="col">
-                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value()"><i class="fa fa-minus-circle"></i></button></div>
-                                                <script>
-                                                    function increment_value(){
-                                                        var count=parseInt(document.getElementById('number').value,10);
-                                                        
-                                                        if(count<9) count=count+1;
-                                                        document.getElementById('number').value=count;
-                                                        document.getElementById('number_quant').innerHTML=count;
-
-                                                    }
-                                                    function decrement_value(){
-                                                        var count=parseInt(document.getElementById('number').value,10);
-                                                        
-                                                        if(count>0) count=count-1;
-                                                        document.getElementById('number').value=count;
-                                                        document.getElementById('number_quant').innerHTML=count;
-                                                    }
-                                                </script>
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number2"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_2()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_2()"><i class="fa fa-minus-circle"></i></button></div>
+                                                
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
                                             </div>
                                         </div>
                                     </div>
@@ -253,13 +248,23 @@
                                                 <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_3</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" >Qt. <span class="mb-0 itemqt" id="number_quant_3">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number3"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_3()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_3()"><i class="fa fa-minus-circle"></i></button></div>
+                                               
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
+                                    
                                 </div>
                             </li>
                             <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
@@ -270,12 +275,21 @@
                                                 <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_4</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" >Qt. <span class="mb-0 itemqt" id="number_quant_4">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number4"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_4()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_4()"><i class="fa fa-minus-circle"></i></button></div>
+                                                
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -284,15 +298,24 @@
                                     <div class="card-header" >
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_5</strong><br></h5>
+                                                <h5 class="mb-0 " ><strong>Extras_5</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" >Qt. <span class="mb-0 itemqt" id="number_quant_5">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number5"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_5()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_5()"><i class="fa fa-minus-circle"></i></button></div>
+                                               
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
@@ -304,12 +327,21 @@
                                                 <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_6</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" >Qt. <span class="mb-0 itemqt" id="number_quant_6">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number6"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_6()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_6()"><i class="fa fa-minus-circle"></i></button></div>
+                                               
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
