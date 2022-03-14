@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee">
     <link rel="stylesheet" href="assets/css/styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0">
-    <link rel="stylesheet" href="/Backend/templates/mess+profile/assets/css/mess_style.css">
+    <link rel="stylesheet" type="text/css" href="/Backend/templates/mess+profile/assets/css/mess_style.css">
     
 </head>
 
@@ -188,7 +188,7 @@
                                                     function increment_value(){
                                                         var count=parseInt(document.getElementById('number').value,10);
                                                         
-                                                        count=count+1;
+                                                        if(count<9) count=count+1;
                                                         document.getElementById('number').value=count;
                                                         document.getElementById('number_quant').innerHTML=count;
 
@@ -196,7 +196,7 @@
                                                     function decrement_value(){
                                                         var count=parseInt(document.getElementById('number').value,10);
                                                         
-                                                        count=count-1;
+                                                        if(count>0) count=count-1;
                                                         document.getElementById('number').value=count;
                                                         document.getElementById('number_quant').innerHTML=count;
                                                     }
