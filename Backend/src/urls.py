@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/',login_view),
     path('mess/',mess_view),
-    path('profile/',profile_view)
+    path('profile/<int:id>',profile_view)
 ]

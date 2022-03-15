@@ -9,7 +9,7 @@ def login_view(request,*args,**kwargs):
     for pro in profiles:
         print (pro.login)
         if pro.login == True:
-            return redirect("../mess/")
+            return redirect("../profile/")
     if request.method == "POST" :
         user = request.POST.get('User ID')
         passw = request.POST.get('password')
@@ -18,11 +18,12 @@ def login_view(request,*args,**kwargs):
         for pro in profiles:
             if pro.username == user and pro.password ==passw:
                 pro.login = True
-                return redirect("../mess/")
+                return redirect("../profile/")
         #print(username+ " " + password)
     return render(request,"login.html",{})
 
 
-def profile_view(request):
-    context={}
-    return render(request,"profile.html",context)
+def profile_view(request,id):
+    user=Profile.objects.get(id=id)
+    context={"username":user.username,"name":user.full_name}
+    return render(request,"mess_profile/profile.html",context)
