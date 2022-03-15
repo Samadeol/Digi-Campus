@@ -4,6 +4,7 @@ from .models import Profile
 #from rest_framework import viewsets
 # Create your views here.
 
+glob_id=0
 def login_view(request,*args,**kwargs):
     profiles = Profile.objects.all()
     # for pro in profiles:
@@ -21,6 +22,7 @@ def login_view(request,*args,**kwargs):
             if pro.username == user and pro.password ==passw:
                 pro.login = True
                 
+                glob_id=userid
                 return redirect("../profile/"+str(userid))
             
         #print(username+ " " + password)
@@ -29,5 +31,16 @@ def login_view(request,*args,**kwargs):
 
 def profile_view(request,id):
     user=Profile.objects.get(id=id)
-    context={"username":user.username,"name":user.full_name}
+    context={"username":user.username,"name":user.full_name,"profile_id":str(id)}
+    
     return render(request,"profile.html",context)
+
+
+def dashboard_view(request,*args,**kwargs):
+   # user=Profile.objects.get(id=glob_id)
+    #context={"username":user.username,"name":user.full_name}
+    return render(request,"mess.html")
+
+
+
+    
