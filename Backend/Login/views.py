@@ -26,4 +26,4 @@ def login_view(request,*args,**kwargs):
 def profile_view(request,id):
     user=Profile.objects.get(id=id)
     context={"username":user.username,"name":user.full_name}
-    return render(request,"mess_profile/profile.html",context)
+    return render(request,"profile.html",context)

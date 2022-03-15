@@ -2,6 +2,7 @@
 <html>
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>DigiCampus Login</title>
@@ -9,8 +10,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="../css/styles.min.css?h=ab2d1eb0d8e707ab1d9c2a8d94851c0a">
-    <link rel="stylesheet" href="../css/login_style.css">
+    <link rel="stylesheet" href="{% static 'css/login_styles.min.css?h=ab2d1eb0d8e707ab1d9c2a8d94851c0a' %}" >
+    <link rel="stylesheet" href="{% static 'css/login_style.css' %}">
 </head>
 <body>
     <section class="login-clean">

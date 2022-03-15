@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>253</title>
@@ -11,9 +12,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee">
-    <link rel="stylesheet" href="assets/css/styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0">
-    <link rel="stylesheet" type="text/css" href="../css/mess_style.css">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee' %} ">
+    <link rel="stylesheet" href="{% static 'css/mess_styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0' %} ">
+    <link rel="stylesheet" href="{% static 'css/mess_style.css' %}">
     
 </head>
 
@@ -167,7 +168,7 @@
                                             <div class="col">
                                                 <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number1"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_1()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_1()"><i class="fa fa-minus-circle"></i></button></div>
                                                 <body onload="MyFunc_1()">
-                                                <script src="../js/mess.js" ></script>
+                                                <script src="{% static 'js/mess.js' %}""></script>
                                             </div>
                                         </div>
                                     </div>
