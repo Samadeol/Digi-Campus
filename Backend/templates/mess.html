@@ -2,57 +2,19 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>253</title>
+    <title>Mess</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bitter:400,700&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito&amp;display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee">
-    <link rel="stylesheet" href="assets/css/styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0">
-    <!-- <link rel="stylesheet" type="text/css" href="/Backend/templates/mess+profile/assets/css/mess_style.css"> -->
-    <style>
-        .cardorange  {
-            background: #ffeba4;
-            border-radius: 19px;
-            border-width: 0px;
-        }
-        
-        
-        
-        .card-header{
-            border-radius: 19px;
-            border-bottom-right-radius: 0px;
-            border-bottom-left-radius: 0px;
-            border-width: 0px;
-        }
-        /*.card-header :hover{
-            border-radius: 19px;
-            border-bottom-right-radius: 0px;
-            border-bottom-left-radius: 0px;
-            border-width: 0px;
-            background-color: orange;
-        }*/
-        
-        .itemname{
-            font-family: Nunito, sans-serif;font-weight: bold;text-align: left;
-        }
-        .itemqt{
-            font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);
-        }
-        .card-text{
-            font-family: Nunito, sans-serif;width: 250px;text-align: left;
-        }
-        .itemqtb{
-            font-family: Nunito, sans-serif;font-weight: bold;text-align: right;
-        }
-        .darkorange{
-            background: #ffc700;border-radius: 19px;border-width: 0px; 
-        }
-    </style>
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee' %} ">
+    <link rel="stylesheet" href="{% static 'css/mess_styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0' %} ">
+    <link rel="stylesheet" href="{% static 'css/mess_style.css' %}">
     
 </head>
 
@@ -206,7 +168,7 @@
                                             <div class="col">
                                                 <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number1"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_1()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_1()"><i class="fa fa-minus-circle"></i></button></div>
                                                 <body onload="MyFunc_1()">
-                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                                <script src="{% static 'js/mess.js' %}""></script>
                                             </div>
                                         </div>
                                     </div>
@@ -233,8 +195,7 @@
                                             </div>
                                             <div class="col">
                                                 <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number2"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_2()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_2()"><i class="fa fa-minus-circle"></i></button></div>
-                                                
-                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                                <script src="../mess_prof_assets/js/mess.js" type = "text/JavaScript" ></script>
                                             </div>
                                         </div>
                                     </div>
