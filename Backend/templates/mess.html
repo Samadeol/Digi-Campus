@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Mess</title>
@@ -11,8 +12,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans&amp;display=swap">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.0/css/all.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee">
-    <link rel="stylesheet" href="assets/css/styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0">
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee' %} ">
+    <link rel="stylesheet" href="{% static 'css/mess_styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0' %} ">
+    <link rel="stylesheet" href="{% static 'css/mess_style.css' %}">
+    
 </head>
 
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);background: rgb(224,226,253);">
@@ -75,8 +78,48 @@
                         <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-y: auto;-webkit-overflow-scrolling: touch;width: 360px;margin-right: 16px;margin-left: 16px;">
                             <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="card-header" style="border-width: 0px;border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Dal<br></h5>
+                                    <div class="card-header">
+                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_1<br></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
+                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
+                                    <div class="card-header" >
+                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_2<br></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
+                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
+                                    <div class="card-header" >
+                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_3<br></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
+                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
+                                    <div class="card-header" >
+                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_4<br></h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
+                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
+                                    <div class="card-header" >
+                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_5<br></h5>
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
@@ -86,47 +129,7 @@
                             <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
                                     <div class="card-header" style="border-width: 0px;border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Dal<br></h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="card-header" style="border-width: 0px;border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Dal<br></h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="card-header" style="border-width: 0px;border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Dal<br></h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="card-header" style="border-width: 0px;border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Dal<br></h5>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="card-header" style="border-width: 0px;border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;">
-                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Dal<br></h5>
+                                        <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_6<br></h5>
                                     </div>
                                     <div class="card-body">
                                         <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
@@ -146,31 +149,14 @@
                         <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-right: 16px;margin-left: 16px;">ITEMS PAYABLE</h6>
                         <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-y: auto;-webkit-overflow-scrolling: touch;width: 360px;margin-right: 16px;margin-left: 16px;">
                             <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
-                                <div class="card" style="background: #ffeba4;border-radius: 19px;border-width: 0px;">
-                                    <div class="card-header" style="border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;border-width: 0px;">
+                                <div class="cardorange" >
+                                    <div class="card-header">
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Paneer Bhujia</h5>
+                                                <h5 class="mb-0 itemname">Extras_1</h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
-                                <div class="card" style="background: #ffc700;border-radius: 19px;border-width: 0px;">
-                                    <div class="card-header" style="border-width: 0px;border-top-left-radius: 19px;border-top-right-radius: 19px;">
-                                        <div class="row">
-                                            <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Anda Bhurji&nbsp;&nbsp;<br></h5>
-                                            </div>
-                                            <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;">&nbsp;Qt. 1</h5>
+                                              <h5 class="mb-0 itemqt" id="temp_quant_1" >Qt. <span class="mb-0 itemqt" id="number_quant_1">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -180,77 +166,143 @@
                                                 <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
                                             </div>
                                             <div class="col">
-                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" style="margin-right: 20px;margin-left: 8px;"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button"><i class="fa fa-minus-circle"></i></button></div>
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number1"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_1()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_1()"><i class="fa fa-minus-circle"></i></button></div>
+                                                <body onload="MyFunc_1()">
+                                                <script src="{% static 'js/mess.js' %}""></script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
+                                <div class="cardorange" >
+                                    <div class="card-header" >
+                                        <div class="row">
+                                            <div class="col">
+                                                <h5 class="mb-0 itemname" >Extras_2&nbsp;&nbsp;<br></h5>
+                                            </div>
+                                            <div class="col">
+                                               <h5 class="mb-0 itemqt" id="temp_quant_2" >Qt. <span id="number_quant_2" class="mb-0 itemqt" ></span></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number2"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_2()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_2()"><i class="fa fa-minus-circle"></i></button></div>
+                                                <script src="../mess_prof_assets/js/mess.js" type = "text/JavaScript" ></script>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
                             <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
-                                <div class="card" style="background: #ffeba4;border-radius: 19px;border-width: 0px;">
-                                    <div class="card-header" style="border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;border-width: 0px;">
+                                <div class="cardorange" >
+                                    <div class="card-header" >
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Rasgulla</strong><br></h5>
+                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_3</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" id="temp_quant_3" >Qt. <span class="mb-0 itemqt" id="number_quant_3">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number3"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_3()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_3()"><i class="fa fa-minus-circle"></i></button></div>
+                                               
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                            </li>
+                            <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
+                                <div class="cardorange">
+                                    <div class="card-header" >
+                                        <div class="row">
+                                            <div class="col">
+                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_4</strong><br></h5>
+                                            </div>
+                                            <div class="col">
+                                                <h5 class="mb-0 itemqt" id="temp_quant_4">Qt. <span class="mb-0 itemqt" id="number_quant_4">&nbsp;</span></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number4"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_4()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_4()"><i class="fa fa-minus-circle"></i></button></div>
+                                                
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
                             <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
-                                <div class="card" style="background: #ffeba4;border-radius: 19px;border-width: 0px;">
-                                    <div class="card-header" style="border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;border-width: 0px;">
+                                <div class="cardorange">
+                                    <div class="card-header" >
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Rasgulla</strong><br></h5>
+                                                <h5 class="mb-0 " ><strong>Extras_5</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" id="temp_quant_5" >Qt. <span class="mb-0 itemqt" id="number_quant_5">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number5"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_5()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_5()"><i class="fa fa-minus-circle"></i></button></div>
+                                               
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </li>
                             <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
-                                <div class="card" style="background: #ffeba4;border-radius: 19px;border-width: 0px;">
-                                    <div class="card-header" style="border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;border-width: 0px;">
+                                <div class="cardorange">
+                                    <div class="card-header" >
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Rasgulla</strong><br></h5>
+                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Extras_6</strong><br></h5>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <h5 class="mb-0 itemqt" id="temp_quant_6">Qt. <span class="mb-0 itemqt" id="number_quant_6">&nbsp;</span></h5>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
-                                    </div>
-                                </div>
-                            </li>
-                            <li style="width: 334px;height: 96px;margin-bottom: 8px;margin-top: 8px;">
-                                <div class="card" style="background: #ffeba4;border-radius: 19px;border-width: 0px;">
-                                    <div class="card-header" style="border-radius: 19px;border-bottom-right-radius: 0px;border-bottom-left-radius: 0px;border-width: 0px;">
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;"><strong>Rasgulla</strong><br></h5>
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">1 serving, 100 g<br></p>
                                             </div>
                                             <div class="col">
-                                                <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: right;color: rgba(33,37,41,0.35);">&nbsp;Qt. 0</h5>
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number6"style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_6()" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary" type="button" onclick="decrement_value_6()"><i class="fa fa-minus-circle"></i></button></div>
+                                               
+                                                <script src="/Backend/templates/mess_prof_assets/js/mess.js" ></script>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card-body">
-                                        <p class="card-text" style="font-family: Nunito, sans-serif;width: 250px;text-align: left;">1 serving, 100 g<br></p>
                                     </div>
                                 </div>
                             </li>
@@ -269,16 +321,25 @@
                                 <p style="font-family: Nunito, sans-serif;">Main Lunch<br></p>
                             </div>
                             <div class="col">
-                                <p style="text-align: right;font-family: Nunito, sans-serif;">₹0.00<br></p>
+                                <p style="text-align: right;font-family: Nunito, sans-serif;">{{BDMR}}<br></p>
                             </div>
                         </div>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-top: 34px;margin-left: 16px;margin-right: 16px;">Extras</h6>
+                        <div class="card" style="--bs-primary-rgb: 13,110,253;background: rgba(255,255,255,0);border-width: 0px;border-radius: 0px;">
+                            <div class="row" style="margin-right: 4px;margin-left: 4px;">
+                                <div class="col">
+                                    <p style="font-family: Nunito, sans-serif;">Extras</p>
+                                </div>
+                                <div class="col">
+                                    <p id="Total_Extras" style="text-align: right;font-family: Nunito, sans-serif;"><br></p>
+                                </div>
+                            </div>
+                        </div>
                         <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-y: auto;-webkit-overflow-scrolling: touch;width: 352px;margin-left: 16px;margin-right: 0px;">
                             <li>
                                 <div class="card" style="--bs-primary-rgb: 13,110,253;background: rgba(255,255,255,0);border-width: 0px;border-radius: 0px;">
-                                    <div class="row" style="margin-right: 4px;margin-left: 4px;">
+                                   <!-- <div class="row" style="margin-right: 4px;margin-left: 4px;">
                                         <div class="col">
-                                            <p style="font-family: Nunito, sans-serif;">Anda Bhurji</p>
+                                            <p style="font-family: Nunito, sans-serif;">Item_1</p>
                                         </div>
                                         <div class="col">
                                             <p style="text-align: right;font-family: Nunito, sans-serif;">₹30.00<br></p>
@@ -406,19 +467,21 @@
                                     </div>
                                 </div>
                             </li>
-                        </ul>
+                        </ul>-->
                         <div class="row" style="margin-top: 24px;margin-right: 4px;margin-left: 4px;">
                             <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;">Confirm</button></div>
                             <div class="col">
                                 <p style="text-align: right;margin-bottom: 0px;">Total Payable</p>
-                                <p style="text-align: right;">₹30.00<br></p>
+                                <p id="Final" style="text-align: right;"><br></p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
+
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.min.js?h=27ef3fac33c48f9cf9938d349cb0b7e1"></script>
 </body>
