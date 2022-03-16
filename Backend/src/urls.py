@@ -15,12 +15,11 @@ Including another URLconf
 """
 from unicodedata import name
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from Login.views import login_view
 from Login.views import profile_view
 from Login.views import dashboard_view
 from Mess.views import mess_view
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -28,4 +27,5 @@ urlpatterns = [
     path('mess/',mess_view,name="mess_view"),
     path('profile/<int:id>',profile_view),
     path('dashboard/<int:id>',dashboard_view,name="dashboard"),
+    path('api/',include('Mess.urls')),
 ]
