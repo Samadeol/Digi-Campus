@@ -17,5 +17,3 @@ class Profile(models.Model) :
     is_prof = models.BooleanField()
     def __str__(self):
         return self.username
-    
-    
