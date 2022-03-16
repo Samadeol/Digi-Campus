@@ -2,7 +2,9 @@ from django.shortcuts import render, redirect
 #from .serializers import ProfileSerializer
 from .models import Profile
 #from rest_framework import viewsets
-from django.contrib.auth.forms import UserCreationForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+from django.contrib.auth.decorators import login_required 
 # Create your views here.
 
 
@@ -31,7 +33,10 @@ from django.contrib.auth.forms import UserCreationForm
     # form = UserCreationForm()
     # return render(request,"login.html",{'form':form})
     
-def profile_view(request,id):
-    user=Profile.objects.get(id=id)
-    context={"username":user.username,"name":user.full_name}
-    return render(request,"profile.html",context)
+# def profile_view(request,id):
+#     user=Profile.objects.get(id=id)
+#     context={"username":user.username,"name":user.full_name}
+#     return render(request,"profile.html",context)
+# @login_required
+def profile_view(request):
+    return render(request,"profile.html")
