@@ -1,12 +1,11 @@
 from django.shortcuts import render, redirect
 #from .serializers import ProfileSerializer
-from .models import Profile
+# from .models import Profile
 #from rest_framework import viewsets
-from django.http import HttpResponseRedirect
-from django.urls import reverse
+# from django.http import HttpResponseRedirect
+# from django.urls import reverse
 from django.contrib.auth.decorators import login_required 
 # Create your views here.
-
 
 # def login_view(request,*args,**kwargs):
     # profiles = Profile.objects.all()
@@ -37,6 +36,6 @@ from django.contrib.auth.decorators import login_required
 #     user=Profile.objects.get(id=id)
 #     context={"username":user.username,"name":user.full_name}
 #     return render(request,"profile.html",context)
-# @login_required
+@login_required
 def profile_view(request):
     return render(request,"profile.html")
