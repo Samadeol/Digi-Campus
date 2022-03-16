@@ -19,7 +19,7 @@ def login_view(request,*args,**kwargs):
         userid=0
         for pro in profiles:
             userid=userid+1
-            if pro.username == user and pro.password ==passw:
+            if pro.username == user and pro.password == passw:
                 pro.login = True
                 
                 glob_id=userid
@@ -31,8 +31,8 @@ def login_view(request,*args,**kwargs):
 
 def profile_view(request,id):
     user=Profile.objects.get(id=id)
-    context={"username":user.username,"name":user.full_name,"profile_id":str(id)}
-    
+    context={"username":user.username,"first_name":user.first_name,"last_name":user.last_name,"room_no":user.room_no,
+    "hall_no":user.hall_no,"email":user.email,"profile_id":str(id),"pwd":user.password,"roll_no":user.roll_no,"mobile_no":user.mobile_no}
     return render(request,"profile.html",context)
 
 
