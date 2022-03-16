@@ -10,3 +10,4 @@ class messOrder(models.Model):
     rollno=models.IntegerField()
     orderedName=models.CharField(max_length=25)
     orderedPrice=models.IntegerField()
+    orderedDate=models.DateTimeField()
