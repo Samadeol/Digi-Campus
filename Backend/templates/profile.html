@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="{% static 'css/profile_style.css' %}">
 </head>
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);">
-    {%block content%}
+    {% block content %}
     <div class="col">
         <div class="row">
             <div class="col">
@@ -47,13 +47,13 @@
         </div>
     </div>
     <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link" href="index.html" style="font-family: 'Nunito Sans', sans-serif;">
+        <li class="nav-item"><a class="nav-link" href=../index/ style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-border-all"></i>
                 Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="mess.html" style="font-family: 'Nunito Sans', sans-serif;">
+        <li class="nav-item"><a class="nav-link" href="{% url 'mess' %}" style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-utensils"></i>
                 Mess</a></li>
-        <li class="nav-item"><a class="nav-link" href="qr_code.html" style="font-family: 'Nunito Sans', sans-serif;">
+        <li class="nav-item"><a class="nav-link" href=../qr_code/ style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-qrcode"></i>
                 QR Code</a></li>
     </ul>
@@ -234,7 +234,7 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.min.js?h=27ef3fac33c48f9cf9938d349cb0b7e1"></script>
-{%endblock%}
+{% endblock %}
 </body>
 
 </html>

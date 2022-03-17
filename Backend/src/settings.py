@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     #our apps
     'Login',
     'Mess',
+    'Hall',
     'rest_framework',
     'crispy_forms',
 ]
