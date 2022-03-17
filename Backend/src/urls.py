@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login1/',auth_view.LoginView.as_view(template_name='login.html'),name='login1'),
     path('mess/',mess_view,name="mess_view"),
-    path('profile/<int:id>',profile_view),
+    path('profile/',profile_view),
     #path('dashboard/<int:id>',dashboard_view,name="dashboard"),
     path('api/',include('Mess.urls')),
 ]
