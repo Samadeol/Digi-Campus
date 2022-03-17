@@ -1,4 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth import authenticate
+from django.contrib.auth.decorators import user_passes_test
 #from .serializers import ProfileSerializer
 # from .models import Profile
 #from rest_framework import viewsets

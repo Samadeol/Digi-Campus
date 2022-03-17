@@ -47,10 +47,10 @@
         </div>
     </div>
     <ul class="nav nav-tabs">
-        <li class="nav-item"><a class="nav-link" href="index.html" style="font-family: 'Nunito Sans', sans-serif;">
+        <li class="nav-item"><a class="nav-link" href="{%url 'dashboard'  id=profile_id%}" style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-border-all"></i>
                 Dashboard</a></li>
-        <li class="nav-item"><a class="nav-link" href="mess.html" style="font-family: 'Nunito Sans', sans-serif;">
+        <li class="nav-item"><a class="nav-link" href="{%url 'mess_view' %}"  style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-utensils"></i>
                 Mess</a></li>
         <li class="nav-item"><a class="nav-link" href="qr_code.html" style="font-family: 'Nunito Sans', sans-serif;">
@@ -104,7 +104,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
+<<<<<<< HEAD
+                                    <div class="col"><input type="text" placeholder={{first_name}}></div>
+=======
                                     <div class="col"><input type="text" placeholder={{user.profile.first_name}}></div>
+>>>>>>> main
                                 </div>
                             </div>
                             <div class="col" style="padding-top: 6px;padding-bottom: 6px;">
@@ -114,7 +118,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
+<<<<<<< HEAD
+                                    <div class="col"><input type="text" placeholder={{last_name}}></div>
+=======
                                     <div class="col"><input type="text" placeholder={{user.profile.last_name}}></div>
+>>>>>>> main
                                 </div>
                             </div>
                         </div>
@@ -126,7 +134,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
+<<<<<<< HEAD
+                                    <div class="col"><input type="text" placeholder={{hall_no}}></div>
+=======
                                     <div class="col"><input type="text" placeholder={{user.profile.hall_no}}></div>
+>>>>>>> main
                                 </div>
                             </div>
                             <div class="col" style="padding-top: 6px;padding-bottom: 6px;">
@@ -136,7 +148,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
+<<<<<<< HEAD
+                                    <div class="col"><input type="text" placeholder={{room_no}}></div>
+=======
                                     <div class="col"><input type="text" placeholder={{user.profile.room_no}}></div>
+>>>>>>> main
                                 </div>
                             </div>
                         </div>
@@ -148,7 +164,11 @@
                                     </div>
                                 </div>
                                 <div class="row">
+<<<<<<< HEAD
+                                    <div class="col"><input type="text" placeholder={{roll_no}}></div>
+=======
                                     <div class="col"><input type="text" placeholder={{user.profile.roll_no}}></div>
+>>>>>>> main
                                 </div>
                             </div>
                            
@@ -162,7 +182,11 @@
                                 </div>
                             
                                 <div class="row">
+<<<<<<< HEAD
+                                    <div class="col"><input type="text" placeholder={{mobile_no}}></div>
+=======
                                     <div class="col"><input type="text" placeholder={{user.profile.mobile_no}}></div>
+>>>>>>> main
                                 </div>
                             </div>
                             
@@ -200,7 +224,7 @@
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col"><input type="text" placeholder="new password"></div>
+                                    <div class="col"><input type="password" id="new_p" placeholder="New Password" value="" ></div>
                                 </div>
                             </div>
                         </div>
@@ -208,20 +232,35 @@
                             <div class="col">
                                 <div class="row">
                                     <div class="col" style="height: 25px;">
-                                        <p style="font-family: Nunito, sans-serif;">Confirm Password</p>
+                                        <p id="test" style="font-family: Nunito, sans-serif;">Confirm Password</p>
                                     </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col"><input type="text" placeholder="confirm password">
-                                        <p style="color: var(--bs-red);">
-                                            <i class="fas fa-times"></i>
-                                            Password are not matching!
+                                    <div class="col"><input type="password" id="confirm_p" placeholder="Confirm Password" value="" oninput="MyFunction()">
+                                        <p id="match" style="color: var(--bs-green);">
+                                            <!-- <i  class="fas fa-times" ></i> -->
+                                           
                                         </p>
-                                        <p style="color: var(--bs-green);">
-                                            <i class="fas fa-check"></i>
+                                        <p  id="match_final" style="color: var(--bs-green);">
+                                            <!-- <i id="match_final" class="fas fa-check"></i> -->
+
                                         </p>
                                     </div>
                                 </div>
+                                <body onload="Password()">
+                                <script>
+                                  function MyFunction(){
+                                    
+                                        
+                                        if(document.getElementById('new_p').value==document.getElementById('confirm_p').value){
+                                            document.getElementById('match').innerHTML="Password Matching";
+                                        }
+                                        else{
+                                            document.getElementById('match').innerHTML="Password Not Matching";
+                                        }
+
+                                    }
+                                </script>
                                 <div class="row">
                                     <div class="col"><button class="btn btn-primary" type="button">Submit</button></div>
                                 </div>
