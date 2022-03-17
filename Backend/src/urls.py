@@ -21,7 +21,9 @@ from Login.views import profile_view
 from Login.views import dashboard_view
 from Mess.views import mess_view
 
+
 urlpatterns = [
+    path('qr',include('qrscan.urls')),
     path('admin/', admin.site.urls),
     path('login/',login_view),
     path('mess/',mess_view,name="mess_view"),

@@ -40,6 +40,6 @@ def dashboard_view(request,*args,**kwargs):
     #context={"username":user.username,"name":user.full_name}
     return render(request,"mess.html")
 
-
-
+def qr_view(request,*args,**kwargs):
+    return render(request,"qr_code.html")
     
