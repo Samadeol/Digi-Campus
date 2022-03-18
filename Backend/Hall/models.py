@@ -7,8 +7,8 @@ class HallStudents(models.Model):
 
 class hallPresence(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
-    user_visiting=models.ForeignKey(HallStudents, on_delete=models.CASCADE)
-    in_hall=False
+    user_visiting=models.IntegerField()
+    # in_hall=False
     laptop=False
-    timeEntered=models.DateTimeField()
-    timeExit=models.DateTimeField()
+    # timeEntered=models.DateTimeField()
+    # timeExit=models.DateTimeField()
