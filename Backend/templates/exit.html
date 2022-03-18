@@ -62,7 +62,7 @@
         <div class="col" style="background: #f4db60;">
             <h1
                 style="font-family: 'Nunito Sans', sans-serif;font-weight: bold;text-align: center;margin: 5%;color: var(--bs-blue);font-size: 60px;">
-                Entry in Hall</h1>
+                Exit From Hall</h1>
         </div>
     </div>
     {% comment %} <div class="container">
@@ -94,7 +94,7 @@
             <form action='.' method='POST'>{%csrf_token%}
                 {% comment %} Roll Number Visiting: <input type='text' name='user_visiting' placeholder="Roll Number Visiting"/><br>
                 Laptop (Yes/No): <input type='text' name='laptop' placeholder="Laptop"/><br> {% endcomment %}
-                {{form.as_p}}
+                {% comment %} {{form.as_p}} {% endcomment %}
                 <input type='submit' value='Save'/>
             </form>
             {%endblock%}

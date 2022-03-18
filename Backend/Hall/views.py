@@ -2,16 +2,11 @@ from django.shortcuts import render
 
 from Hall.models import hallPresence
 from .form import EntryForm
+from .form import ExitForm
 # Create your views here.
 import datetime
 from django.contrib.auth.models import User
 def entry_view(request):
-    # form=EntryForm(request.POST or None)
-
-    # if form.is_valid():
-    #     form.save()
-    #     form=EntryForm()
-    # context={'form':form}
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
@@ -34,3 +29,24 @@ def entry_view(request):
         MyLoginForm = EntryForm(request.POST or None)
     context = {"form": MyLoginForm}
     return render(request, "entry.html", context)
+
+
+def exit_view(request):
+    if request.method == "POST":
+        # MyLogoutForm = ExitForm(request.POST or None)
+        # if MyLogoutForm.is_valid():
+        #     time=datetime.datetime.now()
+        #     user_in=0
+        time=datetime.datetime.now()
+        for x in hallPresence.objects.all():
+            if str(x.user) == str(request.user.username):
+                user_in=1
+                x.timeExit=time
+                x.save()
+
+            
+
+    # else:
+    #     MyLogoutForm = ExitForm(request.POST or None)
+    # context = {"form": MyLogoutForm}
+    return render(request, "exit.html", {})
