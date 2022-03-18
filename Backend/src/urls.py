@@ -21,12 +21,19 @@ from Login.views import profile_view
 #from Login.views import dashboard_view
 from Mess.views import mess_view
 from django.contrib.auth import views as auth_view
+from Hall.views import entry_view
+from Login.views import dashboard_view
+from Login.views import qrcode_view
+from Hall.views import exit_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
     path('admin/', admin.site.urls),
-    path('login1/',auth_view.LoginView.as_view(template_name='login.html'),name='login1'),
+    path('login/',auth_view.LoginView.as_view(template_name='login.html'),name='login'),
     path('mess/',mess_view,name="mess_view"),
     path('profile/',profile_view),
-    #path('dashboard/<int:id>',dashboard_view,name="dashboard"),
     path('api/',include('Mess.urls')),
+    path('entry/',entry_view),
+    path('dashboard/',dashboard_view,name="dashboard_view"),
+    path('qr_code/',qrcode_view,name="qrcode_view"),
+    path('exit/',exit_view,name='exit')
 ]

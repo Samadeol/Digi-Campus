@@ -41,3 +41,10 @@ from django.contrib.auth.decorators import login_required
 @login_required
 def profile_view(request):
     return render(request,"profile.html")
+
+
+def dashboard_view(request):
+    return render(request,"dashboard.html")
+
+def qrcode_view(request):
+    return render(request,"qrcode.html")
