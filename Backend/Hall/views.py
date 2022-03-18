@@ -1,7 +1,7 @@
 from asyncio.windows_events import NULL
 from django.shortcuts import render
 
-from Hall.models import hallPresence
+from Hall.models import HallStudents, hallPresence
 from .form import EntryForm
 from .form import ExitForm
 # Create your views here.
@@ -11,7 +11,7 @@ def entry_view(request):
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
-            user_visiting = MyLoginForm.cleaned_data['user_visiting']
+            user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
             laptop=MyLoginForm.cleaned_data['laptop']
             time=datetime.datetime.now()
             user_in=0
@@ -21,9 +21,12 @@ def entry_view(request):
             for x in hallPresence.objects.all():
                 if (str(x.user) == str(request.user.username) and x.in_hall == True):
                     user_in=1
-            
-            if user_in==0:
-                z=hallPresence(user=request.user,user_visiting=int(user_visiting),in_hall=True,laptop=l,timeEntered=time)
+            stud_inHall=0
+            for students in HallStudents.objects.all():
+                if user_visiting == students.user.profile.roll_no:
+                    stud_inHall=1
+            if user_in==0 and stud_inHall==1:
+                z=hallPresence(user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time)
                 z.save()
 
     else:
