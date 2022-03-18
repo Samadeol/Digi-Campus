@@ -10,5 +10,5 @@ class hallPresence(models.Model):
     user_visiting=models.IntegerField()
     # in_hall=False
     laptop=False
-    # timeEntered=models.DateTimeField()
-    # timeExit=models.DateTimeField()
+    # timeEntered=models.DateTimeField(null=True)
+    # timeExit=models.DateTimeField(null=True)
