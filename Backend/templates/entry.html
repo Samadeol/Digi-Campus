@@ -91,7 +91,9 @@
             style="font-family: Nunito, sans-serif;height: 50%;text-align: left;color: var(--bs-blue);background: var(--bs-light);">Check
             if you have a Laptop with you</label></div> {% endcomment %}
             {%block content%}
-            <form method='POST'>{%csrf_token%}
+            <form action='.' method='POST'>{%csrf_token%}
+                {% comment %} Roll Number Visiting: <input type='text' name='user_visiting' placeholder="Roll Number Visiting"/><br>
+                Laptop (Yes/No): <input type='text' name='laptop' placeholder="Laptop"/><br> {% endcomment %}
                 {{form.as_p}}
                 <input type='submit' value='Save'/>
             </form>

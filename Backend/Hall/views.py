@@ -1,8 +1,10 @@
 from django.shortcuts import render
+
+from Hall.models import hallPresence
 from .form import EntryForm
 # Create your views here.
-
-
+import datetime
+from django.contrib.auth.models import User
 def entry_view(request):
     # form=EntryForm(request.POST or None)
 
@@ -11,13 +13,24 @@ def entry_view(request):
     #     form=EntryForm()
     # context={'form':form}
     if request.method == "POST":
-        MyLoginForm = EntryForm(request.POST)
+        MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
             user_visiting = MyLoginForm.cleaned_data['user_visiting']
-            laptop = MyLoginForm.cleaned_data['laptop']
-            print(laptop)
-            print(user_visiting)
+            laptop=MyLoginForm.cleaned_data['laptop']
+            time=datetime.datetime.now()
+            user_in=0
+            l=False
+            if(laptop=='Yes'):
+                l=True
+            for x in hallPresence.objects.all():
+                if str(x.user) == str(request.user.username):
+                    user_in=1
+            
+            if user_in==0:
+                z=hallPresence(user=request.user,user_visiting=int(user_visiting),in_hall=True,laptop=l,timeEntered=time)
+                z.save()
+
     else:
-        MyLoginForm = EntryForm()
+        MyLoginForm = EntryForm(request.POST or None)
     context = {"form": MyLoginForm}
     return render(request, "entry.html", context)
