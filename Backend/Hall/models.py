@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 # Create your models here.
 class HallStudents(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
+    roll_no=models.IntegerField(null=True)
 
 class hallPresence(models.Model):
     user=models.ForeignKey(User, on_delete=models.CASCADE)
