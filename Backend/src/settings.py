@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-3z+n3wk#!o1mk$59*--yx!_mx(*!nx8%2u@n=o6%bbhp*jn6_q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '*',
+]
 
 
 # Application definition
@@ -40,6 +42,7 @@ INSTALLED_APPS = [
     #our apps
     'Login',
     'Mess',
+    'Hall',
     'rest_framework',
     'crispy_forms',
 ]
@@ -129,5 +132,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGIN_URL='/login1/'
+LOGIN_URL='/login/'
 LOGIN_REDIRECT_URL='/profile/'

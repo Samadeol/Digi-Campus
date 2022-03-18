@@ -47,3 +47,6 @@ def entry_view(request):
 
 def dashboard_view(request):
     return render(request,"dashboard.html")
+
+def qrcode_view(request):
+    return render(request,"qrcode.html")
