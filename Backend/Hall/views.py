@@ -1,3 +1,4 @@
+from asyncio.windows_events import NULL
 from django.shortcuts import render
 
 from Hall.models import hallPresence
@@ -18,7 +19,7 @@ def entry_view(request):
             if(laptop=='Yes'):
                 l=True
             for x in hallPresence.objects.all():
-                if str(x.user) == str(request.user.username):
+                if (str(x.user) == str(request.user.username) and x.in_hall == True):
                     user_in=1
             
             if user_in==0:
@@ -33,16 +34,13 @@ def entry_view(request):
 
 def exit_view(request):
     if request.method == "POST":
-        # MyLogoutForm = ExitForm(request.POST or None)
-        # if MyLogoutForm.is_valid():
-        #     time=datetime.datetime.now()
-        #     user_in=0
         time=datetime.datetime.now()
         for x in hallPresence.objects.all():
             if str(x.user) == str(request.user.username):
-                user_in=1
-                x.timeExit=time
-                x.save()
+                if(x.in_hall==True):
+                    x.in_hall=False
+                    x.timeExit=time
+                    x.save()                    
 
             
 

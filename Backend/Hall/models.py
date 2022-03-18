@@ -6,7 +6,7 @@ class HallStudents(models.Model):
     user=models.OneToOneField(User, on_delete=models.CASCADE)
 
 class hallPresence(models.Model):
-    user=models.OneToOneField(User, on_delete=models.CASCADE)
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
     user_visiting=models.IntegerField(null=True)
     in_hall=models.BooleanField(default=False)
     laptop=models.BooleanField(default=False)
