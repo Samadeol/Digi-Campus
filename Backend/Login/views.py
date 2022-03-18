@@ -44,3 +44,6 @@ def profile_view(request):
 
 def entry_view(request):
     return render(request,"entry.html")
+
+def dashboard_view(request):
+    return render(request,"dashboard.html")

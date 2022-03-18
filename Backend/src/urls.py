@@ -22,6 +22,7 @@ from Login.views import profile_view
 from Mess.views import mess_view
 from django.contrib.auth import views as auth_view
 from Login.views import entry_view
+from Login.views import dashboard_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
     path('admin/', admin.site.urls),
@@ -31,4 +32,5 @@ urlpatterns = [
     #path('dashboard/<int:id>',dashboard_view,name="dashboard"),
     path('api/',include('Mess.urls')),
     path('entry/',entry_view),
+    path('dashboard/',dashboard_view)
 ]
