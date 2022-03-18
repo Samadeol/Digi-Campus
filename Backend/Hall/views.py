@@ -7,6 +7,7 @@ from .form import ExitForm
 # Create your views here.
 import datetime
 from django.contrib.auth.models import User
+from Login.models import Profile
 def entry_view(request):
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
@@ -23,7 +24,7 @@ def entry_view(request):
                     user_in=1
             stud_inHall=0
             for students in HallStudents.objects.all():
-                if user_visiting == students.roll_no:
+                if user_visiting == students.user.profile.roll_no:
                     stud_inHall=1
             if user_in==0 and stud_inHall==1:
                 z=hallPresence(user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time)
