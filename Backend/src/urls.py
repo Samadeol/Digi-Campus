@@ -21,7 +21,7 @@ from Login.views import profile_view
 #from Login.views import dashboard_view
 from Mess.views import mess_view
 from django.contrib.auth import views as auth_view
-from Login.views import entry_view
+from Hall.views import entry_view
 from Login.views import dashboard_view
 from Login.views import qrcode_view
 urlpatterns = [

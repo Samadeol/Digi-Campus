@@ -42,8 +42,6 @@ from django.contrib.auth.decorators import login_required
 def profile_view(request):
     return render(request,"profile.html")
 
-def entry_view(request):
-    return render(request,"entry.html")
 
 def dashboard_view(request):
     return render(request,"dashboard.html")
