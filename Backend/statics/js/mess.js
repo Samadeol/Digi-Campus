@@ -5,6 +5,23 @@ let total4 = 0;
 let total5 = 0;
 let total6 = 0;
 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+const csrftoken = getCookie('csrftoken');
+
 function increment_value_1() {
     document.getElementById('number_quant_1').style.color = 'black';
     document.getElementById('temp_quant_1').style.color = 'black';
@@ -227,6 +244,53 @@ function decrement_value_6() {
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-function Confirm() {
-    user.Messorders
+var confirm_button = document.getElementById('last');
+confirm_button.onclick = function() {
+    var url = 'http://127.0.0.1:8000/api/order-create/';
+    var name1 = document.getElementById('extra1').value;
+    var name2 = document.getElementById('extra2').value;
+    var name3 = document.getElementById('extra3').value;
+    var name4 = document.getElementById('extra4').value;
+    var name5 = document.getElementById('extra5').value;
+    var name6 = document.getElementById('extra6').value;
+    var count = parseInt(document.getElementById('number1').value, 10);
+    var pount = parseInt(document.getElementById('number2').value, 10);
+    var zount = parseInt(document.getElementById('number3').value, 10);
+    var dount = parseInt(document.getElementById('number4').value, 10);
+    var gount = parseInt(document.getElementById('number5').value, 10);
+    var kount = parseInt(document.getElementById('number6').value, 10);
+    var today = new Date();
+
+    fetch(url, {
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            'rollno': user.profile.roll_no,
+            'orderedDate': today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate(),
+            'item_1': name1,
+            'quantity_1': count,
+            'price_1': 30,
+            'item_2': name2,
+            'quantity_2': pount,
+            'price_2': 30,
+            'item_3': name3,
+            'quantity_3': zount,
+            'price_3': 30,
+            'item_4': name4,
+            'quantity_4': dount,
+            'price_4': 30,
+            'item_5': name5,
+            'quantity_5': gount,
+            'price_5': 30,
+            'item_6': name6,
+            'quantity_6': kount,
+            'price_6': 30,
+            'total': (count + pount + zount + dount + kount + gount) * 30,
+            'time': today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+            'X-CSRFtoken': csrftoken,
+        })
+    })
+
 }

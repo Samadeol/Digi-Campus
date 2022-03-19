@@ -30,5 +30,6 @@ class messOrder(models.Model):
     item_6=models.TextField(null=True)
     quantity_6=models.IntegerField(null=True,default=0)
     price_6=models.IntegerField(null=True,default=0)
+    total = models.IntegerField(null=True,default=0)
   
     time=models.TimeField(null=True)
