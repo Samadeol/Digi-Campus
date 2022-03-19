@@ -1,4 +1,4 @@
-from asyncio.windows_events import NULL
+#from asyncio.windows_events import NULL
 from django.shortcuts import render
 
 from Hall.models import HallStudents, hallPresence
