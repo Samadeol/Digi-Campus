@@ -39,3 +39,20 @@ def orderDelete(request,pk):
     order = messOrder.objects.get(id=pk)
     order.delete()
     return Response('mom')
+
+def confirm_view(request):
+    from django.http import JsonResponse
+    if request.method=='POST' and request.is_ajax():
+        try:
+           request.user.messOrder.price_1=80
+
+            
+   
+        except messOrder.DoesNotExist:
+            return JsonResponse({'status':'Fail'})
+
+    else:
+        return JsonResponse({'status':'Fail'})
+    
+    
+

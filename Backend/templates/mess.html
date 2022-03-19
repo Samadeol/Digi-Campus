@@ -18,6 +18,30 @@
     
 </head>
 
+
+    {% comment %} $('#last').click(function(e)){
+        e.preventDefault();
+        var endpoint=$('#last').attr("data-url");
+
+        
+        $.ajax({
+            
+            type: 'POST',
+            url: endpoint,
+            data: {price_1: 1000},
+            success: function (data) {
+                 //this gets called when server returns an OK response
+                 alert("it worked!");
+            },
+            error: function (data) {
+                 alert("it didnt work");
+            }
+        });
+    }; {% endcomment %}
+    
+
+
+
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);background: rgb(224,226,253);">
     <div class="col" style="position: sticky;top: 0;z-index: 100;">
         <div class="row">
@@ -469,7 +493,7 @@
                             </li>
                         </ul>-->
                         <div class="row" style="margin-top: 24px;margin-right: 4px;margin-left: 4px;">
-                            <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;">Confirm</button></div>
+                            <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;" id='last' data-url="{%url 'mess_view' %}">Confirm</button></div>
                             <div class="col">
                                 <p style="text-align: right;margin-bottom: 0px;">Total Payable</p>
                                 <p id="Final" style="text-align: right;"><br></p>

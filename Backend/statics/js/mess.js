@@ -1,3 +1,5 @@
+
+
 let total1=0;
 let total2=0;
 let total3=0;
@@ -217,4 +219,7 @@ function decrement_value_6(){
     total6=count*30;
     document.getElementById('Total_Extras').innerHTML=total1+total2+total3+total4+total5+total6;
     document.getElementById('Final').innerHTML=total1+total2+total3+total4+total5+total6;
+}
+function Confirm(){
+     user.Messorders
 }

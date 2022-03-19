@@ -25,6 +25,7 @@ from Hall.views import entry_view
 from Login.views import dashboard_view
 from Login.views import qrcode_view
 from Hall.views import exit_view
+from Mess.views import confirm_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
     path('admin/', admin.site.urls),
@@ -35,5 +36,6 @@ urlpatterns = [
     path('entry/',entry_view),
     path('dashboard/',dashboard_view,name="dashboard_view"),
     path('qr_code/',qrcode_view,name="qrcode_view"),
-    path('exit/',exit_view,name='exit')
+    path('exit/',exit_view,name='exit'),
+    path('confirm/',confirm_view,name='confirm_view'),
 ]

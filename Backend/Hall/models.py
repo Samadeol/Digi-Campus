@@ -1,3 +1,6 @@
+from datetime import date
+from pyexpat import model
+from time import time
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -13,3 +16,4 @@ class hallPresence(models.Model):
     laptop=models.BooleanField(default=False)
     timeEntered=models.DateTimeField(null=True)
     timeExit=models.DateTimeField(null=True)
+    
