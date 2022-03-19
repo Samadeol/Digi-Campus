@@ -7,6 +7,7 @@ from .form import ExitForm
 # Create your views here.
 import datetime
 from django.contrib.auth.models import User
+from Login.models import Profile
 def entry_view(request):
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
