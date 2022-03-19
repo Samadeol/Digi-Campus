@@ -262,55 +262,57 @@ function decrement_value_6() {
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-var confirm_button = document.getElementById('last');
-    confirm_button.onclick = function() {
+{% comment %} var confirm_button = document.getElementById('last');
+    confirm_button.onclick = function() { {% endcomment %}
+function confirm(){
         console.log("abbe baaba");
-    // var url = 'http://127.0.0.1:8000/api/order-create/';
-    // var name1 = document.getElementById('extra1').value;
-    // var name2 = document.getElementById('extra2').value;
-    // var name3 = document.getElementById('extra3').value;
-    // var name4 = document.getElementById('extra4').value;
-    // var name5 = document.getElementById('extra5').value;
-    // var name6 = document.getElementById('extra6').value;
-    // var count = parseInt(document.getElementById('number1').value, 10);
-    // var pount = parseInt(document.getElementById('number2').value, 10);
-    // var zount = parseInt(document.getElementById('number3').value, 10);
-    // var dount = parseInt(document.getElementById('number4').value, 10);
-    // var gount = parseInt(document.getElementById('number5').value, 10);
-    // var kount = parseInt(document.getElementById('number6').value, 10);
-    // var today = new Date();
+    var url = 'http://127.0.0.1:8000/api/order-create/';
+    var name1 = document.getElementById('extra1').innerHTML;
+    var name2 = document.getElementById('extra2').innerHTML;
+    var name3 = document.getElementById('extra3').innerHTML;
+    var name4 = document.getElementById('extra4').innerHTML;
+    var name5 = document.getElementById('extra5').innerHTML;
+    var name6 = document.getElementById('extra6').innerHTML;
+    var count = parseInt(document.getElementById('number1').value, 10);
+    var pount = parseInt(document.getElementById('number2').value, 10);
+    var zount = parseInt(document.getElementById('number3').value, 10);
+    var dount = parseInt(document.getElementById('number4').value, 10);
+    var gount = parseInt(document.getElementById('number5').value, 10);
+    var kount = parseInt(document.getElementById('number6').value, 10);
+    var today = new Date();
 
-    // fetch(url, {
-    //     method: 'POST',
-    //     headers: {
-    //         'Content-type': 'application/json',
-    //     },
-    //     body: JSON.stringify({
-    //         'rollno': user.profile.roll_no,
-    //         'orderedDate': today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate(),
-    //         'item_1': name1,
-    //         'quantity_1': count,
-    //         'price_1': 30,
-    //         'item_2': name2,
-    //         'quantity_2': pount,
-    //         'price_2': 30,
-    //         'item_3': name3,
-    //         'quantity_3': zount,
-    //         'price_3': 30,
-    //         'item_4': name4,
-    //         'quantity_4': dount,
-    //         'price_4': 30,
-    //         'item_5': name5,
-    //         'quantity_5': gount,
-    //         'price_5': 30,
-    //         'item_6': name6,
-    //         'quantity_6': kount,
-    //         'price_6': 30,
-    //         'total': (count + pount + zount + dount + kount + gount) * 30,
-    //         'time': today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
-    //         'X-CSRFtoken': csrftoken,
-    //     })
-    // })
+    fetch(url, {
+        //credentials: 'include',
+        method: 'POST',
+        headers: {
+            'Content-type': 'application/json',
+        },
+        body: JSON.stringify({
+            'rollno': 200886,
+            'orderedDate': today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate(),
+            'item_1': name1,
+            'quantity_1': count,
+            'price_1': 30,
+            'item_2': name2,
+            'quantity_2': pount,
+            'price_2': 30,
+            'item_3': name3,
+            'quantity_3': zount,
+            'price_3': 30,
+            'item_4': name4,
+            'quantity_4': dount,
+            'price_4': 30,
+            'item_5': name5,
+            'quantity_5': gount,
+            'price_5': 30,
+            'item_6': name6,
+            'quantity_6': kount,
+            'price_6': 30,
+            'total': (count + pount + zount + dount + kount + gount) * 30,
+            'time': today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
+            'X-CSRFtoken': csrftoken,
+        })
+    })
 
 }
     </script>
@@ -503,7 +505,7 @@ var confirm_button = document.getElementById('last');
                                     <div class="card-header" >
                                         <div class="row">
                                             <div class="col">
-                                                <h5 class="mb-0 itemname id=extra2" >Extras_2&nbsp;&nbsp;<br></h5>
+                                                <h5 class="mb-0 itemname" id="extra2" >Extras_2&nbsp;&nbsp;<br></h5>
                                             </div>
                                             <div class="col">
                                                <h5 class="mb-0 itemqt" id="temp_quant_2" >Qt. <span id="number_quant_2" class="mb-0 itemqt" ></span></h5>
@@ -792,7 +794,7 @@ var confirm_button = document.getElementById('last');
                             </li>
                         </ul>-->
                         <div class="row" style="margin-top: 24px;margin-right: 4px;margin-left: 4px;">
-                            <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;" id='last' >Confirm</button></div>
+                            <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;" id='last' onclick="confirm()">Confirm</button></div>
                             <div class="col">
                                 <p style="text-align: right;margin-bottom: 0px;">Total Payable</p>
                                 <p id="Final" style="text-align: right;"><br></p>
