@@ -43,7 +43,7 @@
             <div class="col">
                 <ul class="nav nav-tabs" style="background: #ffffff;">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{%url 'dashboard_view' %}" % style="font-family: 'Nunito Sans', sans-serif;">
+                        <a class="nav-link active" href="{%url 'dashboard_view' user.profile.roll_no %}" % style="font-family: 'Nunito Sans', sans-serif;">
                             <i class="fas fa-border-all"></i> Dashboard
                         </a>
                     </li>
@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <h4 class="card-title" style="color: rgb(13,110,253);border-color: rgb(13,110,253);">Total Expenses</h4>
                         <p class="card-text" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 32px;">
-                            <i class="fa fa-inr" aria-hidden="true"></i>6,969.69</p>
+                            <i class="fa fa-inr" aria-hidden="true"></i>{{Total_Price}}</p>
                         <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;">This semester</h6>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                     <div class="card-body">
                         <h4 class="card-title" style="color: rgb(13,110,253);">Expenditure Last Month</h4>
                         <p class="card-text" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 32px;">
-                            <i class="fa fa-inr" aria-hidden="true"></i>100.00</p>
+                            <i class="fa fa-inr" aria-hidden="true"></i>{{Last_Month}}</p>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     <div class="card-body">
                         <h4 class="card-title" style="color: rgb(13,110,253);">Expenditure This Month</h4>
                         <p class="card-text" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 32px;">
-                            <i class="fa fa-inr" aria-hidden="true"></i>125.00</p>
+                            <i class="fa fa-inr" aria-hidden="true"></i>{{Present_Month}}</p>
                         <div class="vstack d-flex flex-row">
                             <h6 class="mb-2" style="font-family: Nunito, sans-serif;width: 54px;height: 24px;color: rgb(0,255,10);">+ 25%</h6>
                             <h6 class="mb-2" style="font-family: Nunito, sans-serif;width: 174px;height: 24px;">since last month</h6>

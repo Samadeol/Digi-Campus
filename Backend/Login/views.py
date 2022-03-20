@@ -6,7 +6,9 @@ from django.contrib.auth.decorators import user_passes_test
 #from rest_framework import viewsets
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
+
+from Login.models import Profile 
 # Create your views here.
 
 # def login_view(request,*args,**kwargs):
@@ -43,8 +45,15 @@ def profile_view(request):
     return render(request,"profile.html")
 
 @login_required
-def dashboard_view(request):
-    return render(request,"dashboard.html")
+def dashboard_view(request,roll):
+    obj=Profile.objects.get(roll_no=roll)
+    context={
+        'Total_Price':obj.expense_total,
+        'Last_Month':obj.expense_last_month,
+        'Present_Month':obj.expense_current
+
+    }
+    return render(request,"dashboard.html",context)
 
 @login_required
 def qrcode_view(request):
