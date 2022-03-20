@@ -258,6 +258,15 @@ function confirm() {
     var dount = parseInt(document.getElementById('number4').value, 10);
     var gount = parseInt(document.getElementById('number5').value, 10);
     var kount = parseInt(document.getElementById('number6').value, 10);
+    var price_1= parseInt(document.getElementById('cost_1').innerHTML,10);
+    var price_2= parseInt(document.getElementById('cost_2').innerHTML,10);
+    var price_3= parseInt(document.getElementById('cost_3').innerHTML,10);
+    var price_4= parseInt(document.getElementById('cost_4').innerHTML,10);
+    var price_5= parseInt(document.getElementById('cost_5').innerHTML,10);
+    var price_6= parseInt(document.getElementById('cost_6').innerHTML,10);
+    var total=parseInt(document.getElementById('Total_Extras').innerHTML,10);
+    
+
     var today = new Date();
     var month = parseInt(today.getMonth(), 10);
     month = month + 1;
@@ -279,23 +288,23 @@ function confirm() {
             'orderedDate': today.getFullYear() + "-" + month_string + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z",
             'item_1': name1,
             'quantity_1': count,
-            'price_1': 30,
+            'price_1': price_1,
             'item_2': name2,
             'quantity_2': pount,
-            'price_2': 30,
+            'price_2': price_2,
             'item_3': name3,
             'quantity_3': zount,
-            'price_3': 30,
+            'price_3': price_3,
             'item_4': name4,
             'quantity_4': dount,
-            'price_4': 30,
+            'price_4': price_4,
             'item_5': name5,
             'quantity_5': gount,
-            'price_5': 30,
+            'price_5': price_5,
             'item_6': name6,
             'quantity_6': kount,
-            'price_6': 30,
-            'total': (count + pount + zount + dount + kount + gount) * 30,
+            'price_6': price_6,
+            'total': total,
         })
     })
 
