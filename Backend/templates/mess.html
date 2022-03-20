@@ -338,7 +338,15 @@ worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endco
                         </a>
                         <div class="row" style="margin-right: 16px;margin-left: 8px;">
                             <div class="col">
-                                <p style="font-family: Nunito, sans-serif;" value=user.profile.roll_no id="roll_no">Main Lunch <br></p>
+                                <p style="font-family: Nunito, sans-serif;" >Roll Number<br></p>
+                            </div>
+                            <div class="col">
+                                <p style="text-align: right;font-family: Nunito, sans-serif;" id='roll_no'>{{user.profile.roll_no}}</p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-right: 16px;margin-left: 8px;">
+                            <div class="col">
+                                <p style="font-family: Nunito, sans-serif;">Main Lunch <br></p>
                             </div>
                             <div class="col">
                                 <p style="text-align: right;font-family: Nunito, sans-serif;">{{BDMR}}<br></p>

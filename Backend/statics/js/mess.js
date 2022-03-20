@@ -259,8 +259,13 @@ function confirm() {
     var gount = parseInt(document.getElementById('number5').value, 10);
     var kount = parseInt(document.getElementById('number6').value, 10);
     var today = new Date();
-    var roll_no = parseInt(document.getElementById('roll_no').value, 10);
-    console.log(roll_no);
+    var month = parseInt(today.getMonth(), 10);
+    month = month + 1;
+    var month_string;
+    if (month < 10) month_string = "0" + month.toString();
+    else month_string = month.toString();
+    var roll_no = parseInt(document.getElementById('roll_no').innerHTML, 10);
+    //console.log(today.getFullYear() + "-" + "03" + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z")
     fetch(url, {
         //credentials: 'include',
         method: 'POST',
@@ -270,7 +275,8 @@ function confirm() {
         },
         body: JSON.stringify({
             'id': 1,
-            'rollno': 1839,
+            'rollno': roll_no,
+            'orderedDate': today.getFullYear() + "-" + month_string + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z",
             'item_1': name1,
             'quantity_1': count,
             'price_1': 30,

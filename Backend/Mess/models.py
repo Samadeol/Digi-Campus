@@ -11,7 +11,7 @@ class messOrder(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)
     rollno=models.IntegerField(blank=True)
     
-    #orderedDate=models.DateTimeField()
+    orderedDate=models.DateTimeField(null=True)
     item_1=models.TextField(null=True,blank=True)
     quantity_1=models.IntegerField(null=True,default=0,blank=True)
     price_1=models.IntegerField(null=True,default=0,blank=True)
@@ -31,5 +31,3 @@ class messOrder(models.Model):
     quantity_6=models.IntegerField(null=True,default=0,blank=True)
     price_6=models.IntegerField(null=True,default=0,blank=True)
     total = models.IntegerField(null=True,default=0,blank=True)
-  
-    #time=models.TimeField(null=True)
