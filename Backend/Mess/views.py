@@ -32,7 +32,10 @@ def orderCreate(request):
     serializer = messOrderSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-    return Response(serializer.data) 
+        return Response(serializer.data) 
+    else:
+        return Response("ankurs mom")
+    
 
 @api_view(['DELETE'])
 def orderDelete(request,pk):

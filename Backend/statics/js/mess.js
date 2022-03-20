@@ -244,15 +244,15 @@ function decrement_value_6() {
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-var confirm_button = document.getElementById('last');
-confirm_button.onclick = function() {
+function confirm() {
+    console.log("abbe baaba");
     var url = 'http://127.0.0.1:8000/api/order-create/';
-    var name1 = document.getElementById('extra1').value;
-    var name2 = document.getElementById('extra2').value;
-    var name3 = document.getElementById('extra3').value;
-    var name4 = document.getElementById('extra4').value;
-    var name5 = document.getElementById('extra5').value;
-    var name6 = document.getElementById('extra6').value;
+    var name1 = document.getElementById('extra1').innerHTML;
+    var name2 = document.getElementById('extra2').innerHTML;
+    var name3 = document.getElementById('extra3').innerHTML;
+    var name4 = document.getElementById('extra4').innerHTML;
+    var name5 = document.getElementById('extra5').innerHTML;
+    var name6 = document.getElementById('extra6').innerHTML;
     var count = parseInt(document.getElementById('number1').value, 10);
     var pount = parseInt(document.getElementById('number2').value, 10);
     var zount = parseInt(document.getElementById('number3').value, 10);
@@ -262,13 +262,15 @@ confirm_button.onclick = function() {
     var today = new Date();
 
     fetch(url, {
+        //credentials: 'include',
         method: 'POST',
         headers: {
             'Content-type': 'application/json',
+            'X-CSRFtoken': csrftoken,
         },
         body: JSON.stringify({
-            'rollno': user.profile.roll_no,
-            'orderedDate': today.getFullYear() + '-' + today.getMonth() + '-' + today.getDate(),
+            'id': 1,
+            'rollno': 200886,
             'item_1': name1,
             'quantity_1': count,
             'price_1': 30,
@@ -288,8 +290,6 @@ confirm_button.onclick = function() {
             'quantity_6': kount,
             'price_6': 30,
             'total': (count + pount + zount + dount + kount + gount) * 30,
-            'time': today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds(),
-            'X-CSRFtoken': csrftoken,
         })
     })
 
