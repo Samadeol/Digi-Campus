@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee' %}">
     <link rel="stylesheet" href="{% static 'css/dashboard_css.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
 </head>
@@ -103,6 +104,8 @@
                                     var final=percent.toFixed(2)
                                     document.getElementById('percent').innerHTML=final
                                 }
+
+                              
                             </script>
                         </div>
                     </div>
@@ -119,7 +122,40 @@
                         </div>
                     </div>
                     <div class="card-body">
-                        <div><canvas data-bss-chart="{&quot;type&quot;:&quot;line&quot;,&quot;data&quot;:{&quot;labels&quot;:[&quot;January&quot;,&quot;February&quot;,&quot;March&quot;,&quot;April&quot;,&quot;May&quot;,&quot;June&quot;],&quot;datasets&quot;:[{&quot;label&quot;:&quot;Expenditure&quot;,&quot;backgroundColor&quot;:&quot;#4e73df&quot;,&quot;borderColor&quot;:&quot;#4e73df&quot;,&quot;data&quot;:[&quot;4500&quot;,&quot;5300&quot;,&quot;6250&quot;,&quot;7800&quot;,&quot;9800&quot;,&quot;15000&quot;],&quot;fill&quot;:true}]},&quot;options&quot;:{&quot;maintainAspectRatio&quot;:true,&quot;legend&quot;:{&quot;display&quot;:false,&quot;labels&quot;:{&quot;fontStyle&quot;:&quot;italic&quot;,&quot;fontFamily&quot;:&quot;Nunito, sans-serif&quot;},&quot;position&quot;:&quot;bottom&quot;},&quot;title&quot;:{&quot;fontStyle&quot;:&quot;bold&quot;,&quot;display&quot;:false,&quot;text&quot;:&quot;This Month&quot;,&quot;fontColor&quot;:&quot;rgb(33,37,41)&quot;},&quot;scales&quot;:{&quot;xAxes&quot;:[{&quot;ticks&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}],&quot;yAxes&quot;:[{&quot;ticks&quot;:{&quot;fontStyle&quot;:&quot;normal&quot;}}]}}}"></canvas></div>
+                        <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
+                        <script>
+                            var xyValues = [
+                            {x:50, y:7},
+                            {x:60, y:8},
+                            {x:70, y:8},
+                            {x:80, y:9},
+                            {x:90, y:9},
+                            {x:100, y:9},
+                            {x:110, y:10},
+                            {x:120, y:11},
+                            {x:130, y:14},
+                            {x:140, y:14},
+                            {x:150, y:15}
+                          ];
+                          
+                          new Chart("myChart", {
+                            type: "scatter",
+                            data: {
+                              datasets: [{
+                                pointRadius: 4,
+                                pointBackgroundColor: "rgb(0,0,255)",
+                                data: xyValues
+                              }]
+                            },
+                            options: {
+                              legend: {display: false},
+                              scales: {
+                                xAxes: [{ticks: {min: 40, max:160}}],
+                                yAxes: [{ticks: {min: 6, max:16}}],
+                              }
+                            }
+                          });
+                        </script>
                     </div>
                 </div>
             </div>
