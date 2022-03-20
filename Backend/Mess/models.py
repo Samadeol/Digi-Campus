@@ -4,8 +4,20 @@ from django.contrib.auth.models import User
 # Create your models here.
 
 class messMenu(models.Model) :
-    itemName = models.CharField(max_length=25)
-    itemPrice = models.IntegerField()
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)   
+    extras_1=models.CharField(null=True,max_length=35)
+    price_1=models.IntegerField(null=True)
+    extras_2=models.CharField(null=True,max_length=35)
+    price_2=models.IntegerField(null=True)
+    extras_3=models.CharField(null=True,max_length=35)
+    price_3=models.IntegerField(null=True)
+    extras_4=models.CharField(null=True,max_length=35)
+    price_4=models.IntegerField(null=True)
+    extras_5=models.CharField(null=True,max_length=35)
+    price_5=models.IntegerField(null=True)
+    extras_6=models.CharField(null=True,max_length=35)
+    price_6=models.IntegerField(null=True)
+    
 
 class messOrder(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)

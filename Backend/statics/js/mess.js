@@ -22,7 +22,7 @@ function getCookie(name) {
 }
 const csrftoken = getCookie('csrftoken');
 
-function increment_value_1() {
+function increment_value_1(price_1) {
     document.getElementById('number_quant_1').style.color = 'black';
     document.getElementById('temp_quant_1').style.color = 'black';
 
@@ -31,13 +31,13 @@ function increment_value_1() {
     if (count < 9) count = count + 1;
     document.getElementById('number1').value = count;
     document.getElementById('number_quant_1').innerHTML = count;
-    total1 = count * 30;
+    total1 = count*parseInt(price_1,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 
 }
 
-function decrement_value_1() {
+function decrement_value_1(price_1) {
     var count = parseInt(document.getElementById('number1').value, 10);
 
     if (count > 0) count = count - 1;
@@ -48,7 +48,7 @@ function decrement_value_1() {
         document.getElementById('temp_quant_1').style.color = 'rgba(33,37,41,0.35)';
 
     }
-    total1 = count * 30;
+    total1 = count * parseInt(price_1,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
@@ -77,7 +77,7 @@ function MyFunc_1() {
 
 }
 
-function increment_value_2() {
+function increment_value_2(price_2) {
     document.getElementById('number_quant_2').style.color = 'black';
     document.getElementById('temp_quant_2').style.color = 'black';
     var count = parseInt(document.getElementById('number2').value, 10);
@@ -85,14 +85,14 @@ function increment_value_2() {
     if (count < 9) count = count + 1;
     document.getElementById('number2').value = count;
     document.getElementById('number_quant_2').innerHTML = count;
-    total2 = count * 30;
+    total2 = count * parseInt(price_2,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 
 
 }
 
-function decrement_value_2() {
+function decrement_value_2(price_2) {
     var count = parseInt(document.getElementById('number2').value, 10);
 
     if (count > 0) count = count - 1;
@@ -103,12 +103,12 @@ function decrement_value_2() {
         document.getElementById('temp_quant_2').style.color = 'rgba(33,37,41,0.35)';
 
     }
-    total2 = count * 30;
+    total2 =  count*parseInt(price_2,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-function increment_value_3() {
+function increment_value_3(price_3) {
     document.getElementById('number_quant_3').style.color = 'black';
     document.getElementById('temp_quant_3').style.color = 'black';
 
@@ -118,13 +118,13 @@ function increment_value_3() {
     document.getElementById('number3').value = count;
     document.getElementById('number_quant_3').innerHTML = count;
 
-    total3 = count * 30;
+    total3 = count*parseInt(price_3,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 
 }
 
-function decrement_value_3() {
+function decrement_value_3(price_3) {
     var count = parseInt(document.getElementById('number3').value, 10);
 
 
@@ -137,12 +137,12 @@ function decrement_value_3() {
         document.getElementById('temp_quant_3').style.color = 'rgba(33,37,41,0.35)';
 
     }
-    total3 = count * 30;
+    total3 = count*parseInt(price_3,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-function increment_value_4() {
+function increment_value_4(price_4) {
     document.getElementById('number_quant_4').style.color = 'black';
     document.getElementById('temp_quant_4').style.color = 'black';
 
@@ -152,13 +152,13 @@ function increment_value_4() {
     document.getElementById('number4').value = count;
     document.getElementById('number_quant_4').innerHTML = count;
 
-    total4 = count * 30;
+    total4 = count*parseInt(price_4,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 
 }
 
-function decrement_value_4() {
+function decrement_value_4(price_4) {
     var count = parseInt(document.getElementById('number4').value, 10);
 
 
@@ -171,12 +171,12 @@ function decrement_value_4() {
         document.getElementById('temp_quant_4').style.color = 'rgba(33,37,41,0.35)';
 
     }
-    total4 = count * 30;
+    total4 = count*parseInt(price_4,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-function increment_value_5() {
+function increment_value_5(price_5) {
     document.getElementById('number_quant_5').style.color = 'black';
     document.getElementById('temp_quant_5').style.color = 'black';
 
@@ -186,13 +186,13 @@ function increment_value_5() {
     document.getElementById('number5').value = count;
     document.getElementById('number_quant_5').innerHTML = count;
 
-    total5 = count * 30;
+    total5 = count*parseInt(price_5,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 
 }
 
-function decrement_value_5() {
+function decrement_value_5(price_5) {
     var count = parseInt(document.getElementById('number5').value, 10);
 
 
@@ -205,12 +205,12 @@ function decrement_value_5() {
         document.getElementById('temp_quant_5').style.color = 'rgba(33,37,41,0.35)';
 
     }
-    total5 = count * 30;
+    total5 = count*parseInt(price_5,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }
 
-function increment_value_6() {
+function increment_value_6(price_6) {
     document.getElementById('number_quant_6').style.color = 'black';
     document.getElementById('temp_quant_6').style.color = 'black';
     var count = parseInt(document.getElementById('number6').value, 10);
@@ -219,13 +219,13 @@ function increment_value_6() {
     document.getElementById('number6').value = count;
     document.getElementById('number_quant_6').innerHTML = count;
 
-    total6 = count * 30;
+    total6 = count*parseInt(price_6,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 
 }
 
-function decrement_value_6() {
+function decrement_value_6(price_6) {
     var count = parseInt(document.getElementById('number6').value, 10);
 
 
@@ -239,7 +239,7 @@ function decrement_value_6() {
 
     }
 
-    total6 = count * 30;
+    total6 = count*parseInt(price_6,10);
     document.getElementById('Total_Extras').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
     document.getElementById('Final').innerHTML = total1 + total2 + total3 + total4 + total5 + total6;
 }

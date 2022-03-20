@@ -4,9 +4,26 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import messOrderSerializer
+from django.contrib.auth.decorators import login_required 
 # Create your views here.
+@login_required
 def mess_view(request,*args,**kwargs):
-    return render(request,"mess.html",{'BDMR':'50'})
+    element=messMenu.objects.get(id=1)
+    context={'BDMR':'50',
+    'Extras_1':element.extras_1,
+    'Extras_2':element.extras_2,
+    'Extras_3':element.extras_3,
+    'Extras_4':element.extras_4,
+    'Extras_5':element.extras_5,
+    'Extras_6':element.extras_6,
+    'price_1':element.price_1,
+    'price_2':element.price_2,
+    'price_3':element.price_3,
+    'price_4':element.price_4,
+    'price_5':element.price_5,
+    'price_6':element.price_6,
+    }
+    return render(request,"mess.html",context)
 
 @api_view(['GET'])
 def apiOverview(request):
