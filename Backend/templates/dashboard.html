@@ -80,7 +80,7 @@
                     <div class="card-body">
                         <h4 class="card-title" style="color: rgb(13,110,253);">Expenditure Last Month</h4>
                         <p class="card-text" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 32px;">
-                            <i class="fa fa-inr" aria-hidden="true"></i>{{Last_Month}}</p>
+                            <i class="fa fa-inr" aria-hidden="true" id='last_month'></i>{{Last_Month}}</p>
                     </div>
                 </div>
             </div>
@@ -89,10 +89,21 @@
                     <div class="card-body">
                         <h4 class="card-title" style="color: rgb(13,110,253);">Expenditure This Month</h4>
                         <p class="card-text" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 32px;">
-                            <i class="fa fa-inr" aria-hidden="true"></i>{{Present_Month}}</p>
+                            <i class="fa fa-inr" aria-hidden="true" id='present'></i>{{Present_Month}}</p>
                         <div class="vstack d-flex flex-row">
-                            <h6 class="mb-2" style="font-family: Nunito, sans-serif;width: 54px;height: 24px;color: rgb(0,255,10);">+ 25%</h6>
+                            <h6 class="mb-2" style="font-family: Nunito, sans-serif;width: 54px;height: 24px;color: rgb(0,255,10);" id='percent'></h6>
+                            <span style="font-family: Nunito, sans-serif;width: 54px;height: 24px;color: rgb(0,255,10);">%</span>
                             <h6 class="mb-2" style="font-family: Nunito, sans-serif;width: 174px;height: 24px;">since last month</h6>
+                            <body onload="Percent_show()">
+                            <script>
+                                function Percent_show(){
+                                    var current={{user.profile.expense_current}}
+                                    var last={{user.profile.expense_last_month}}
+                                    var percent=((current-last)/(last))*100
+                                    var final=percent.toFixed(2)
+                                    document.getElementById('percent').innerHTML=final
+                                }
+                            </script>
                         </div>
                     </div>
                 </div>
