@@ -4,7 +4,8 @@ from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import messOrderSerializer
-from django.contrib.auth.decorators import login_required 
+from django.contrib.auth.decorators import login_required
+from Login.models import Profile
 # Create your views here.
 @login_required
 def mess_view(request,*args,**kwargs):
@@ -49,6 +50,12 @@ def orderCreate(request):
     serializer = messOrderSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
+        obj = Profile.objects.get(roll_no=serializer.data['rollno'])
+        obj.expense_current = obj.expense_current+serializer.data['total']
+        obj.expense_total = obj.expense_total+serializer.data['total']
+        print(obj.expense_current)
+        obj.save()
+        #object.expense_total = object.expense_total+serializer.data['total']
         return Response(serializer.data) 
     else:
         return Response("ankurs mom")
@@ -60,19 +67,19 @@ def orderDelete(request,pk):
     order.delete()
     return Response('mom')
 
-def confirm_view(request):
-    from django.http import JsonResponse
-    if request.method=='POST' and request.is_ajax():
-        try:
-           request.user.messOrder.price_1=80
+# def confirm_view(request):
+#     from django.http import JsonResponse
+#     if request.method=='POST' and request.is_ajax():
+#         try:
+#            request.user.messOrder.price_1=80
 
             
    
-        except messOrder.DoesNotExist:
-            return JsonResponse({'status':'Fail'})
+#         except messOrder.DoesNotExist:
+#             return JsonResponse({'status':'Fail'})
 
-    else:
-        return JsonResponse({'status':'Fail'})
+#     else:
+#         return JsonResponse({'status':'Fail'})
     
     
 

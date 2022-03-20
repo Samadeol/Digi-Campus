@@ -16,6 +16,9 @@ class Profile(models.Model) :
     is_student = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
     is_prof = models.BooleanField(default=False)
+    expense_current = models.IntegerField(default=0)
+    expense_last_month = models.IntegerField(default=0)
+    expense_total = models.IntegerField(default=0)
     def __str__(self):
         return self.username
     # class Meta:
