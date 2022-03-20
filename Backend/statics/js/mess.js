@@ -245,7 +245,6 @@ function decrement_value_6() {
 }
 
 function confirm() {
-    console.log("abbe baaba");
     var url = 'http://127.0.0.1:8000/api/order-create/';
     var name1 = document.getElementById('extra1').innerHTML;
     var name2 = document.getElementById('extra2').innerHTML;
@@ -260,7 +259,8 @@ function confirm() {
     var gount = parseInt(document.getElementById('number5').value, 10);
     var kount = parseInt(document.getElementById('number6').value, 10);
     var today = new Date();
-
+    var roll_no = parseInt(document.getElementById('roll_no').value, 10);
+    console.log(roll_no);
     fetch(url, {
         //credentials: 'include',
         method: 'POST',
@@ -270,7 +270,7 @@ function confirm() {
         },
         body: JSON.stringify({
             'id': 1,
-            'rollno': 200886,
+            'rollno': 1839,
             'item_1': name1,
             'quantity_1': count,
             'price_1': 30,
