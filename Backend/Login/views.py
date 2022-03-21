@@ -7,6 +7,7 @@ from django.contrib.auth.decorators import user_passes_test
 # from django.http import HttpResponseRedirect
 # from django.urls import reverse
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 
 from Login.models import Profile 
 # Create your views here.
@@ -58,3 +59,8 @@ def dashboard_view(request,roll):
 @login_required
 def qrcode_view(request):
     return render(request,"qr_final.html")
+
+def logout_view(request):
+    logout(request)
+    return render(request,'logout.html')
+   
