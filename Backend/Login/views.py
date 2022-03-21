@@ -60,6 +60,7 @@ def dashboard_view(request,roll):
 def qrcode_view(request):
     return render(request,"qr_final.html")
 
+@login_required
 def logout_view(request):
     logout(request)
     return render(request,'logout.html')
