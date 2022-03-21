@@ -25,6 +25,7 @@ from Hall.views import entry_view
 from Login.views import dashboard_view
 from Login.views import qrcode_view
 from Hall.views import exit_view
+from Mess.views import manager_view
 #from Mess.views import confirm_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
@@ -37,5 +38,6 @@ urlpatterns = [
     path('dashboard/<int:roll>',dashboard_view,name="dashboard_view"),
     path('qr_code/',qrcode_view,name="qrcode_view"),
     path('exit/',exit_view,name='exit'),
+    path('manager/',manager_view,name='manager_view'),
     #path('confirm/',confirm_view,name='confirm_view'),
 ]
