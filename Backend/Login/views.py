@@ -57,4 +57,4 @@ def dashboard_view(request,roll):
 
 @login_required
 def qrcode_view(request):
-    return render(request,"qrcode.html")
+    return render(request,"qr_final.html")
