@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee' %} ">
     <link rel="stylesheet" href="{% static 'css/mess_styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0' %} ">
     <link rel="stylesheet" href="{% static 'css/mess_style.css' %}">
-
 </head>
 
 
@@ -345,7 +344,7 @@ worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endco
                                 <p style="text-align: right;font-family: Nunito, sans-serif;" id='roll_no'>{{user.profile.roll_no}}</p>
                             </div>
                         </div>
-                        <div class="row" style="margin-right: 16px;margin-left: 8px;">
+                        <div class="row" style="margin-right: 16px;margin-left: 8px;" id="test">
                             <div class="col">
                                 <p style="font-family: Nunito, sans-serif;">Main Lunch <br></p>
                             </div>
@@ -364,8 +363,8 @@ worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endco
                             </div>
                         </div>
                         <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-y: auto;-webkit-overflow-scrolling: touch;width: 352px;margin-left: 16px;margin-right: 0px;">
-                            <li>
-                                <div class="card" style="--bs-primary-rgb: 13,110,253;background: rgba(255,255,255,0);border-width: 0px;border-radius: 0px;">
+                            <li id="test">
+                                {% comment %} <div class="card" style="--bs-primary-rgb: 13,110,253;background: rgba(255,255,255,0);border-width: 0px;border-radius: 0px;"> {% endcomment %}
                                     <!-- <div class="row" style="margin-right: 4px;margin-left: 4px;">
                                         <div class="col">
                                             <p style="font-family: Nunito, sans-serif;">Item_1</p>
