@@ -46,15 +46,15 @@ def profile_view(request):
     return render(request,"profile.html")
 
 @login_required
-def dashboard_view(request,roll):
-    obj=Profile.objects.get(roll_no=roll)
-    context={
-        'Total_Price':obj.expense_total,
-        'Last_Month':obj.expense_last_month,
-        'Present_Month':obj.expense_current
+def dashboard_view(request):
+    # obj=Profile.objects.get(roll_no=roll)
+    # context={
+    #     'Total_Price':obj.expense_total,
+    #     'Last_Month':obj.expense_last_month,
+    #     'Present_Month':obj.expense_current
 
-    }
-    return render(request,"dashboard.html",context)
+    # }
+    return render(request,"dashboard.html")
 
 @login_required
 def qrcode_view(request):

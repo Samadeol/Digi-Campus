@@ -36,7 +36,7 @@ urlpatterns = [
     path('profile/',profile_view),
     path('api/',include('Mess.urls')),
     path('entry/',entry_view),
-    path('dashboard/<int:roll>',dashboard_view,name="dashboard_view"),
+    path('dashboard/',dashboard_view,name="dashboard_view"),
     path('qr_code/',qrcode_view,name="qrcode_view"),
     path('exit/',exit_view,name='exit'),
     path('manager/',manager_view,name='manager_view'),
