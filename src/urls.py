@@ -31,7 +31,7 @@ from Login.views import logout_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
     path('admin/', admin.site.urls),
-    path('login/',auth_view.LoginView.as_view(template_name='login.html'),name='login'),
+    path('',auth_view.LoginView.as_view(template_name='login.html'),name='login'),
     path('mess/',mess_view,name="mess_view"),
     path('profile/',profile_view),
     path('api/',include('Mess.urls')),
