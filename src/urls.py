@@ -42,5 +42,6 @@ urlpatterns = [
     path('manager/',manager_view,name='manager_view'),
     path('logout/',logout_view,name='logout_view'),
     
+    
     #path('confirm/',confirm_view,name='confirm_view'),
 ]
