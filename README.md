@@ -9,6 +9,7 @@
 > SymPy (sympy)<br>
 > Crispy Form (django-crispy-forms)<br>
 > Click (click)<br>
+> WhiteNoise (whitenoise)<br>
 These can be installed by using the appropriate pip commands.
 ## How to use:
 > As we could not deploy the website on a domain, we are running it on a local machine. <br>
