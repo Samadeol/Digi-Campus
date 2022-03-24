@@ -9,7 +9,7 @@ class Profile(models.Model) :
     last_name = models.CharField(max_length=100,null=True)
     password = models.CharField(max_length=20,null=True)
     email = models.EmailField(max_length=254,null=True)
-    mobile_no = models.IntegerField(null=True)
+    mobile_no = models.BigIntegerField(null=True)
     roll_no=models.IntegerField(null=True)
     room_no=models.CharField(max_length=4,null=True)
     hall_no=models.IntegerField(null=True)
