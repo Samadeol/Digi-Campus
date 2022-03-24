@@ -8,7 +8,7 @@ Choices=[
     ('No','No')
 ]
 class EntryForm(forms.Form):
-    user_visiting=forms.CharField(label='Roll Number Visiting',widget=forms.TextInput(attrs={"placeholder":"Roll Number Visiting"}))
+    user_visiting=forms.IntegerField(label='Roll Number Visiting',widget=forms.TextInput(attrs={"placeholder":"Roll Number Visiting"}))
     laptop=forms.CharField(label='Laptop (Yes/No)',widget=forms.Select(choices=Choices))
 
 class ExitForm(forms.Form):
