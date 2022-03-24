@@ -1,3 +1,3 @@
 import pyqrcode
-url = pyqrcode.create('http://127.0.0.1:8000/exit')
-url.png('qrexit.png',scale=4)
+url = pyqrcode.create('https://gentle-temple-87499.herokuapp.com/exit')
+url.png('qrexit.png',scale=5)
