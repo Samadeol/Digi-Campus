@@ -4,6 +4,7 @@ colorama==0.4.4
 Django==4.0.3
 django-crispy-forms==1.14.0
 djangorestframework==3.13.1
+gunicorn==20.0.4
 mpmath==1.2.1
 PyQRCode==1.2.1
 pytz==2021.3
