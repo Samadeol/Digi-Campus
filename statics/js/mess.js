@@ -266,7 +266,7 @@ function decrement_value_6(price_6) {
 }
 
 function confirm() {
-    var url = 'http://127.0.0.1:8000/api/order-create/';
+    var url = 'http://gentle-temple-87499.herokuapp.com/api/order-create/';
     var name1 = document.getElementById('extra1').innerHTML;
     var name2 = document.getElementById('extra2').innerHTML;
     var name3 = document.getElementById('extra3').innerHTML;
