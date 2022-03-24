@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-3z+n3wk#!o1mk$59*--yx!_mx(*!nx8%2u@n=o6%bbhp*jn6_q
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    'gentle-temple-87499.herokuapp.com'
     '*',
 ]
 
