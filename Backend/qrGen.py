@@ -1,3 +1,3 @@
 import pyqrcode
-url = pyqrcode.create('http://172.23.34.5:8000/entry')
-url.png('qr.png', scale=1.5)
+url = pyqrcode.create('http://127.0.0.1:8000/exit')
+url.png('qrexit.png',scale=4)
