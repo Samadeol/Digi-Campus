@@ -70,8 +70,21 @@ def orderDelete(request,pk):
 def manager_view(request,*args,**kwargs):
     return render(request,'mess_manager.html')
 
-def confirm_view(request, *args, **kwargs):
-    return render(request,'confirm.html')
+def confirm_view(request,id):
+    object=messOrder.objects.get(id=id)
+    if(id!=0):
+        context={
+            'Selected_1' : object.item_1,
+            'Selected_2' : object.item_2,
+            'Selected_3' : object.item_3,
+            'Selected_4' : object.item_4,
+            'Selected_5' : object.item_5,
+            'Selected_6' : object.item_6,
+
+
+        }  
+    
+    return render(request,'confirm.html',context)
 
 
 # def confirm_view(request):
