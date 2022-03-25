@@ -69,7 +69,7 @@ def orderDelete(request,pk):
     return Response('mom')
 
 def manager_view(request,*args,**kwargs):
-    return render(request,'mess_manager.html')
+    return render(request,'mess_manager_manage.html')
 
 def confirm_view(request):
     object=messOrder.objects.get(id=request.user.profile.order_id)
