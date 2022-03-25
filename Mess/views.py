@@ -70,6 +70,9 @@ def orderDelete(request,pk):
 def manager_view(request,*args,**kwargs):
     return render(request,'mess_manager.html')
 
+def confirm_view(request, *args, **kwargs):
+    return render(request,'confirm.html')
+
 
 # def confirm_view(request):
 #     from django.http import JsonResponse
