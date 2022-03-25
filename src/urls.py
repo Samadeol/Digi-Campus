@@ -28,6 +28,7 @@ from Hall.views import exit_view
 from Mess.views import manager_view
 from Login.views import logout_view
 from Mess.views import confirm_view
+from Mess.views import cancel_view
 #from Mess.views import confirm_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
@@ -43,7 +44,7 @@ urlpatterns = [
     path('manager/',manager_view,name='manager_view'),
     path('logout/',logout_view,name='logout_view'),
     path('mess/confirm/',confirm_view,name="confirm_view"),
-    
+    path('mess/b',cancel_view,name="cancel_view"),
     
     #path('confirm/',confirm_view,name='confirm_view'),
 ]

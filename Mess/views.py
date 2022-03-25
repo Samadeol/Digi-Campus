@@ -80,12 +80,29 @@ def confirm_view(request):
             'Selected_4' : object.item_4,
             'Selected_5' : object.item_5,
             'Selected_6' : object.item_6,
-
+            'Quantity_1':object.quantity_1,
+            'Quantity_2':object.quantity_2,
+            'Quantity_3':object.quantity_3,
+            'Quantity_4':object.quantity_4,
+            'Quantity_5':object.quantity_5,
+            'Quantity_6':object.quantity_6,
+            'Price_1':object.price_1,
+            'Price_2':object.price_2,
+            'Price_3':object.price_3,
+            'Price_4':object.price_4,
+            'Price_5':object.price_5,
+            'Price_6':object.price_6,
 
         }  
     
     return render(request,'new_confirm.html',context)
 
+def cancel_view(request):
+    object=messOrder.objects.get(id=request.user.profile.order_id)
+    object.delete()
+    request.user.profile.order_id=0
+    request.user.profile.save()
+    return render(request,'mess.html')
 
 # def confirm_view(request):
 #     from django.http import JsonResponse
