@@ -7,5 +7,7 @@ urlpatterns = [
     path('order-detail/<str:pk>',views.orderDetail, name="order-detail"),
     path('order-create/',views.orderCreate, name="order-create"),
     path('order-delete/<str:pk>',views.orderDelete, name="order-delete"),
+    # path('menu-list/',views.menulist,name="menu-list"),
+    # path()
     
 ]

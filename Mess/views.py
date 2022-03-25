@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import messMenu, messOrder
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
@@ -93,8 +93,7 @@ def confirm_view(request):
             'Price_5':object.price_5,
             'Price_6':object.price_6,
 
-        }  
-    
+        }
     return render(request,'new_confirm.html',context)
 
 def cancel_view(request):
@@ -102,7 +101,8 @@ def cancel_view(request):
     object.delete()
     request.user.profile.order_id=0
     request.user.profile.save()
-    return render(request,'mess.html')
+    return redirect ('../')
+    
 
 # def confirm_view(request):
 #     from django.http import JsonResponse

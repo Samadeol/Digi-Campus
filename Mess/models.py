@@ -18,6 +18,20 @@ class messMenu(models.Model) :
     extras_6=models.CharField(null=True,max_length=35)
     price_6=models.IntegerField(null=True)
     
+class messMenu_main(models.Model) :
+    user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)   
+    main_1=models.CharField(null=True,max_length=35)
+    price_1=models.IntegerField(null=True)
+    main_2=models.CharField(null=True,max_length=35)
+    price_2=models.IntegerField(null=True)
+    main_3=models.CharField(null=True,max_length=35)
+    price_3=models.IntegerField(null=True)
+    main_4=models.CharField(null=True,max_length=35)
+    price_4=models.IntegerField(null=True)
+    main_5=models.CharField(null=True,max_length=35)
+    price_5=models.IntegerField(null=True)
+    main_6=models.CharField(null=True,max_length=35)
+    price_6=models.IntegerField(null=True)
 
 class messOrder(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)

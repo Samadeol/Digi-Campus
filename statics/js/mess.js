@@ -328,5 +328,4 @@ function confirm() {
             'total': total,
         })
     })
-
 }
