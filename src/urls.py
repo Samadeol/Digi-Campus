@@ -34,7 +34,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('',auth_view.LoginView.as_view(template_name='login.html'),name='login'),
     path('mess/',mess_view,name="mess_view"),
-    path('profile/',profile_view),
+    path('profile/',profile_view,name="profile_view"),
     path('api/',include('Mess.urls')),
     path('entry/',entry_view),
     path('dashboard/',dashboard_view,name="dashboard_view"),
