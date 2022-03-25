@@ -117,6 +117,8 @@ def cancel_view(request):
 
 #     else:
 #         return JsonResponse({'status':'Fail'})
-    
+
+def hash_view(request,*args,**kwargs):
+    return redirect('../../dashboard/')    
     
 
