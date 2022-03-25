@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{% static 'fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee' %} ">
     <link rel="stylesheet" href="{% static 'css/mess_styles.min.css?h=217e578a5d0937b6d74c8db5bd0b46a0' %} ">
     <link rel="stylesheet" href="{% static 'css/mess_style.css' %}">
+    <script src="{% static 'js/mess.js' %}"></script>
 </head>
 
 
@@ -22,7 +23,7 @@
 worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endcomment %}
 
 
-
+<body onload="MyFunc_1()">
 
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);background: rgb(224,226,253);">
     <div class="col" style="position: sticky;top: 0;z-index: 100;">
@@ -154,7 +155,7 @@ worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endco
                         </a>
                         <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-right: 16px;margin-left: 16px;">ITEMS PAYABLE</h6>
                         <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-y: auto;-webkit-overflow-scrolling: touch;width: 360px;margin-right: 16px;margin-left: 16px;">
-                            <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
+                            {% comment %} <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
                                 <div class="cardorange">
                                     <div class="card-header">
                                         <div class="row">
@@ -175,14 +176,38 @@ worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endco
                                             <div class="col">
                                                 <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number1" style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_1({{price_1}})" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary"
                                                         type="button" onclick="decrement_value_1({{price_1}})"><i class="fa fa-minus-circle"></i></button></div>
-
-                                                <body onload="MyFunc_1()">
-            
-                                                    <script src="{% static 'js/mess.js' %}"></script>
                                             </div>
                                         </div>
                                     </div>
 
+                                </div>
+                            </li> {% endcomment %}
+                            <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
+                                <div class="cardorange">
+                                    <div class="card-header">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h5 class="mb-0 itemname" id="extra1">{{Extras_1}}</h5>
+                                            </div>
+                                            <div class="col">
+                                                <h5 class="mb-0 itemqt" id="temp_quant_1">Qt. <span id="number_quant_1" class="mb-0 itemqt"></span></h5>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <div class="col">
+                                                <p style="font-family: Nunito, sans-serif;width: 160px;text-align: left;">Price: <span style="font-family: Nunito, sans-serif;"  id="cost_1"> {{price_1}}<br></p>
+                                            </div>
+                                            <div class="col">
+                                                <div class="btn-group" role="group"><button class="btn btn-primary" type="button" id="number1" style="margin-right: 20px;margin-left: 8px;" onclick="increment_value_1({{price_1}})" value="0"><i class="fa fa-plus-circle"></i></button><button class="btn btn-primary"
+                                                        type="button" onclick="decrement_value_1({{price_1}})"><i class="fa fa-minus-circle"></i></button></div>
+                                                {% comment %}
+                                                <script src="../mess_prof_assets/js/mess.js" type="text/JavaScript"></script> {% endcomment %}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
                             <li style="width: 334px;height: 115px;margin-bottom: 8px;margin-top: 8px;">
