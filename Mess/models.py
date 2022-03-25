@@ -3,7 +3,7 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
-class messMenu(models.Model) :
+class messExtras(models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)   
     extras_1=models.CharField(null=True,max_length=35)
     price_1=models.IntegerField(null=True)
@@ -18,7 +18,7 @@ class messMenu(models.Model) :
     extras_6=models.CharField(null=True,max_length=35)
     price_6=models.IntegerField(null=True)
     
-class messMenu_main(models.Model) :
+class messMain(models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)   
     main_1=models.CharField(null=True,max_length=35)
     price_1=models.IntegerField(null=True)

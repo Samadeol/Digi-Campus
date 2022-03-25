@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from .serializers import messOrderSerializer
 from django.contrib.auth.decorators import login_required
 from Login.models import Profile
+from .views import messMenu
 # Create your views here.
 @login_required
 def mess_view(request,*args,**kwargs):
@@ -118,5 +119,39 @@ def cancel_view(request):
 #     else:
 #         return JsonResponse({'status':'Fail'})
     
+@api_view(['GET'])
+def main_menu_list(request):
+    orders = messOrder.objects.all()
+    serializer = messOrderSerializer(orders, many=True)
+    return Response(serializer.data) 
+
+
+@api_view(['GET'])
+def main_menu_detail(request,pk):
+    orders = messOrder.objects.get(id=pk)
+    serializer = messOrderSerializer(orders, many=False)
+    return Response(serializer.data) 
+
+@api_view(['POST'])
+def main_menu_create(request):
+    serializer = messOrderSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        obj = Profile.objects.get(roll_no=serializer.data['rollno'])
+        obj.expense_current = obj.expense_current+serializer.data['total']
+        obj.expense_total = obj.expense_total+serializer.data['total']
+        obj.order_id = serializer.data['id']
+        print(serializer.data['total'])
+        obj.save()
+        #object.expense_total = object.expense_total+serializer.data['total']
+        return Response(serializer.data) 
+    else:
+        return Response("ankurs mom")
     
+
+@api_view(['DELETE'])
+def omain_menu_delete(request,pk):
+    order = messOrder.objects.get(id=pk)
+    order.delete()
+    return Response('mom')
 
