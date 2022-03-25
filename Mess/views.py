@@ -1,16 +1,16 @@
 from django.shortcuts import render, redirect
-from .models import messMenu, messOrder
+from .models import messMain, messOrder,messExtras
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import messOrderSerializer
 from django.contrib.auth.decorators import login_required
 from Login.models import Profile
-from .views import messMenu
+
 # Create your views here.
 @login_required
 def mess_view(request,*args,**kwargs):
-    element=messMenu.objects.get(id=1)
+    element=messExtras.objects.get(id=1)
     context={'BDMR':'50',
     'Extras_1':element.extras_1,
     'Extras_2':element.extras_2,
@@ -153,7 +153,7 @@ def hash_view(request,*args,**kwargs):
     
 
 @api_view(['DELETE'])
-def omain_menu_delete(request,pk):
+def main_menu_delete(request,pk):
     order = messOrder.objects.get(id=pk)
     order.delete()
     return Response('mom')
