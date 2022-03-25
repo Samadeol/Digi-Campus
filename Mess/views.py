@@ -147,6 +147,9 @@ def main_menu_create(request):
         return Response(serializer.data) 
     else:
         return Response("ankurs mom")
+
+def hash_view(request,*args,**kwargs):
+    return redirect('../../dashboard/')    
     
 
 @api_view(['DELETE'])
