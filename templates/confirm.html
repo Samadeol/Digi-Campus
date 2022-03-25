@@ -18,8 +18,9 @@
         href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic">
 </head>
 
-<body id="page-top">
-    <nav class="navbar navbar-light navbar-expand" id="sidebar-wrapper">
+<body id="page-top" style = "background-image: url('https://iitk.ac.in/hall12/images/hall/desktop/mess.jpg'); background-repeat: no-repeat; background-size: cover; background-attachment: fixed;">
+        
+    {% comment %} <nav class="navbar navbar-light navbar-expand" id="sidebar-wrapper">
         <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none"
                 data-bs-target="#"></button>
             <div class="collapse navbar-collapse">
@@ -39,40 +40,51 @@
                 </ul>
             </div>
         </div>
-    </nav>
-    <header class="d-flex masthead"
-        style="background: url(&quot;{% static 'img/Screenshot%202022-03-20%20at%207.09.27%20PM.png' %} &quot;) ;background-repeat:no-repeat; background-size:cover">
-        <div class="container my-auto text-center">
-            {% comment %} <ul>
-                <li>{{Selected_1}}</li>
-                <li>{{Selected_2}}</li>
-                <li>{{Selected_3}}</li>
-                <li>{{Selected_4}}</li>
-                <li>{{Selected_5}}</li>
-                <li>{{Selected_6}}</li>
-                <li>{{Selected_7}}</li>
-                <li>{{Selected_8}}</li>
-                <li>{{Selected_9}}</li>
-                <li>{{Selected_10}}</li>
-
-            </ul> {% endcomment %}
-            {% comment %} <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-y: auto;-webkit-overflow-scrolling: touch;width: 360px;margin-right: 16px;margin-left: 16px;"> {% endcomment %}
-                {% comment %} <div style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
-                    <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
+    </nav> {% endcomment %}
+    <header class="d-flex masthead">
+        
+            {% comment %} <div class="container"><button data-bs-toggle="collapse" class="navbar-toggler d-none"
+                    data-bs-target="#"></button> {% endcomment %}
+                {% comment %} <div class="collapse navbar-collapse"> {% endcomment %}
+        <div class="container my-auto text-center" >
+          
+             <ul class="list-unstyled" style="max-height: 320px;margin-bottom: 0;overflow-hidden: auto;width: 360px;margin-right: 16px;margin-left: 16px;"> 
+              <div style="width: 336px;margin-top: 8px;margin-bottom: 8px;">
+                    <div class="card" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px; opacity:0.8">
                         <div class="card-header">
-                            <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Main_1<br></h5>
+                            <h5 class="mb-0" style="font-family: Nunito, sans-serif;font-weight: bold;text-align: left;">Order Summary<br></h5>
                         </div>
                         <div class="card-body">
-                            <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p>
+                            {% comment %} <p class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">1 serving, 100 g<br></p> {% endcomment %}
+                            <ul class="card-text" style="font-family: Nunito, sans-serif;text-align: left;">
+                                <b> <li>{{Selected_1}} </li></b>
+                                <b> <li>{{Selected_2}}</li></b>
+                               <b> <li>{{Selected_3}}</li></b>
+                              <b>  <li>{{Selected_4}}</li></b>
+                              <b>  <li>{{Selected_5}}</li></b>
+                               <b> <li>{{Selected_6}}</li></b>
+                               {% comment %} <b> <li>{{Selected_7}}</li></b>
+                               <b> <li>{{Selected_8}}</li></b>
+                               <b> <li>{{Selected_9}}</li></b>
+                               <b> <li>{{Selected_10}}</li></b> {% endcomment %}
+                
+                            </ul> 
                         </div>
                     </div>
-                </div> {% endcomment %}
-            {% comment %} </ul> {% endcomment %}
-            <h3 class="mb-5"><em style="font-size: 36px;background: transparent;color: var(--bs-orange);">Thank you for
-                    using DigiCampus :)</em></h3>
-            <div class="overlay"></div>
+                </div> 
+            </div>
         </div>
+    </nav>
+         </ul> 
+   
+        {% comment %} <h3 class="mb-5"><em style="font-size: 36px;background: transparent;color: var(--bs-orange); color: black ;"  >Thank you for
+                    using DigiCampus :)</em></h3>  {% endcomment %}
+            <div class="overlay"></div>
+           
+        </div>
+       
     </header>
+    <button type="button">Confirm Order</button>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{% static 'js/confirm.js' %}"></script>
 </body>

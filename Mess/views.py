@@ -84,7 +84,7 @@ def confirm_view(request):
 
         }  
     
-    return render(request,'confirm.html',context)
+    return render(request,'new_confirm.html',context)
 
 
 # def confirm_view(request):
