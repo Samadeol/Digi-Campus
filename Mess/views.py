@@ -53,7 +53,8 @@ def orderCreate(request):
         obj = Profile.objects.get(roll_no=serializer.data['rollno'])
         obj.expense_current = obj.expense_current+serializer.data['total']
         obj.expense_total = obj.expense_total+serializer.data['total']
-        print(obj.expense_current)
+        obj.order_id = serializer.data['id']
+        print(serializer.data['total'])
         obj.save()
         #object.expense_total = object.expense_total+serializer.data['total']
         return Response(serializer.data) 
@@ -70,10 +71,9 @@ def orderDelete(request,pk):
 def manager_view(request,*args,**kwargs):
     return render(request,'mess_manager.html')
 
-def confirm_view(request,id):
-    object=messOrder.objects.get(id=id)
-    if(id!=0):
-        context={
+def confirm_view(request):
+    object=messOrder.objects.get(id=request.user.profile.order_id)
+    context={
             'Selected_1' : object.item_1,
             'Selected_2' : object.item_2,
             'Selected_3' : object.item_3,

@@ -42,7 +42,7 @@ urlpatterns = [
     path('exit/',exit_view,name='exit'),
     path('manager/',manager_view,name='manager_view'),
     path('logout/',logout_view,name='logout_view'),
-    path('mess/confirm/<int: roll_no>',confirm_view,name="confirm_view"),
+    path('mess/confirm/',confirm_view,name="confirm_view"),
     
     
     #path('confirm/',confirm_view,name='confirm_view'),
