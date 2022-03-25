@@ -70,7 +70,7 @@ def orderDelete(request,pk):
     return Response('mom')
 
 def manager_view(request,*args,**kwargs):
-    return render(request,'mess_manager_manage.html')
+    return render(request,'manager.html')
 
 def confirm_view(request):
     object=messOrder.objects.get(id=request.user.profile.order_id)
@@ -141,12 +141,6 @@ def main_menu_create(request):
     serializer = messMainSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-        obj = Profile.objects.get(roll_no=serializer.data['rollno'])
-        obj.expense_current = obj.expense_current+serializer.data['total']
-        obj.expense_total = obj.expense_total+serializer.data['total']
-        obj.order_id = serializer.data['id']
-        print(serializer.data['total'])
-        obj.save()
         #object.expense_total = object.expense_total+serializer.data['total']
         return Response(serializer.data) 
     else:
@@ -169,10 +163,6 @@ def main_extras_list(request):
     return Response(serializer.data) 
 
 
-
-
-
-
 @api_view(['GET'])
 def main_extras_detail(request,pk):
     orders = messExtras.objects.get(id=pk)
@@ -184,13 +174,6 @@ def main_extras_create(request):
     serializer = messExtrasSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-        obj = Profile.objects.get(roll_no=serializer.data['rollno'])
-        obj.expense_current = obj.expense_current+serializer.data['total']
-        obj.expense_total = obj.expense_total+serializer.data['total']
-        obj.order_id = serializer.data['id']
-        print(serializer.data['total'])
-        obj.save()
-        #object.expense_total = object.expense_total+serializer.data['total']
         return Response(serializer.data) 
     else:
         return Response("ankurs mom")
