@@ -3,7 +3,7 @@ from .models import messMain, messOrder,messExtras
 from django.http import JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .serializers import messOrderSerializer
+from .serializers import messOrderSerializer,messExtrasSerializer,messMainSerializer
 from django.contrib.auth.decorators import login_required
 from Login.models import Profile
 
@@ -118,23 +118,27 @@ def cancel_view(request):
 
 #     else:
 #         return JsonResponse({'status':'Fail'})
-    
+
+def hash_view(request,*args,**kwargs):
+    return redirect('../../dashboard/')    
+
+
 @api_view(['GET'])
 def main_menu_list(request):
-    orders = messOrder.objects.all()
-    serializer = messOrderSerializer(orders, many=True)
+    orders = messMain.objects.all()
+    serializer = messMainSerializer(orders, many=True)
     return Response(serializer.data) 
 
 
 @api_view(['GET'])
 def main_menu_detail(request,pk):
-    orders = messOrder.objects.get(id=pk)
-    serializer = messOrderSerializer(orders, many=False)
+    orders = messMain.objects.get(id=pk)
+    serializer = messMainSerializer(orders, many=False)
     return Response(serializer.data) 
 
 @api_view(['POST'])
 def main_menu_create(request):
-    serializer = messOrderSerializer(data=request.data)
+    serializer = messMainSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
         obj = Profile.objects.get(roll_no=serializer.data['rollno'])
@@ -148,13 +152,55 @@ def main_menu_create(request):
     else:
         return Response("ankurs mom")
 
-def hash_view(request,*args,**kwargs):
-    return redirect('../../dashboard/')    
-    
+
 
 @api_view(['DELETE'])
 def main_menu_delete(request,pk):
-    order = messOrder.objects.get(id=pk)
+    order = messMain.objects.get(id=pk)
     order.delete()
     return Response('mom')
+
+
+
+@api_view(['GET'])
+def main_extras_list(request):
+    orders = messExtras.objects.all()
+    serializer = messExtrasSerializer(orders, many=True)
+    return Response(serializer.data) 
+
+
+
+
+
+
+@api_view(['GET'])
+def main_extras_detail(request,pk):
+    orders = messExtras.objects.get(id=pk)
+    serializer = messExtrasSerializer(orders, many=False)
+    return Response(serializer.data) 
+
+@api_view(['POST'])
+def main_extras_create(request):
+    serializer = messExtrasSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        obj = Profile.objects.get(roll_no=serializer.data['rollno'])
+        obj.expense_current = obj.expense_current+serializer.data['total']
+        obj.expense_total = obj.expense_total+serializer.data['total']
+        obj.order_id = serializer.data['id']
+        print(serializer.data['total'])
+        obj.save()
+        #object.expense_total = object.expense_total+serializer.data['total']
+        return Response(serializer.data) 
+    else:
+        return Response("ankurs mom")
+
+
+
+@api_view(['DELETE'])
+def main_extras_delete(request,pk):
+    order = messExtras.objects.get(id=pk)
+    order.delete()
+    return Response('mom')
+
 

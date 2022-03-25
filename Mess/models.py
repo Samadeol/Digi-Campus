@@ -17,6 +17,7 @@ class messExtras(models.Model) :
     price_5=models.IntegerField(null=True)
     extras_6=models.CharField(null=True,max_length=35)
     price_6=models.IntegerField(null=True)
+    hall_number=models.IntegerField(null=True)
     
 class messMain(models.Model) :
     user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)   
@@ -32,6 +33,7 @@ class messMain(models.Model) :
     price_5=models.IntegerField(null=True)
     main_6=models.CharField(null=True,max_length=35)
     price_6=models.IntegerField(null=True)
+    hall_number=models.IntegerField(null=True)
 
 class messOrder(models.Model):
     #user = models.OneToOneField(User, on_delete=models.CASCADE,null=True)

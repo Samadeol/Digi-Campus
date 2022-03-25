@@ -14,5 +14,9 @@ urlpatterns = [
     path('main_menu_detail/<str:pk>',views.main_menu_detail,name="main_menu_detail"),
     path('main_menu_create/',views.main_menu_create,name="main_menu_create"),
     path('main_menu_delete/<str:pk>',views.main_menu_delete,name="main_menu_delete"),
+    path('main_extras_list/',views.main_extras_list,name="main_extras_list"),
+    path('main_extras_detail/<str:pk>',views.main_extras_detail,name="main_extras_detail"),
+    path('main_extras_create/',views.main_extras_create,name="main_extras_create"),
+    path('main_extras_delete/<str:pk>',views.main_extras_delete,name="main_extras_delete"),
     
 ]
