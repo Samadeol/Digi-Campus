@@ -26,14 +26,19 @@ function disp() {
     var price_6 = parseInt(document.getElementById('cost_6').innerHTML, 10);
     //document.getElementById('test').innerHTML += '<div class = "row" style = "margin-right: 4px;margin-left: 4px;" > <div class = "col" > <p style = "font-family: Nunito, sans-serif;" >yay </p></div><div class = "col"> <p style = "text-align: right;font-family: Nunito, sans-serif;" > ₹30.00 <br></br></p></div > </div>'
     //document.getElementById('test').innerHTML += "<h3> mommu </h3>"
-    if (count1 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;">' + name1 + '</div><div style="float: right;">' + count1 + '</div></li>';
-    if (count2 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;">' + name2 + '</div><div style="float: right;">' + count2 + '</div></li>';
-    if (count3 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;">' + name3 + '</div><div style="float: right;">' + count3 + '</div></li>';
-    if (count4 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;">' + name4 + '</div><div style="float: right;">' + count4 + '</div></li>';
-    if (count5 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;">' + name5 + '</div><div style="float: right;">' + count5 + '</div></li>';
-    if (count6 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;">' + name6 + '</div><div style="float: right;">' + count6 + '</div></li>';
+    if (count1 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm1">' + name1 + '</div><div style="float: right;">' + count1 + '</div></li>';
+    if (count2 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm2">' + name2 + '</div><div style="float: right;">' + count2 + '</div></li>';
+    if (count3 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm3">' + name3 + '</div><div style="float: right;">' + count3 + '</div></li>';
+    if (count4 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm4">' + name4 + '</div><div style="float: right;">' + count4 + '</div></li>';
+    if (count5 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm5">' + name5 + '</div><div style="float: right;">' + count5 + '</div></li>';
+    if (count6 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm6">' + name6 + '</div><div style="float: right;">' + count6 + '</div></li>';
 
 }
+
+function cancel() {
+    document.getElementById('add_here').innerHTML = "";
+}
+
 
 function getCookie(name) {
     let cookieValue = null;
