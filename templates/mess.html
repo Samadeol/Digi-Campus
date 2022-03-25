@@ -524,10 +524,23 @@ worked!"); }, error: function (data) { alert("it didnt work"); } }); }; {% endco
                             </li>
                         </ul>-->
                                     <div class="row" style="margin-top: 24px;margin-right: 4px;margin-left: 4px;">
-                                        <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;" id='last' ><a href="{%url 'confirm_view' %}" onclick="confirm()" style="color:white">Checkout</button></div>
+                                        <div class="col"><button class="btn btn-primary" type="button" style="width: 179.5625px;height: 45px;border-radius: 9px;" id='last' onclick="confirm()" style="color:white"  data-bs-target="#modal-1" data-bs-toggle="modal">Checkout</button></div>
                                         <div class="col">
                                             <p style="text-align: right;margin-bottom: 0px;">Total Payable</p>
                                             <p id="Final" style="text-align: right;"><br></p>
+                                            <div class="modal fade" role="dialog" tabindex="-1" id="modal-1">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-body">
+                                                            <p style="text-align: center;">Are you sure you want to clear all data?</p>
+                                                        </div>
+                                                        <div class="modal-footer d-flex flex-row justify-content-xxl-center"><button class="btn btn-secondary"
+                                                                type="button" data-bs-dismiss="modal" style="margin-right: 36px;">No</button><button
+                                                                class="btn btn-danger" type="button" data-bs-dismiss="modal"
+                                                                style="margin-right: 36px;">Yes</button></div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
