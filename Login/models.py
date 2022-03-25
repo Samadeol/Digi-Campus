@@ -19,6 +19,7 @@ class Profile(models.Model) :
     expense_current = models.IntegerField(default=0)
     expense_last_month = models.IntegerField(default=0)
     expense_total = models.IntegerField(default=0)
+    order_id = models.IntegerField(default=0)
     def __str__(self):
         return self.username
     # class Meta:
