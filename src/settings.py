@@ -86,15 +86,14 @@ WSGI_APPLICATION = 'src.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd9omsdtakjp70u',
-        'HOST': 'ec2-44-194-92-192.compute-1.amazonaws.com',
+        'NAME': 'd352tlf22k9gl8',
+        'HOST': 'ec2-18-215-96-22.compute-1.amazonaws.com',
         'PORT': 5432,
-        'USER': 'yexhidauhuayvv',
-        'PASSWORD':'b27dc0e38f9459d3fe8585e1ac0c621727b404235ea656fefdb0e46bea628848',
+        'USER': 'ugscegmctocoju',
+        'PASSWORD':'e2a4bcd9acee15cb39ee7dd372d19b692493610f3cf16a41208b811de9a29c24',
     }
 }
-#postgres://yexhidauhuayvv:b27dc0e38f9459d3fe8585e1ac0c621727b404235ea656fefdb0e46bea628848@ec2-44-194-92-192.compute-1.amazonaws.com:5432/d9omsdtakjp70u
-
+#postgres://ugscegmctocoju:e2a4bcd9acee15cb39ee7dd372d19b692493610f3cf16a41208b811de9a29c24@ec2-18-215-96-22.compute-1.amazonaws.com:5432/d352tlf22k9gl8
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
 
