@@ -7,7 +7,8 @@ from .serializers import messOrderSerializer,messExtrasSerializer,messMainSerial
 from django.contrib.auth.decorators import login_required
 from Login.models import Profile
 
-# Create your views here.
+# Create your views here
+
 @login_required
 def mess_view(request,*args,**kwargs):
     element=messExtras.objects.get(id=1)
@@ -125,7 +126,7 @@ def hash_view(request,*args,**kwargs):
 
 @api_view(['GET'])
 def main_menu_list(request):
-    orders = messMain.objects.all()
+    orders = messMain.objects.all().order_by('-id')
     serializer = messMainSerializer(orders, many=True)
     return Response(serializer.data) 
 
@@ -158,7 +159,7 @@ def main_menu_delete(request,pk):
 
 @api_view(['GET'])
 def main_extras_list(request):
-    orders = messExtras.objects.all()
+    orders = messExtras.objects.all().order_by('-id')
     serializer = messExtrasSerializer(orders, many=True)
     return Response(serializer.data) 
 
@@ -172,6 +173,7 @@ def main_extras_detail(request,pk):
 @api_view(['POST'])
 def main_extras_create(request):
     serializer = messExtrasSerializer(data=request.data)
+    print(serializer.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data) 
