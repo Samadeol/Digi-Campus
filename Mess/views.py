@@ -1,3 +1,4 @@
+import imp
 from django.shortcuts import render, redirect
 from .models import messMain, messOrder,messExtras
 from django.http import JsonResponse
@@ -6,6 +7,8 @@ from rest_framework.response import Response
 from .serializers import messOrderSerializer,messExtrasSerializer,messMainSerializer
 from django.contrib.auth.decorators import login_required
 from Login.models import Profile
+from Login.views import dashboard_view
+import time
 
 # Create your views here
 
@@ -143,7 +146,8 @@ def cancel_view(request):
 #         return JsonResponse({'status':'Fail'})
 
 def hash_view(request,*args,**kwargs):
-    return redirect('../../dashboard/')    
+    dashboard_view(request,*args,**kwargs)
+    return redirect('../dashboard')    
 
 
 @api_view(['GET'])
