@@ -11,22 +11,22 @@ from Login.models import Profile
 
 @login_required
 def mess_view(request,*args,**kwargs):
-    element=messExtras.objects.get(id=1)
-    context={'BDMR':'50',
-    'Extras_1':element.extras_1,
-    'Extras_2':element.extras_2,
-    'Extras_3':element.extras_3,
-    'Extras_4':element.extras_4,
-    'Extras_5':element.extras_5,
-    'Extras_6':element.extras_6,
-    'price_1':element.price_1,
-    'price_2':element.price_2,
-    'price_3':element.price_3,
-    'price_4':element.price_4,
-    'price_5':element.price_5,
-    'price_6':element.price_6,
+    i=1
+    context={
+        "Extras_1":"",
+        "Extras_2":"",
+        "Extras_3":"",
+        "Extras_4":"",
+        "Extras_5":"",
+        "Extras_6":"",
     }
-    return render(request,"mess.html",context)
+    for object in messExtras.objects.all():
+        context["Extras_"+str(i)]=  context["Extras_"+str(i)]+object.extras_1
+        i=i+1
+    
+    return render(request,'mess.html',context)
+
+        
 
 @api_view(['GET'])
 def apiOverview(request):
