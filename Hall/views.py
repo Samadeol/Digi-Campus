@@ -45,10 +45,10 @@ def exit_view(request):
                     x.in_hall=False
                     x.timeExit=time
                     x.save()                    
-
-            
-
     # else:
     #     MyLogoutForm = ExitForm(request.POST or None)
     # context = {"form": MyLogoutForm}
     return render(request, "exit.html", {})
+
+def security_view(request):
+    return render(request,"manage_guests.html")

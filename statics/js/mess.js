@@ -336,7 +336,7 @@ function decrement_value_6(price_6) {
 }
 
 function confirm() {
-    var url = 'https://gentle-temple-87499.herokuapp.com/api/order-create/';
+    var url = 'https://digi-campus.herokuapp.com/api/order-create/';
     var name1 = document.getElementById('extra1').innerHTML;
     var name2 = document.getElementById('extra2').innerHTML;
     var name3 = document.getElementById('extra3').innerHTML;
@@ -356,8 +356,8 @@ function confirm() {
     var price_5 = parseInt(document.getElementById('cost_5').innerHTML, 10);
     var price_6 = parseInt(document.getElementById('cost_6').innerHTML, 10);
     var total = parseInt(document.getElementById('Total_Extras').innerHTML, 10);
-   
-    
+
+
 
     var today = new Date();
     var month = parseInt(today.getMonth(), 10);
