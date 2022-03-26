@@ -15,99 +15,7 @@
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="assets/css/styles.min.css?h=f404fe8387b228cbcfdf38e1bf9c3d2a">
-    {% comment %} <script src="{% static 'js/manager.js' %}"></script> {% endcomment %}
-    <script>
-        function getCookie(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-                for (let i = 0; i < cookies.length; i++) {
-                    const cookie = cookies[i].trim();
-                    // Does this cookie string begin with the name we want?
-                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                        break;
-                    }
-                }
-            }
-            return cookieValue;
-        }
-        const csrftoken = getCookie('csrftoken');
-        
-        function buildList() {
-            var wrapper = document.getElementById('idhar');
-            wrapper.innerHTML="";
-            var url = 'http://127.0.0.1:8000/api/main_extras_list/';
-            fetch(url)
-                .then((resp) => resp.json())
-                .then(function(data) {
-                    var list = data;
-                    for (var i in list) {
-                        var item = '<div class="card" id="data-row-' + i + '" style="border-radius: 20px;background: #f2f5fe;border-bottom-width: 12px;border-bottom-color: rgb(178,185,236);box-shadow: 0px 35px 51px #b2b9ec;margin-bottom: 16px;margin-top: 16px;"><div class="card-body"><div class="row"><div class="col d-flex" style="width: 25%;"><p class="d-md-flex d-xxl-flex justify-content-md-center align-items-md-center align-items-xxl-center" style="width: 100%;text-align: left;font-family: Nunito, sans-serif;margin-bottom: 0px;margin-top: 0px;color: rgb(0,0,0);">' + list[i].extras_1 + '</p></div><div class="col d-flex" style="width: 25%;"><p class="d-md-flex d-xxl-flex justify-content-md-center align-items-md-center align-items-xxl-center" style="width: 100%;text-align: left;font-family: Nunito, sans-serif;margin-bottom: 0px;margin-top: 0px;color: rgb(0,0,0);">Extra</p></div><div class="col d-md-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-xxl-center align-items-xxl-center" style="width: 25%;"><p class="d-xxl-flex align-items-xxl-center" style="width: 100%;text-align: left;font-family: Nunito, sans-serif;margin-bottom: 0px;margin-top: 0px;color: rgb(0,0,0);"><i class="fa fa-inr" aria-hidden="true"></i>' + list[i].price_1 + '</p></div><div class="col d-md-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-xxl-end align-items-xxl-center" style="width: 25%;"><button class="btn btn-danger" type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;"><i class="fa fa-close"></i></button></div></div></div></div>';
-                        wrapper.innerHTML += item;
-                    }
-                });
-            url = 'http://127.0.0.1:8000/api/main_menu_list/';
-            fetch(url)
-                .then((resp) => resp.json())
-                .then(function(data) {
-                    var list = data;
-                    for (var i in list) {
-                        var item = '<div class="card" id="data-row-' + i + '" style="border-radius: 20px;background: #f2f5fe;border-bottom-width: 12px;border-bottom-color: rgb(178,185,236);box-shadow: 0px 35px 51px #b2b9ec;margin-bottom: 16px;margin-top: 16px;"><div class="card-body"><div class="row"><div class="col d-flex" style="width: 25%;"><p class="d-md-flex d-xxl-flex justify-content-md-center align-items-md-center align-items-xxl-center" style="width: 100%;text-align: left;font-family: Nunito, sans-serif;margin-bottom: 0px;margin-top: 0px;color: rgb(0,0,0);">' + list[i].main_1 + '</p></div><div class="col d-flex" style="width: 25%;"><p class="d-md-flex d-xxl-flex justify-content-md-center align-items-md-center align-items-xxl-center" style="width: 100%;text-align: left;font-family: Nunito, sans-serif;margin-bottom: 0px;margin-top: 0px;color: rgb(0,0,0);">Basic</p></div><div class="col d-md-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-xxl-center align-items-xxl-center" style="width: 25%;"><p class="d-xxl-flex align-items-xxl-center" style="width: 100%;text-align: left;font-family: Nunito, sans-serif;margin-bottom: 0px;margin-top: 0px;color: rgb(0,0,0);"><i class="fa fa-inr" aria-hidden="true"></i>' + list[i].price_1 + '</p></div><div class="col d-md-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-xxl-end align-items-xxl-center" style="width: 25%;"><button class="btn btn-danger" type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;"><i class="fa fa-close"></i></button></div></div></div></div>';
-                        wrapper.innerHTML += item;
-                    }
-                })
-        }
-        
-        function update_list() {
-            var if_extras = document.getElementById('check').value;
-            console.log(if_extras)
-            //if (if_extras =="on") update_extra_list();
-            update_extra_list();
-        }
-        
-        function update_main_list() {
-            var url = 'http://127.0.0.1:8000/api/main_menu_create/';
-            var name = document.getElementById('name').value;
-            var price = document.getElementById('price').value;
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                    'X-CSRFToken': csrftoken,
-                },
-                body: JSON.stringify({
-                    'id': 1,
-                    'main_1': name,
-                    'price_1': price,
-                    'hall_number': 5,
-                })
-            }).then(function(response) {
-                buildList();
-            })
-        }
-        
-        function update_extra_list() {
-            var url = 'http://127.0.0.1:8000/api/main_extras_create/';
-            var name = document.getElementById('name').value;
-            var price = document.getElementById('price').value;
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                    'X-CSRFToken': csrftoken,
-                },
-                body: JSON.stringify({
-                    "id": 1,
-                    "extras_1": name,
-                    "price_1": price,
-                    "hall_number": 5
-                    })
-                }).then(function(response) {
-                    buildList();
-                })
-        }
-    </script>
+    <script src="{% static 'js/manager.js' %}"></script>
 </head>
 
 <body onload="buildList()">
@@ -181,7 +89,7 @@
                                         <div class="col d-md-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-xxl-center align-items-xxl-center" style="width: 35%;max-width: 35%;"><input type="text" style="font-family: Nunito, sans-serif;text-align: left;width: 100%;" placeholder="Item Name" id="name"></div>
                                         <div class="col d-flex d-md-flex d-xxl-flex justify-content-center align-items-center justify-content-md-center align-items-md-center justify-content-xxl-center align-items-xxl-center" style="width: 25%;">
                                             <p style="margin-bottom: 0px;padding-right: 0px;width: 50.3438px;">Extra</p>
-                                            <input id='check' type="checkbox">
+                                            <input id='check' type="checkbox" value="sex">
                                         </div>
                                         <div class="col d-md-flex d-xxl-flex justify-content-md-center align-items-md-center justify-content-xxl-center align-items-xxl-center" style="width: 15%;max-width: 15%;"><input type="number" placeholder="0" min="0" id="price" style="width: 100%;"></div>
                                         <div class="col d-flex d-sm-flex d-md-flex d-xxl-flex justify-content-end align-items-center justify-content-sm-end align-items-sm-center justify-content-md-end align-items-md-center justify-content-lg-end justify-content-xxl-end align-items-xxl-center"

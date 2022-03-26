@@ -17,6 +17,7 @@ const csrftoken = getCookie('csrftoken');
 
 function buildList() {
     var wrapper = document.getElementById('idhar');
+    wrapper.innerHTML = "";
     var url = 'http://127.0.0.1:8000/api/main_extras_list/';
     fetch(url)
         .then((resp) => resp.json())
@@ -40,9 +41,9 @@ function buildList() {
 }
 
 function update_list() {
-    var if_extras = document.getElementById('check').value;
-    console.log(if_extras)
-    if (if_extras) update_extra_list();
+    var if_extras = document.getElementById('check');
+    if (if_extras.checked) update_extra_list();
+    //if (if_extras =="on") update_extra_list();
     else update_main_list();
 }
 
@@ -57,13 +58,13 @@ function update_main_list() {
             'X-CSRFToken': csrftoken,
         },
         body: JSON.stringify({
-            "id": 1,
-            "main_1": name,
-            "price_1": price,
-            "hall_number": 5
-        }).then(function(response) {
-            buildList();
+            'id': 1,
+            'main_1': name,
+            'price_1': price,
+            'hall_number': 5,
         })
+    }).then(function(response) {
+        buildList();
     })
 }
 
@@ -81,9 +82,13 @@ function update_extra_list() {
             "id": 1,
             "extras_1": name,
             "price_1": price,
-            "hall_number": 5,
-        }).then(function(response) {
-            buildList();
+            "hall_number": 5
         })
+    }).then(function(response) {
+        buildList();
     })
+}
+
+function deleteItem(item) {
+    c
 }
