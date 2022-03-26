@@ -19,11 +19,33 @@ def mess_view(request,*args,**kwargs):
         "Extras_4":"",
         "Extras_5":"",
         "Extras_6":"",
+        "price_1":"",
+        "price_2":"",
+        "price_3":"",
+        "price_4":"",
+        "price_5":"",
+        "price_6":"",
+        "Main_1":"",
+        "Main_2":"",
+        "Main_3":"",
+        "Main_4":"",
+        "Main_5":"",
+        "Main_6":"",
     }
     for object in messExtras.objects.all():
         context["Extras_"+str(i)]=  context["Extras_"+str(i)]+object.extras_1
+        context["price_"+str(i)]=context["price_"+str(i)]+str(object.price_1)
+        
         i=i+1
     
+
+    i=1
+
+    for object in messMain.objects.all():
+        context["Main_"+str(i)]= context["Main_"+str(i)]+ object.main_1
+        i=i+1
+
+
     return render(request,'mess.html',context)
 
         
