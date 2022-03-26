@@ -1,6 +1,5 @@
 from django import forms
 from sympy import Q
-from .models import HallStudents, hallPresence
 from Login.models import Profile
 from django.contrib.auth.models import User
 Choices=[
