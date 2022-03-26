@@ -41,7 +41,8 @@ function buildList() {
 
 function update_list() {
     var if_extras = document.getElementById('check').value;
-    if (if_extras == 1) update_extra_list();
+    console.log(if_extras)
+    if (if_extras ) update_extra_list();
     else update_main_list();
 }
 
