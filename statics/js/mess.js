@@ -110,7 +110,7 @@ function MyFunc_1() {
     document.getElementById('number_quant_6').innerHTML = kount;
     if(document.getElementById('extra6').innerHTML==""){
 
-        document.getElementById('extra6').innerHTML="Item Not Available";
+        document.getElementById('extra6').innerHTML="Not Available";
     var nodes = document.getElementById("E6").getElementsByTagName('*');
     for(var i = 0; i < nodes.length; i++){
      nodes[i].disabled=true;
@@ -120,7 +120,7 @@ function MyFunc_1() {
     }
     if(document.getElementById('extra5').innerHTML==""){
 
-        document.getElementById('extra5').innerHTML="Item Not Available";
+        document.getElementById('extra5').innerHTML="Not Available";
     var nodes = document.getElementById("E5").getElementsByTagName('*');
     for(var i = 0; i < nodes.length; i++){
      nodes[i].disabled=true;
@@ -130,7 +130,7 @@ function MyFunc_1() {
     }
     if(document.getElementById('extra4').innerHTML==""){
 
-        document.getElementById('extra4').innerHTML="Item Not Available";
+        document.getElementById('extra4').innerHTML="Not Available";
     var nodes = document.getElementById("E4").getElementsByTagName('*');
     for(var i = 0; i < nodes.length; i++){
      nodes[i].disabled=true;
@@ -140,7 +140,7 @@ function MyFunc_1() {
     }
     if(document.getElementById('extra3').innerHTML==""){
 
-        document.getElementById('extra3').innerHTML="Item Not Available";
+        document.getElementById('extra3').innerHTML="Not Available";
     var nodes = document.getElementById("E3").getElementsByTagName('*');
     for(var i = 0; i < nodes.length; i++){
      nodes[i].disabled=true;
@@ -150,7 +150,7 @@ function MyFunc_1() {
     }
     if(document.getElementById('extra2').innerHTML==""){
 
-        document.getElementById('extra2').innerHTML="Item Not Available";
+        document.getElementById('extra2').innerHTML="Not Available";
     var nodes = document.getElementById("E2").getElementsByTagName('*');
     for(var i = 0; i < nodes.length; i++){
      nodes[i].disabled=true;
@@ -160,7 +160,7 @@ function MyFunc_1() {
     }
     if(document.getElementById('extra1').innerHTML==""){
 
-        document.getElementById('extra1').innerHTML="Item Not Available";
+        document.getElementById('extra1').innerHTML="Not Available";
     var nodes = document.getElementById("E1").getElementsByTagName('*');
     for(var i = 0; i < nodes.length; i++){
      nodes[i].disabled=true;
