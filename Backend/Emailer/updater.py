@@ -5,7 +5,7 @@ from django.core.mail import send_mail
 # from Login.models import Profile
 from Hall.models import hallPresence
 
-# 5 minute window
+# 1 minute window
 start = datetime.time(23, 30, 0)
 end = datetime.time(23, 31, 1)
 current = datetime.datetime.now().time()
