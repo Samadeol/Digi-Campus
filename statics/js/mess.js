@@ -33,6 +33,8 @@ function disp() {
     if (count5 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm5">' + name5 + '</div><div style="float: right;">' + count5 + '</div></li>';
     if (count6 > 0) document.getElementById('add_here').innerHTML += '<li style="font-family:Arial,Helvetica,sans-serif; font-size:20px; justify-content: space-between;"><div style="float: left;" id="confirm6">' + name6 + '</div><div style="float: right;">' + count6 + '</div></li>';
 
+
+
 }
 
 function cancel() {
@@ -106,6 +108,10 @@ function MyFunc_1() {
 
     var kount = parseInt(document.getElementById('number6').value, 10);
     document.getElementById('number_quant_6').innerHTML = kount;
+
+    $(document).ready(function() {
+        $("#E6").children().prop('disabled', true);
+    });
 
 
 
@@ -277,7 +283,7 @@ function decrement_value_6(price_6) {
 }
 
 function confirm() {
-    var url = 'http://127.0.0.1:8000/api/order-create/';
+    var url = 'https://gentle-temple-87499.herokuapp.com/api/order-create/';
     var name1 = document.getElementById('extra1').innerHTML;
     var name2 = document.getElementById('extra2').innerHTML;
     var name3 = document.getElementById('extra3').innerHTML;
@@ -297,7 +303,8 @@ function confirm() {
     var price_5 = parseInt(document.getElementById('cost_5').innerHTML, 10);
     var price_6 = parseInt(document.getElementById('cost_6').innerHTML, 10);
     var total = parseInt(document.getElementById('Total_Extras').innerHTML, 10);
-
+   
+    
 
     var today = new Date();
     var month = parseInt(today.getMonth(), 10);
