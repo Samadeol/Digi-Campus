@@ -62,8 +62,8 @@
         function update_list() {
             var if_extras = document.getElementById('check').value;
             console.log(if_extras)
-            if (if_extras =="on") update_extra_list();
-            else update_main_list();
+            //if (if_extras =="on") update_extra_list();
+            update_extra_list();
         }
         
         function update_main_list() {
@@ -99,7 +99,7 @@
                 },
                 body: JSON.stringify({
                     "id": 1,
-                    "main_1": name,
+                    "extras_1": name,
                     "price_1": price,
                     "hall_number": 5
                     })

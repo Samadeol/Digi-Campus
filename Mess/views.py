@@ -142,7 +142,6 @@ def main_menu_create(request):
     serializer = messMainSerializer(data=request.data)
     if serializer.is_valid():
         serializer.save()
-        #object.expense_total = object.expense_total+serializer.data['total']
         return Response(serializer.data) 
     else:
         return Response("ankurs mom")
@@ -173,7 +172,6 @@ def main_extras_detail(request,pk):
 @api_view(['POST'])
 def main_extras_create(request):
     serializer = messExtrasSerializer(data=request.data)
-    print(serializer.data)
     if serializer.is_valid():
         serializer.save()
         return Response(serializer.data) 
