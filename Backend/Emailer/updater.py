@@ -1,39 +1,64 @@
-from datetime import datetime
+import smtplib
+import datetime
 from apscheduler.schedulers.background import BackgroundScheduler
 from django.core.mail import send_mail
-from Login.models import Profile
+# from Login.models import Profile
+from Hall.models import hallPresence
+
+# 5 minute window
+start = datetime.time(23, 30, 0)
+end = datetime.time(23, 31, 1)
+current = datetime.datetime.now().time()
 
 def start():
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(send_it, 'interval', minutes=5) # check for this every 5 minutes
-    scheduler.start()
 
-def send_it():
+    global start, end, current
     
     # 5 minute window
     start = datetime.time(23, 30, 0)
-    end = datetime.time(23, 35, 0)
+    end = datetime.time(23,31 ,1)
     current = datetime.datetime.now().time()
 
+    scheduler = BackgroundScheduler()
+    scheduler.add_job(send_it, 'interval', minutes=1) # check for this every 1 minutes in the 2 minute window
+    scheduler.start()
+
+
+def send_it():
+
+    global start,end, current
+    
+    # 2 minute window
+    current = datetime.datetime.now().time()
+    # print(str(current) + " - C")
+
     if (start <= current <= end):
-        usr_email_ids = Profile.objects.all().values_list('email')
-        to_email=[u[0] for u in usr_email_ids]
+        
+        # for x in hallPresence.objects.all():
+        #         if (x.in_hall == True):
+        #             usr_email_ids.append(x.user.profile.email[0])
+        to_email=[x.user.profile.email for x in hallPresence.objects.all() if (x.in_hall == True)]
+        print(to_email)
 
-        send_mail(
-        'Subject',
-        'Message.',
-        'from@example.com',
-        to_email,
-        fail_silently=False,
-    )
+        # print("sex is on the way!")
+        # # Python code to illustrate Sending mail from 
+        # # your Gmail account 
+        
+        # # creates SMTP session
+        s = smtplib.SMTP('smtp.gmail.com', 587)
+        
+        # # start TLS for security
+        s.starttls()
+        
+        # # Authentication
+        s.login("digicampus352", "digi@campus")
+        
+        # # message to be sent
+        # message = "You are requested to vacate the hall as soon as possible"
+        message = 'Subject: {}\n\n{}'.format("DigiCampus Hall Notice", "You are requested to vacate the Hall asap.")
 
-# https://docs.djangoproject.com/en/4.0/_modules/django/core/mail/
-# send_mail and send_mass_mail methods()
-# +
-# set the following in the settings.py file:
-#
-# EMAIL_HOST_USER = 'your_email'
-# EMAIL_HOST_PASSWORD = 'your password'
-
-
-
+        # # sending the mail
+        s.sendmail("digicampus352", to_email, message)
+        
+        # # terminating the session
+        s.quit()
