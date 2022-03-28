@@ -45,7 +45,7 @@ def entry_view(request,id):
 def exit_view(request):
     if request.method == "POST":
         time=datetime.datetime.now()
-        for x in hallPresence.objects.all():
+        for x in hallPresenceSerializer.objects.all():
             if str(x.user) == str(request.user.username):
                 if(x.in_hall==True):
                     x.in_hall=False
@@ -71,13 +71,13 @@ def apiOverview(request):
 @api_view(['GET'])
 def studentlist(request):
     orders = hallPresence.objects.all()
-    serializer = hallPresence(orders, many=True)
+    serializer = hallPresenceSerializer(orders, many=True)
     return Response(serializer.data)
 
 @api_view(['GET'])
 def studentdetail(request,pk):
     orders = hallPresence.objects.get(id=pk)
-    serializer = hallPresence(orders, many=False)
+    serializer = hallPresenceSerializer(orders, many=False)
     return Response(serializer.data) 
 
 @api_view(['POST'])
