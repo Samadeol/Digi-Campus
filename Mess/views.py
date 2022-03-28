@@ -49,7 +49,8 @@ def mess_view(request,*args,**kwargs):
         context["Main_"+str(i)]= context["Main_"+str(i)]+ object.main_1
         i=i+1
 
-    
+    if(request.user.profile.is_student==False):
+        return HttpResponse("<h1>Page not found</h1>")
     return render(request,'mess.html',context)
 
         

@@ -58,10 +58,14 @@ def dashboard_view(request):
     #     'Present_Month':obj.expense_current
 
     # }
+    if(request.user.profile.is_student==False):
+        return HttpResponse("<h1>Page not found</h1>")
     return render(request,"dashboard.html")
 
 @login_required
 def qrcode_view(request):
+    if(request.user.profile.is_student==False):
+        return HttpResponse("<h1>Page not found</h1>")
     return render(request,"qr_final.html")
 
 @login_required

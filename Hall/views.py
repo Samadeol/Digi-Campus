@@ -1,6 +1,9 @@
 #from asyncio.windows_events import NULL
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from .serializers import hallPresenceSerializer
 
 from Hall.models import hallPresence
 from .form import EntryForm
@@ -55,3 +58,43 @@ def security_view(request):
     if(request.user.profile.is_security==False):
         return   HttpResponse("<h1>Page not found</h1>")
     return render(request,"manage_guests.html")
+
+@api_view(['GET'])
+def apiOverview(request):
+    api_urls = {
+        'List' : '/task-list/'
+    }
+    return Response(api_urls)
+
+@api_view(['GET'])
+def studentlist(request):
+    orders = hallPresence.objects.all()
+    serializer = hallPresence(orders, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def studentdetail(request,pk):
+    orders = hallPresence.objects.get(id=pk)
+    serializer = hallPresence(orders, many=False)
+    return Response(serializer.data) 
+
+@api_view(['POST'])
+def studentcreate(request):
+    serializer = hallPresenceSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data) 
+    else:
+        return Response("ankurs mom")
+
+
+
+@api_view(['DELETE'])
+def studentdelete(request,pk):
+    order = hallPresence.objects.get(id=pk)
+    order.delete()
+    return Response('mom')
+
+
+
+
