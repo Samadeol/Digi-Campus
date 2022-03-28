@@ -34,7 +34,7 @@ urlpatterns = [
     path('mess/',mess_view,name="mess_view"),
     path('profile/',profile_view,name="profile_view"),
     path('api/',include('Mess.urls')),
-    path('entry/',entry_view),
+    path('entry/<int:id>',entry_view,name='entry_view'),
     path('dashboard/',dashboard_view,name="dashboard_view"),
     path('qr_code/',qrcode_view,name="qrcode_view"),
     path('exit/',exit_view,name='exit'),
@@ -44,6 +44,7 @@ urlpatterns = [
     path('mess/#',hash_view,name="hash_view"),
     path('security',security_view,name="security_view"),
     path('inter/',check_view,name="check_view"),
+    path('api/security',include('Hall.urls')),
     
     #path('confirm/',confirm_view,name='confirm_view'),
 ]

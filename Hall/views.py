@@ -12,7 +12,7 @@ from .form import ExitForm
 import datetime
 from django.contrib.auth.models import User
 from Login.models import Profile
-def entry_view(request):
+def entry_view(request,id):
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
@@ -36,7 +36,9 @@ def entry_view(request):
 
     else:
         MyLoginForm = EntryForm(request.POST or None)
-    context = {"form": MyLoginForm}
+    context = {"form": MyLoginForm,
+    "hall_number":id
+    }
     return render(request, "entry.html", context)
 
 
