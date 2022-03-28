@@ -44,7 +44,7 @@ urlpatterns = [
     path('mess/#',hash_view,name="hash_view"),
     path('security',security_view,name="security_view"),
     path('inter/',check_view,name="check_view"),
-    path('api/security',include('Hall.urls')),
+    path('api/security/',include('Hall.urls')),
     
     #path('confirm/',confirm_view,name='confirm_view'),
 ]
