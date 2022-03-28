@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate
-from django.http import Http404
+from django.http import Http404,HttpResponse
 from django.contrib.auth.decorators import user_passes_test
 #from .serializers import ProfileSerializer
 # from .models import Profile
@@ -46,7 +46,7 @@ from Login.models import Profile
 @login_required
 def profile_view(request):
     if(request.user.profile.is_student==False):
-        raise  Http404
+        return HttpResponse("<h1>Page not found</h1>")
     return render(request,"profile.html")
 
 @login_required

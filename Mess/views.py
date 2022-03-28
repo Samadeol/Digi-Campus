@@ -1,6 +1,6 @@
 import imp
 from django.shortcuts import render, redirect
-from django.http import Http404
+from django.http import Http404,HttpResponse
 from .models import messMain, messOrder,messExtras
 from django.http import Http404, JsonResponse
 from rest_framework.decorators import api_view
@@ -98,7 +98,7 @@ def orderDelete(request,pk):
 
 def manager_view(request,*args,**kwargs):
     if(request.user.profile.is_staff==False):
-        return Http404
+        return HttpResponse("<h1>Page not found</h1>")
     return render(request,'manager.html')
 
 def confirm_view(request):

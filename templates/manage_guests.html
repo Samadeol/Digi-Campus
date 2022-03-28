@@ -43,9 +43,11 @@
                 style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-edit"></i>
                 Manage</a></li>
-        <li class="nav-item"><a class="nav-link" href="mess.html" style="font-family: 'Nunito Sans', sans-serif;">
+        {% comment %} <li class="nav-item"><a class="nav-link" href="mess.html" style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-clipboard-list"></i>
-                Menu</a></li>
+                Menu</a></li> {% endcomment %}
+            <li class="nav-item"><a class="nav-link" href="{%url 'logout_view' %}"  style="font-family: 'Nunito Sans', sans-serif;" text-align="right">
+                    <i class="fas fa-qrcode"></i>Logout</a></li>
     </ul>
     <div class="container" style="margin-top: 40px;">
         <div class="row">

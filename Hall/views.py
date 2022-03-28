@@ -1,4 +1,5 @@
 #from asyncio.windows_events import NULL
+from django.http import Http404, HttpResponse
 from django.shortcuts import render
 
 from Hall.models import hallPresence
@@ -51,4 +52,6 @@ def exit_view(request):
     return render(request, "exit.html", {})
 
 def security_view(request):
+    if(request.user.profile.is_security==False):
+        return   HttpResponse("<h1>Page not found</h1>")
     return render(request,"manage_guests.html")
