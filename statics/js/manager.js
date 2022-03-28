@@ -18,7 +18,7 @@ const csrftoken = getCookie('csrftoken');
 function buildList() {
     var wrapper = document.getElementById('idhar');
     wrapper.innerHTML = "";
-    var url = 'https://gentle-temple-87499.herokuapp.com/api/main_extras_list/';
+    var url = 'https://digi-campus.herokuapp.com/api/main_extras_list/';
     fetch(url)
         .then((resp) => resp.json())
         .then(function(data) {
@@ -28,7 +28,7 @@ function buildList() {
                 wrapper.innerHTML += item;
             }
         });
-    url = 'https://gentle-temple-87499.herokuapp.com/api/main_menu_list/';
+    url = 'https://digi-campus.herokuapp.com/api/main_menu_list/';
     fetch(url)
         .then((resp) => resp.json())
         .then(function(data) {
@@ -48,7 +48,7 @@ function update_list() {
 }
 
 function update_main_list() {
-    var url = 'https://gentle-temple-87499.herokuapp.com/api/main_menu_create/';
+    var url = 'https://digi-campus.herokuapp.com/api/main_menu_create/';
     var name = document.getElementById('name').value;
     var price = document.getElementById('price').value;
     fetch(url, {
@@ -69,7 +69,7 @@ function update_main_list() {
 }
 
 function update_extra_list() {
-    var url = 'https://gentle-temple-87499.herokuapp.com/api/main_extras_create/';
+    var url = 'https://digi-campus.herokuapp.com/api/main_extras_create/';
     var name = document.getElementById('name').value;
     var price = document.getElementById('price').value;
     fetch(url, {
@@ -90,7 +90,7 @@ function update_extra_list() {
 }
 
 function deleteItem(id) {
-    fetch('https://gentle-temple-87499.herokuapp.com/api/main_extras_delete/' + id, {
+    fetch('https://digi-campus.herokuapp.com/api/main_extras_delete/' + id, {
         method: 'DELETE',
         headers: {
             'Content-type': 'application/json',
