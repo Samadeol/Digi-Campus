@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate
+from django.http import Http404
 from django.contrib.auth.decorators import user_passes_test
 #from .serializers import ProfileSerializer
 # from .models import Profile
@@ -8,6 +9,7 @@ from django.contrib.auth.decorators import user_passes_test
 # from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from django.http import HttpResponse, HttpResponseNotFound
 
 from Login.models import Profile 
 # Create your views here.
@@ -43,6 +45,8 @@ from Login.models import Profile
 #     return render(request,"profile.html",context)
 @login_required
 def profile_view(request):
+    if(request.user.profile.is_student==False):
+        raise  Http404
     return render(request,"profile.html")
 
 @login_required
@@ -64,4 +68,15 @@ def qrcode_view(request):
 def logout_view(request):
     logout(request)
     return render(request,'logout.html')
+
+@login_required
+def check_view(request):
+    if(request.user.profile.is_student==True):
+        return redirect('../profile')
+    
+    elif (request.user.profile.is_staff==True):
+        return redirect('../manager')
+    
+    else:
+        return redirect('../security')
    

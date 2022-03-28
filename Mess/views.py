@@ -1,7 +1,8 @@
 import imp
 from django.shortcuts import render, redirect
+from django.http import Http404
 from .models import messMain, messOrder,messExtras
-from django.http import JsonResponse
+from django.http import Http404, JsonResponse
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import messOrderSerializer,messExtrasSerializer,messMainSerializer
@@ -96,6 +97,8 @@ def orderDelete(request,pk):
     return Response('mom')
 
 def manager_view(request,*args,**kwargs):
+    if(request.user.profile.is_staff==False):
+        return Http404
     return render(request,'manager.html')
 
 def confirm_view(request):

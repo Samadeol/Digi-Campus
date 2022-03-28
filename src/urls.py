@@ -24,7 +24,7 @@ from Hall.views import entry_view, security_view
 from Login.views import dashboard_view
 from Login.views import qrcode_view
 from Hall.views import exit_view
-from Login.views import logout_view
+from Login.views import logout_view,check_view
 from Mess.views import confirm_view, hash_view, manager_view, mess_view
 #from Mess.views import confirm_view
 urlpatterns = [
@@ -43,6 +43,7 @@ urlpatterns = [
     path('mess/confirm/',confirm_view,name="confirm_view"),
     path('mess/#',hash_view,name="hash_view"),
     path('security',security_view,name="security_view"),
+    path('inter/',check_view,name="check_view"),
     
     #path('confirm/',confirm_view,name='confirm_view'),
 ]
