@@ -24,8 +24,7 @@ function buildList() {
         .then(function(data) {
             var list = data;
             for (var i in list) {
-                if (list[i].in_hall == true) wrapper.innerHTML += '<tr><td>' + {
-                    { user.profile.first_name } } + ' ' + {
+                if (list[i].in_hall == true) wrapper.innerHTML += '<tr><td>' + {{ user.profile.first_name } } + ' ' + {
                     { user.profile.last_name } } + '</td><td>E152</td><td>200069</td><td>1111222233</td><td><button class="btn btn-primary" type="button" style="--bs-success: #198754;--bs-success-rgb: 25,135,84;">Notify</button></td></tr>'
             }
         });
