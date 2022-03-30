@@ -16,18 +16,10 @@ def entry_view(request,id):
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
+            hall_number = id
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
             laptop=MyLoginForm.cleaned_data['laptop']
-            first_name=request.user.first_name
-            last_name=request.user.last_name
-            roll_number=request.user.roll_no
-            mobile_number=request.user.mobile_no
-            last_name=MyLoginForm.cleaned_data['last_name']
-            roll_number=MyLoginForm.cleaned_data['roll_number']
-            mobile_number=MyLoginForm.cleaned_data['mobile_number']
-
             time=datetime.datetime.now()
-
             user_in=0
             l=False
             if(laptop=='Yes'):
@@ -40,7 +32,7 @@ def entry_view(request,id):
             #     if user_visiting == students.user.profile.roll_no:
             #         stud_inHall=1
             if user_in==0 and stud_inHall==1:
-                z=hallPresence(user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name=first_name,last_name=last_name,roll_number=roll_number,mobile_number=mobile_number)
+                z=hallPresence(user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.first_name, last_name = request.user.last_name, roll_no = request.user.roll_no, mobile_no = request.user.roll_no,)
                 z.save()
 
     else:
