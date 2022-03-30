@@ -32,7 +32,7 @@ def entry_view(request,id):
             #     if user_visiting == students.user.profile.roll_no:
             #         stud_inHall=1
             #if user_in==0 and stud_inHall==1:
-            z=hallPresence(hall_numbner=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.first_name, last_name = request.user.last_name, roll_no = request.user.roll_no, mobile_no = request.user.roll_no,)
+            z=hallPresence(hall_numbner=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.first_name, last_name = request.user.last_name, roll_no = request.user.roll_no, mobile_no = request.user.mobile_no)
             z.save()
 
     else:
