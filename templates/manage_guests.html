@@ -49,13 +49,14 @@
 
         function update_stuff(id) {
             var url = 'https://digi-campus.herokuapp.com/api/security/student-detail/' + id.toString();
-            var list
+            //var list
             fetch(url)
                 .then((resp) => resp.json())
                 .then(function(data) {
-                    list = data;
+                     var list = data;
+                    console.log(list);
                 });
-            console.log(list)
+            //console.log(list)
             var today = new Date();
             var month = parseInt(today.getMonth(), 10);
             month = month + 1;
