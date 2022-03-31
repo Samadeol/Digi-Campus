@@ -20,9 +20,12 @@
     function do_this(){
         
        var check_credential=document.getElementById('hide').innerHTML
+       var hall=parseInt(document.getElementById('hall').innerHTML)
 
         if(check_credential=="False"){
-          document.getElementById('show').innerHTML="Please fill the form again with correct details<div >Click here to fill the form</div>"
+          document.getElementById('show').innerHTML="Please fill the form again with correct details"
+          document.getElementById('result').style.display="block"
+         
     }
      
        else{
@@ -72,8 +75,10 @@
     <div class="container shadow" style="margin-top: 54px;background: #ffffff;padding-top: 16px;padding-bottom: 16px;">
         <div class="row">
             <div class="col">
-                <h1 style="text-align: center;color: var(--bs-blue);" id="show" value=credential></h1>
+                <h3 style="text-align: center;color: var(--bs-blue);" id="show" value=credential></h3>
+               <a href="{%url 'entry_view' hall_number %}"> <h3 style="text-align: center;color: var(--bs-blue); display:none;text-decoration:none;" id="result" >Click here to try again</h3><a>
                 <h1 id="hide" style="display:none">{{credential}}</h1>
+                <h1 id="hall" style="display:none; ">{{hall_number}}</h1>
             </div>
         </div>
         {% comment %} <div class="row">
