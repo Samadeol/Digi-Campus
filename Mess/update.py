@@ -1,11 +1,10 @@
-from datetime import datetime
-from apscheduler.schedulers.blocking import BlockingScheduler
-from apscheduler.triggers.cron import CronTrigger
-from django.conf import settings
-from pytz import timezone
+from celery.schedules import crontab
 from .views import switch
-
-def start():
-    s=BlockingScheduler(timezone = settings.TIME_ZONE)
-    s.add_job(switch,trigger=CronTrigger(hour="03",minute="26"),id="hi")
-    s.start()
+CELERYBEAT_SCHEDULE = {
+    # Executes every Monday morning at 7:30 A.M
+    'every-monday-morning': {
+        'task': switch,
+        'schedule': crontab(hour=3, minute=35, day_of_week=1),
+        'args': (16, 16),
+    },
+}
