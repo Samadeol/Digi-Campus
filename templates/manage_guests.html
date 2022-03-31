@@ -72,17 +72,17 @@
                         body: JSON.stringify({
                             'id': id,
                             'hall_numnber': list.hall_numnber,
-                            'user_visiting': list[0].user_visiting,
-                            'room_visiting': list[0].room_visiting,
+                            'user_visiting': list.user_visiting,
+                            'room_visiting': list.room_visiting,
                             'in_hall': false,
-                            'laptop': list[0].laptop,
-                            'timeEntered': list[0].listEntered,
+                            'laptop': list.laptop,
+                            'timeEntered': list.listEntered,
                             'timeExit': today.getFullYear() + "-" + month_string + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z",
-                            'first_name': list[0].first_name,
-                            'last_name': list[0].last_name,
-                            'roll_no': list[0].roll_no,
-                            'mobile_no': list[0].mobile_no,
-                            'user': list[0].user,
+                            'first_name': list.first_name,
+                            'last_name': list.last_name,
+                            'roll_no': list.roll_no,
+                            'mobile_no': list.mobile_no,
+                            'user': list.user,
                         })
                     }).then(function(response) {
                         buildList()
