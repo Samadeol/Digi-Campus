@@ -1,4 +1,5 @@
-import schedule
+from celery.schedules import crontab
+from celery.task import periodic_task
 from django.shortcuts import render, redirect
 from django.http import Http404,HttpResponse
 from .models import messMain, messOrder,messExtras
@@ -221,6 +222,7 @@ def main_extras_delete(request,pk):
 def order_list_view(request):
     return render(request,"order_list.html",{})
 
+@celery
 def switch():
     for obj in  Profile.objects.all():
         obj.e_0 = obj.e_1
