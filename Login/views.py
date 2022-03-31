@@ -74,6 +74,7 @@ def dashboard_view(request):
             room.append(object.room_visiting)
             time_enter.append(object.timeEntered)
             time_exit.append(object.timeExit)
+        count=count-1
     
     context={
         "Room_1":room[0],
