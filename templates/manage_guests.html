@@ -42,7 +42,7 @@
                 .then(function(data) {
                     var list = data;
                     for (var i in list) {
-                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'/a></td><td><button class="btn btn-primary" type="button" style="--bs-success: #198754;--bs-success-rgb: 25,135,84; >Notify</button></td></tr>'
+                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'</a></td><td><button class="btn btn-primary" type="button" style="--bs-success: #198754;--bs-success-rgb: 25,135,84; >Notify</button></td></tr>'
                     }
                 });
         }
