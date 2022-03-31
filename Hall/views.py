@@ -25,7 +25,7 @@ def entry_view(request,id):
             object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
             time=datetime.datetime.now()
-            f=False
+            f="False"
             l=False
             if(laptop=='Yes'):
                 l=True
@@ -33,7 +33,7 @@ def entry_view(request,id):
                 if user_visiting == students.roll_no and  room_number == students.room_no and id==students.hall_no:
                     z=hallPresence(hall_numnber=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.profile.first_name, last_name = request.user.profile.last_name, roll_no = request.user.profile.roll_no, mobile_no = request.user.profile.mobile_no,room_visiting=room_number)
                     z.save()
-                    f=True
+                    f="True"
                     break
             context={'hall_number' : id,'credential': f}
             return render(request,"welcome.html",context)
