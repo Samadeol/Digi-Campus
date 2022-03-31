@@ -42,7 +42,7 @@
                 .then(function(data) {
                     var list = data;
                     for (var i in list) {
-                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;" onclick="update('+list[i].id +')"><i class="fa fa-close"></i></button></td></tr>'
+                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;" onclick="update('+parseInt(list[i].id) +')"><i class="fa fa-close"></i></button></td></tr>'
                     }
                 });
         }
@@ -59,34 +59,7 @@
             var month_string;
             if (month < 10) month_string = "0" + month.toString();
             else month_string = month.toString();
-            url = 'https://digi-campus.herokuapp.com/api/security/student-update/'+id;
-            fetch(url, {
-                //credentials: 'include',
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                    'X-CSRFtoken': csrftoken,
-                },
-                body: JSON.stringify({
-                    'id': list[0].id,
-                    'hall_numnber': list[0].hall_numnber,
-                    'user_visiting': list[0].user_visiting,
-                    'room_visiting': list[0].room_visiting
-                    'in_hall': false,
-                    'laptop': list[0].laptop,
-                    'timeEntered': list[0].listEntered,
-                    'timeExit': today.getFullYear() + "-" + month_string + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z",
-                    'first_name': list[0].first_name,
-                    'last_name': list[0].last_name,
-                    'roll_no' : list[0].roll_no,
-                    'mobile_no' : list[0].mobile_no,
-                    'user' : list[0].user,
-                })
-            }).then(function(response){
-                buildList()
-            })
-            
-        }
+    
     </script>
 </head>
 <body onload="buildList()">
