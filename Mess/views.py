@@ -1,4 +1,5 @@
-import schedule
+from celery.schedules import crontab
+from celery import Celery, Task
 from django.shortcuts import render, redirect
 from django.http import Http404,HttpResponse
 from .models import messMain, messOrder,messExtras
