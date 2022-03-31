@@ -23,7 +23,7 @@ from django.contrib.auth import views as auth_view
 from Hall.views import entry_view, security_view
 from Login.views import dashboard_view
 from Login.views import qrcode_view
-from Hall.views import exit_view
+#from Hall.views import exit_view
 from Login.views import logout_view,check_view
 from Mess.views import confirm_view, hash_view, manager_view, mess_view, order_list_view, order_list_view
 #from Mess.views import confirm_view
