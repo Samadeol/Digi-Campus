@@ -37,7 +37,6 @@ urlpatterns = [
     path('entry/<int:id>',entry_view,name='entry_view'),
     path('dashboard/',dashboard_view,name="dashboard_view"),
     path('qr_code/',qrcode_view,name="qrcode_view"),
-    path('exit/',exit_view,name='exit'),
     path('manager/',manager_view,name='manager_view'),
     path('logout/',logout_view,name='logout_view'),
     path('mess/confirm/',confirm_view,name="confirm_view"),
