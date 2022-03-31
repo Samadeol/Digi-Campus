@@ -47,7 +47,7 @@
                 });
         }
 
-        function update(id){
+        {% comment %} function update(id){
             var url = 'https://digi-campus.herokuapp.com/api/security/student-detail/'+parseInt(id);
             fetch(url)
                 .then((resp) => resp.json())
@@ -86,8 +86,8 @@
             }).then(function(response){
                 buildList()
             })
-            
-        }
+             
+        }{% endcomment %}
     </script>
 </head>
 <body onload="buildList()">
