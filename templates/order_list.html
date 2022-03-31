@@ -38,7 +38,7 @@
     function buildList() {
         var wrapper = document.getElementById('Addition');
         wrapper.innerHTML = "";
-        var url = 'http://127.0.0.1:8000/api/order-list';
+        var url = 'https://digi-campus.herokuapp.com/api/order-list';
         fetch(url)
             .then((resp) => resp.json())
             .then(function(data) {
