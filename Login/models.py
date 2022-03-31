@@ -30,7 +30,7 @@ class Profile(models.Model) :
     e_7 = models.IntegerField(default=0)
     e_8 = models.IntegerField(default=0)
     e_9 = models.IntegerField(default=0)
-    last_logged_in=models.DateField(default=0)
+    
     def __str__(self):
         return self.username
     # class Meta:
