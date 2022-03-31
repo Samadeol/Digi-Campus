@@ -47,10 +47,10 @@ import datetime
 #     return render(request,"profile.html",context)
 @login_required
 def profile_view(request):
-    # temp=datetime.date.today()
-    # result=temp-request.user.profile.last_logged_in
-    # print(result)
-    # request.user.profile.last_logged_in=temp
+    temp=datetime.date.today()
+    result=temp-request.user.profile.last_logged_in
+    print(result)
+    request.user.profile.last_logged_in=temp
     
     if(request.user.profile.is_student==False):
         return HttpResponse("<h1>Page not found</h1>")
