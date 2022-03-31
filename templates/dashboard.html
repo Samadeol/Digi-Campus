@@ -142,7 +142,7 @@
                           ];
                           
                           new Chart("myChart", {
-                            type: "scatter",
+                            type: "line",
                             data: {
                               datasets: [{
                                 pointRadius: 4,
@@ -153,8 +153,8 @@
                             options: {
                               legend: {display: false},
                               scales: {
-                                xAxes: [{ticks: {min:0 , max:12}}],
-                                yAxes: [{ticks: {min: 0, max:500}}],
+                                xAxes: [{ticks: {min:0 , max:10}}],
+                                yAxes: [{ticks: {min: 0, max:250}}],
                               }
                             }
                           });
