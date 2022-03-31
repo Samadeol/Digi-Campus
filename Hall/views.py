@@ -13,35 +13,36 @@ import datetime
 from django.contrib.auth.models import User
 from Login.models import Profile
 def entry_view(request,id):
+    for x in hallPresence.objects.all():
+        if (str(x.user) == str(request.user.username) and x.in_hall == True):
+            return render(request,"exit.html",{})
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
             hall_number = id
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
+            room_number = MyLoginForm.cleaned_data['room_number']
             object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
             time=datetime.datetime.now()
-            user_in=0
+            f=False
             l=False
             if(laptop=='Yes'):
                 l=True
-            # for x in hallPresence.objects.all():
-            #     if (str(x.user) == str(request.user.username) and x.in_hall == True):
-            #         user_in=1
-            # stud_inHall=0
-            # for students in HallStudents.objects.all():
-            #     if user_visiting == students.user.profile.roll_no:
-            #         stud_inHall=1
-            #if user_in==0 and stud_inHall==1:
-            z=hallPresence(hall_numnber=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.profile.first_name, last_name = request.user.profile.last_name, roll_no = request.user.profile.roll_no, mobile_no = request.user.profile.mobile_no,room_visiting=object.room_no)
-            z.save()
-
+            for students in Profile.objects.all():
+                if user_visiting == students.roll_no and  room_number == students.room_no and id==students.hall_no:
+                    z=hallPresence(hall_numnber=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.profile.first_name, last_name = request.user.profile.last_name, roll_no = request.user.profile.roll_no, mobile_no = request.user.profile.mobile_no,room_visiting=room_number)
+                    z.save()
+                    f=True
+                    break
+            context={'hall_number' : id,'credential': f}
+            return render(request,"welcome.html",context)
     else:
         MyLoginForm = EntryForm(request.POST or None)
-    context = {"form": MyLoginForm,
-    "hall_number":id
-    }
-    return render(request, "entry.html", context)
+        context = {"form": MyLoginForm,
+        "hall_number":id
+        }
+        return render(request, "entry.html", context)
 
 
 def exit_view(request):
