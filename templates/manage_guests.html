@@ -60,33 +60,6 @@
             var month_string;
             if (month < 10) month_string = "0" + month.toString();
             else month_string = month.toString();
-            var url1 = 'https://digi-campus.herokuapp.com/api/security/student-update/'+id.toString();
-            fetch(url1, {
-                //credentials: 'include',
-                method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                    'X-CSRFtoken': csrftoken,
-                },
-                body: JSON.stringify({
-                    'id': list[0].id,
-                    'hall_numnber': list[0].hall_numnber,
-                    'user_visiting': list[0].user_visiting,
-                    'room_visiting': list[0].room_visiting
-                    'in_hall': false,
-                    'laptop': list[0].laptop,
-                    'timeEntered': list[0].listEntered,
-                    'timeExit': today.getFullYear() + "-" + month_string + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z",
-                    'first_name': list[0].first_name,
-                    'last_name': list[0].last_name,
-                    'roll_no' : list[0].roll_no,
-                    'mobile_no' : list[0].mobile_no,
-                    'user' : list[0].user,
-                })
-            }).then(function(response){
-                buildList()
-            })
-             
         }
     </script>
 </head>
