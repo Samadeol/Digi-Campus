@@ -13,6 +13,7 @@ from django.http import HttpResponse, HttpResponseNotFound
 from Hall.models import hallPresence
 
 from Login.models import Profile 
+import datetime
 # Create your views here.
 
 # def login_view(request,*args,**kwargs):
@@ -46,6 +47,11 @@ from Login.models import Profile
 #     return render(request,"profile.html",context)
 @login_required
 def profile_view(request):
+    temp=datetime.date.today()
+    result=temp-request.user.profile.last_logged_in
+    print(result)
+    request.user.profile.last_logged_in=temp
+    
     if(request.user.profile.is_student==False):
         return HttpResponse("<h1>Page not found</h1>")
     return render(request,"profile.html")
