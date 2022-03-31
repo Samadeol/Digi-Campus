@@ -75,8 +75,15 @@
                     'in_hall': false,
                     'laptop': list[0].laptop,
                     'timeEntered': list[0].listEntered,
-                    
+                    'timeExit': today.getFullYear() + "-" + month_string + "-" + today.getDate() + "T" + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds() + "Z",
+                    'first_name': list[0].first_name,
+                    'last_name': list[0].last_name,
+                    'roll_no' : list[0].roll_no,
+                    'mobile_no' : list[0].mobile_no,
+                    'user' : list[0].user,
                 })
+            }).then(function(response){
+                buildList()
             })
             
         }
