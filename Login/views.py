@@ -10,6 +10,7 @@ from django.contrib.auth.decorators import user_passes_test
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponse, HttpResponseNotFound
+from Hall.models import hallPresence
 
 from Login.models import Profile 
 # Create your views here.
@@ -58,9 +59,38 @@ def dashboard_view(request):
     #     'Present_Month':obj.expense_current
 
     # }
+    
+    i=0
+    count=hallPresence.objects.all().count()
+    prime=1
+    room=[]
+    time_enter=[]
+    time_exit=[]
+
+    while(count>0 and prime<=3):
+        object=hallPresence.objects.get(id=count)
+        if (object.roll_no==request.user.profile.roll_no):
+            prime=prime+1
+            room.append(object.room_visiting)
+            time_enter.append(object.timeEntered)
+            time_exit.append(object.timeExit)
+        count=count-1
+    
+    context={
+        "Room_1":room[0],
+        "Time_1":time_enter[0],
+        "Time_exit_1":time_exit[0],
+        "Room_2":room[1],
+        "Time_2":time_enter[0],
+        "Time_exit_2":time_exit[0],
+        "Room_3":room[2],
+        "Time_3":time_enter[0],
+        "Time_exit_3":time_exit[0],
+    }
+            
     if(request.user.profile.is_student==False):
         return HttpResponse("<h1>Page not found</h1>")
-    return render(request,"dashboard.html")
+    return render(request,"dashboard.html",context)
 
 @login_required
 def qrcode_view(request):

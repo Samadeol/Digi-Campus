@@ -36,18 +36,18 @@
         function buildList() {
             var wrapper = document.getElementById('prism');
             wrapper.innerHTML = "";
-            var url = 'http://127.0.0.1:8000/api/security/student-list/';
+            var url = 'https://digi-campus.herokuapp.com/api/security/student-list/';
             fetch(url)
                 .then((resp) => resp.json())
                 .then(function(data) {
                     var list = data;
                     for (var i in list) {
-                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td>'+(list[i].mobile_no)+'</td><td><button class="btn btn-primary" type="button" style="--bs-success: #198754;--bs-success-rgb: 25,135,84;">Notify</button></td></tr>'
+                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;"><i class="fa fa-close"></i></button></td></tr>'
                     }
                 });
         }
         function deleteItem(id) {
-            fetch('http://127.0.0.1:8000/api/security/student-delete/' + id, {
+            fetch('https://digi-campus.herokuapp.com/api/security/student-delete/' + id, {
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json',
@@ -134,7 +134,7 @@
                                         <th>Destination</th>
                                         <th>Roll No.</th>
                                         <th>Phone No.</th>
-                                        <th>Notify</th>
+                                        <th>Remove</th>
                                     </tr>
                                 </thead>
                                 <tbody id="prism">

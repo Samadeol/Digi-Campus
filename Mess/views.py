@@ -234,5 +234,5 @@ def switch():
         obj.e_8 = obj.e_9
         obj.e_9 = 0
 
-schedule.every().day.at("00:00").do(switch)
+schedule.every().day.at("18:29").do(switch)
 
