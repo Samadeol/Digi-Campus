@@ -36,7 +36,7 @@
         function buildList() {
             var wrapper = document.getElementById('prism');
             wrapper.innerHTML = "";
-            var url = 'http://127.0.0.1:8000/api/security/student-list/';
+            var url = 'https://digi-campus.herokuapp.com/api/security/student-list/';
             fetch(url)
                 .then((resp) => resp.json())
                 .then(function(data) {
@@ -47,7 +47,7 @@
                 });
         }
         function deleteItem(id) {
-            fetch('http://127.0.0.1:8000/api/security/student-delete/' + id, {
+            fetch('https://digi-campus.herokuapp.com/api/security/student-delete/' + id, {
                 method: 'DELETE',
                 headers: {
                     'Content-type': 'application/json',
