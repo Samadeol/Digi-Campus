@@ -1,4 +1,4 @@
-import imp
+import schedule
 from django.shortcuts import render, redirect
 from django.http import Http404,HttpResponse
 from .models import messMain, messOrder,messExtras
@@ -83,6 +83,7 @@ def orderCreate(request):
         obj.expense_current = obj.expense_current+serializer.data['total']
         obj.expense_total = obj.expense_total+serializer.data['total']
         obj.order_id = serializer.data['id']
+        obj.e_9 = obj.e_9 + serializer.data['total']
         print(serializer.data['total'])
         obj.save()
         #object.expense_total = object.expense_total+serializer.data['total']
@@ -219,3 +220,19 @@ def main_extras_delete(request,pk):
 @login_required
 def order_list_view(request):
     return render(request,"order_list.html",{})
+
+def switch():
+    for obj in  Profile.objects.all():
+        obj.e_0 = obj.e_1
+        obj.e_1 = obj.e_2
+        obj.e_2 = obj.e_3
+        obj.e_3 = obj.e_4
+        obj.e_4 = obj.e_5
+        obj.e_5 = obj.e_6
+        obj.e_6 = obj.e_7
+        obj.e_7 = obj.e_8
+        obj.e_8 = obj.e_9
+        obj.e_9 = 0
+
+schedule.every().day.at("00:00").do(switch)
+

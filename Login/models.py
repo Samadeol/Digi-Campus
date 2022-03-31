@@ -20,6 +20,16 @@ class Profile(models.Model) :
     expense_last_month = models.IntegerField(default=0)
     expense_total = models.IntegerField(default=0)
     order_id = models.IntegerField(default=0)
+    e_0 = models.IntegerField(default=0)
+    e_1 = models.IntegerField(default=0)
+    e_2 = models.IntegerField(default=0)
+    e_3 = models.IntegerField(default=0)
+    e_4 = models.IntegerField(default=0)
+    e_5 = models.IntegerField(default=0)
+    e_6 = models.IntegerField(default=0)
+    e_7 = models.IntegerField(default=0)
+    e_8 = models.IntegerField(default=0)
+    e_9 = models.IntegerField(default=0)
     def __str__(self):
         return self.username
     # class Meta:
