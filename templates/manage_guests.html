@@ -46,7 +46,8 @@
                     }
                 });
         }
-        function updae(id){
+
+        function update(id){
             var url = 'https://digi-campus.herokuapp.com/api/security/student-detail/'+parseInt(id);
             fetch(url)
                 .then((resp) => resp.json())
@@ -59,8 +60,8 @@
             var month_string;
             if (month < 10) month_string = "0" + month.toString();
             else month_string = month.toString();
-            url = 'https://digi-campus.herokuapp.com/api/security/student-update/'+parseInt(id);
-            fetch(url, {
+            var url1 = 'https://digi-campus.herokuapp.com/api/security/student-create/';
+            fetch(url1, {
                 //credentials: 'include',
                 method: 'POST',
                 headers: {
