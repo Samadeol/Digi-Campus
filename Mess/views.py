@@ -216,4 +216,6 @@ def main_extras_delete(request,pk):
     order.delete()
     return Response('mom')
 
-
+@login_required
+def order_list_view(request):
+    return render(request,"order_list.html",{})

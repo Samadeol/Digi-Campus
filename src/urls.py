@@ -45,6 +45,7 @@ urlpatterns = [
     path('security',security_view,name="security_view"),
     path('inter/',check_view,name="check_view"),
     path('api/security/',include('Hall.urls')),
+    path('mess/order_list/',order_list_view, name="order_list_view")
     
     #path('confirm/',confirm_view,name='confirm_view'),
 ]

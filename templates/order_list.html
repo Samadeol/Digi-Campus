@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>253_1</title>
@@ -13,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/fonts/fontawesome5-overrides.min.css?h=37efe7e508357f382d0a5b2b73cd47ee">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-    <link rel="stylesheet" href="assets/css/styles.min.css?h=f404fe8387b228cbcfdf38e1bf9c3d2a">
+    <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
 </head>
 
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);background: rgb(224,226,253);">
@@ -22,7 +23,7 @@
             <div class="col">
                 <!-- Start: Navigation with Search -->
                 <nav class="navbar navbar-light navbar-expand-lg navigation-clean-search" style="background: #6713ef;">
-                    <div class="container-fluid"><img src="assets/img/Untitled-1.png?h=b9f93fdf42fc37ce83b3b7718831767a" style="width: 50px;margin-left: -16px;"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);font-size: 30px;">DigiCampus</a><button data-bs-toggle="collapse"
+                    <div class="container-fluid"><img src="{% static 'img/Untitled-1.png' %}" style="width: 50px;margin-left: -16px;"><a class="navbar-brand" href="#" style="color: rgb(255,255,255);font-size: 30px;">DigiCampus</a><button data-bs-toggle="collapse"
                             class="navbar-toggler" data-bs-target="#navcol-1"><span
                                 class="visually-hidden">Toggle navigation</span><span
                                 class="navbar-toggler-icon"></span></button>
@@ -31,7 +32,7 @@
                                 <li class="nav-item" style="width: 60px;height: 40px;"><button class="btn btn-primary" type="button" style="background: rgb(103,19,239);transform: scale(1.33);border-width: 0px;"><i
                                             class="fa fa-bell-o" style="transform: scale(1.33);"></i></button></li>
                                 <li class="nav-item" style="width: 60px;">
-                                    <a class="nav-link" href="profile.html" style="height: 40px;padding-left: 0px;"><img src="assets/img/ereh1.jpg?h=f00ddba964ff67f0c865b2488fa611ea" style="width: 40px;border-radius: 20px;transform: translateY(0px);margin-top: -8px;border: 2px solid var(--bs-white) ;"></a>
+                                    <a class="nav-link" href="profile.html" style="height: 40px;padding-left: 0px;"><img src="{% static 'img/ereh1.jpg' %}" style="width: 40px;border-radius: 20px;transform: translateY(0px);margin-top: -8px;border: 2px solid var(--bs-white) ;"></a>
                                 </li>
                             </ul>
                         </div>
