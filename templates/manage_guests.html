@@ -42,20 +42,43 @@
                 .then(function(data) {
                     var list = data;
                     for (var i in list) {
-                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;"><i class="fa fa-close"></i></button></td></tr>'
+                        if(list[i].in_hall == true) wrapper.innerHTML+='<tr><td>'+list[i].first_name+' '+list[i].last_name +'</td><td>'+list[i].room_visiting+'</td><td>'+(list[i].roll_no)+'</td><td><a href="tel:'+list[i].mobile_no+'">'+list[i].mobile_no+'</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;" onclick="update('+list[i].id +')"><i class="fa fa-close"></i></button></td></tr>'
                     }
                 });
         }
-        function deleteItem(id) {
-            fetch('https://digi-campus.herokuapp.com/api/security/student-delete/' + id, {
-                method: 'DELETE',
+        function update(id){
+            var url = 'https://digi-campus.herokuapp.com/api/security/student-detail/'+id;
+            fetch(url)
+                .then((resp) => resp.json())
+                .then(function(data) {
+                    var list = data;
+                });
+            var today = new Date();
+            var month = parseInt(today.getMonth(), 10);
+            month = month + 1;
+            var month_string;
+            if (month < 10) month_string = "0" + month.toString();
+            else month_string = month.toString();
+            url = 'https://digi-campus.herokuapp.com/api/security/student-update/'+id;
+            fetch(url, {
+                //credentials: 'include',
+                method: 'POST',
                 headers: {
                     'Content-type': 'application/json',
-                    'X-CSRFToken': csrftoken,
-                }
-            }).then((response) => {
-                buildList();
+                    'X-CSRFtoken': csrftoken,
+                },
+                body: JSON.stringify({
+                    'id': list[0].id,
+                    'hall_numnber': list[0].hall_numnber,
+                    'user_visiting': list[0].user_visiting,
+                    'room_visiting': list[0].room_visiting
+                    'in_hall': false,
+                    'laptop': list[0].laptop,
+                    'timeEntered': list[0].listEntered,
+                    
+                })
             })
+            
         }
     </script>
 </head>
