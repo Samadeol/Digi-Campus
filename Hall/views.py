@@ -1,4 +1,3 @@
-#from asyncio.windows_events import NULL
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
 from rest_framework.decorators import api_view
@@ -15,7 +14,8 @@ from Login.models import Profile
 def entry_view(request,id):
     for x in hallPresence.objects.all():
         if (str(x.user) == str(request.user.username) and x.in_hall == True):
-            return render(request,"exit.html",{})
+            context={"hall_number":x.hall_numnber}
+            return render(request,"exit.html",context)
     if request.method == "POST":
         MyLoginForm = EntryForm(request.POST or None)
         if MyLoginForm.is_valid():
@@ -43,21 +43,6 @@ def entry_view(request,id):
         "hall_number":id
         }
         return render(request, "entry.html", context)
-
-
-def exit_view(request):
-    if request.method == "POST":
-        time=datetime.datetime.now()
-        for x in hallPresenceSerializer.objects.all():
-            if str(x.user) == str(request.user.username):
-                if(x.in_hall==True):
-                    x.in_hall=False
-                    x.timeExit=time
-                    x.save()                    
-    # else:
-    #     MyLogoutForm = ExitForm(request.POST or None)
-    # context = {"form": MyLogoutForm}
-    return render(request, "exit.html", {})
 
 def security_view(request):
     if(request.user.profile.is_security==False):
@@ -92,14 +77,19 @@ def studentcreate(request):
     else:
         return Response("ankurs mom")
 
+@api_view(['POST'])
+def studentupdate(request,pk):
+    student = hallPresence.objects.get(id=pk)
+    serializer = hallPresenceSerializer(instance=student, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data) 
+    else:
+        return Response("ankurs mom")
+
+
 @api_view(['DELETE'])
 def studentdelete(request,pk):
     order = hallPresence.objects.get(id=pk)
     order.delete()
     return Response('mom')
-
-
-
-
-
-
