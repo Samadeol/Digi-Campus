@@ -92,8 +92,6 @@ def studentcreate(request):
     else:
         return Response("ankurs mom")
 
-
-
 @api_view(['DELETE'])
 def studentdelete(request,pk):
     order = hallPresence.objects.get(id=pk)
