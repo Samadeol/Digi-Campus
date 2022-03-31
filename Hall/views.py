@@ -4,7 +4,7 @@ from django.shortcuts import render
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import hallPresenceSerializer
-
+from Login.models import Profile
 from Hall.models import hallPresence
 from .form import EntryForm
 from .form import ExitForm
@@ -18,6 +18,7 @@ def entry_view(request,id):
         if MyLoginForm.is_valid():
             hall_number = id
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
+            object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
             time=datetime.datetime.now()
             user_in=0
@@ -32,7 +33,7 @@ def entry_view(request,id):
             #     if user_visiting == students.user.profile.roll_no:
             #         stud_inHall=1
             #if user_in==0 and stud_inHall==1:
-            z=hallPresence(hall_numnber=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.profile.first_name, last_name = request.user.profile.last_name, roll_no = request.user.profile.roll_no, mobile_no = request.user.profile.mobile_no)
+            z=hallPresence(hall_numnber=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.profile.first_name, last_name = request.user.profile.last_name, roll_no = request.user.profile.roll_no, mobile_no = request.user.profile.mobile_no,room_visiting=object.room_no)
             z.save()
 
     else:
