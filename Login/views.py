@@ -62,18 +62,27 @@ def dashboard_view(request):
     
     i=0
     count=hallPresence.objects.all().count()
-    prime=1
+    prime=0
     room=[]
+    room.append("NA")
+    room.append("NA")
+    room.append("NA")
     time_enter=[]
+    time_enter.append("NA")
+    time_enter.append("NA")
+    time_enter.append("NA")
     time_exit=[]
+    time_exit.append("NA")
+    time_exit.append("NA")
+    time_exit.append("NA")
 
-    while(count>0 and prime<=3):
+    while(count>0 and prime<3):
         object=hallPresence.objects.get(id=count)
         if (object.roll_no==request.user.profile.roll_no and object.in_hall==False):
+            room[prime] = object.room_visiting
+            time_enter[prime] = (object.timeEntered)
+            time_exit[prime] = (object.timeExit)
             prime=prime+1
-            room.append(object.room_visiting)
-            time_enter.append(object.timeEntered)
-            time_exit.append(object.timeExit)
         count=count-1
     
     context={
@@ -81,11 +90,11 @@ def dashboard_view(request):
         "Time_1":time_enter[0],
         "Time_exit_1":time_exit[0],
         "Room_2":room[1],
-        "Time_2":time_enter[0],
-        "Time_exit_2":time_exit[0],
+        "Time_2":time_enter[1],
+        "Time_exit_2":time_exit[1],
         "Room_3":room[2],
-        "Time_3":time_enter[0],
-        "Time_exit_3":time_exit[0],
+        "Time_3":time_enter[2],
+        "Time_exit_3":time_exit[2],
     }
             
     if(request.user.profile.is_student==False):
