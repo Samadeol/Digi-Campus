@@ -220,7 +220,7 @@ def main_extras_delete(request,pk):
 def order_list_view(request):
     return render(request,"order_list.html",{})
 
-@celery
+
 def switch():
     for obj in  Profile.objects.all():
         obj.e_0 = obj.e_1
@@ -233,6 +233,4 @@ def switch():
         obj.e_7 = obj.e_8
         obj.e_8 = obj.e_9
         obj.e_9 = 0
-
-schedule.every().day.at("18:29").do(switch)
 
