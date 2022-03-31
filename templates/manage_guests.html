@@ -52,7 +52,7 @@
             var list
             fetch(url)
                 .then((resp) => resp.json())
-                .then(function(data) {
+                .then(function(data,list) {
                     list = data;
                     //console.log(list);
                 });
