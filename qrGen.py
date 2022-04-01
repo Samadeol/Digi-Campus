@@ -1,3 +1,4 @@
 import pyqrcode
-url = pyqrcode.create('https://gentle-temple-87499.herokuapp.com/entry')
-url.png('qrexit.png',scale=5)
+for i in range(1,14):
+    url = pyqrcode.create('https://digi-campus.herokuapp.com/entry/'+str(i))
+    url.png('Entry'+str(i)+'.png',scale=5)
