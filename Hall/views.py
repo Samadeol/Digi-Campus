@@ -22,7 +22,7 @@ def entry_view(request,id):
             hall_number = id
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
             room_number = MyLoginForm.cleaned_data['room_number']
-            object=Profile.objects.get(roll_no=user_visiting)
+            #object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
             time=datetime.datetime.now()
             f="False"
