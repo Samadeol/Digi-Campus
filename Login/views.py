@@ -86,7 +86,7 @@ def dashboard_view(request):
             room[prime] = object.room_visiting
             time_enter[prime] = (object.timeEntered)
             time_exit[prime] = (object.timeExit)
-            hall[prime]=object.hall_numnber
+            hall[prime]=str(object.hall_numnber)
             prime=prime+1
         count=count-1
     

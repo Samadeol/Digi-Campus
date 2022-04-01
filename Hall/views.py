@@ -16,6 +16,8 @@ from Login.models import Profile
 
 @login_required
 def entry_view(request,id):
+    if(request.user.profile.is_student==False):
+        return HttpResponse("<h1>Page not found</h1>")
     for x in hallPresence.objects.all():
         if (str(x.user) == str(request.user.username) and x.in_hall == True):
             context={"hall_number":x.hall_numnber}
