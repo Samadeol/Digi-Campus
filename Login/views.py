@@ -75,6 +75,10 @@ def dashboard_view(request):
     time_exit.append("NA")
     time_exit.append("NA")
     time_exit.append("NA")
+    hall=[]
+    hall.append("NA")
+    hall.append("NA")
+    hall.append("NA")
 
     while(count>0 and prime<3):
         object=hallPresence.objects.get(id=count)
@@ -82,6 +86,7 @@ def dashboard_view(request):
             room[prime] = object.room_visiting
             time_enter[prime] = (object.timeEntered)
             time_exit[prime] = (object.timeExit)
+            hall[prime]=object.hall_numnber
             prime=prime+1
         count=count-1
     
@@ -95,6 +100,9 @@ def dashboard_view(request):
         "Room_3":room[2],
         "Time_3":time_enter[2],
         "Time_exit_3":time_exit[2],
+        "Hall_1":hall[0],
+        "Hall_2":hall[1],
+        "Hall_3":hall[2],
     }
             
     if(request.user.profile.is_student==False):
