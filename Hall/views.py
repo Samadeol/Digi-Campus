@@ -30,7 +30,8 @@ def entry_view(request,id):
             room_number = MyLoginForm.cleaned_data['room_number']
             #object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
-            time=datetime.datetime.now(pytz.timezone('Asia/Calcutta'))
+            time=datetime.datetime.now()
+            print(time)
             f="False"
             l=False
             if(laptop=='Yes'):
