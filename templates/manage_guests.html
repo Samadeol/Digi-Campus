@@ -33,7 +33,7 @@
         }
         const csrftoken = getCookie('csrftoken');
 
-        function buildList() {
+        function buildList(id) {
             var wrapper = document.getElementById('prism');
             wrapper.innerHTML = "";
             var url = 'https://digi-campus.herokuapp.com/api/security/student-list/';
@@ -42,7 +42,7 @@
                 .then(function(data) {
                     var list = data;
                     for (var i in list) {
-                        if (list[i].in_hall == true) wrapper.innerHTML += '<tr><td>' + list[i].first_name + ' ' + list[i].last_name + '</td><td>' + list[i].room_visiting + '</td><td>' + (list[i].roll_no) + '</td><td><a href="tel:' + list[i].mobile_no + '">' + list[i].mobile_no + '</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;" onclick="update_stuff(' + list[i].id + ')"><i class="fa fa-close"></i></button></td></tr>'
+                        if (list[i].in_hall == true && list[i].hall_numnber==id) wrapper.innerHTML += '<tr><td>' + list[i].first_name + ' ' + list[i].last_name + '</td><td>' + list[i].room_visiting + '</td><td>' + (list[i].roll_no) + '</td><td><a href="tel:' + list[i].mobile_no + '">' + list[i].mobile_no + '</a></td><td><button class="btn btn-danger"   type="button" style="border-radius: 8px;border-width: 0px;background: #f13b3b;" onclick="update_stuff(' + list[i].id + ')"><i class="fa fa-close"></i></button></td></tr>'
                     }
                 });
         }
@@ -154,9 +154,9 @@
                     <div class="row" style="height: 72px;padding: 16px;text-align: center;">
                         <div class="col">
                             <div class="dropdown"><button class="btn btn-primary dropdown-toggle" aria-expanded="false" data-bs-toggle="dropdown" type="button" onclick="update_drop()">Select Hall</button>
-                                <div class="dropdown-menu"><a class="dropdown-item" href="#">1</a><a class="dropdown-item" href="#">2</a><a class="dropdown-item" href="#">3</a><a class="dropdown-item" href="#">4</a><a class="dropdown-item" href="#">5</a><a class="dropdown-item"
-                                        href="#">6</a><a class="dropdown-item" href="#">7</a><a class="dropdown-item" href="#">8</a><a class="dropdown-item" href="#">9</a><a class="dropdown-item" href="#">10</a><a class="dropdown-item" href="#">11</a><a class="dropdown-item"
-                                        href="#">12</a><a class="dropdown-item" href="#">13</a></div>
+                                <div class="dropdown-menu"><a class="dropdown-item" href="#" onclick="buildList(1)">1</a><a class="dropdown-item" href="#" onclick="buildList(2)">2</a><a class="dropdown-item" href="#" onclick="buildList(3)">3</a><a class="dropdown-item" href="#" onclick="buildList(4)">4</a><a class="dropdown-item" href="#" onclick="buildList(5)">5</a><a class="dropdown-item"
+                                        href="#" onclick="buildList(6)">6</a><a class="dropdown-item" href="#" onclick="buildList(7)">7</a><a class="dropdown-item" href="#" onclick="buildList(8)">8</a><a class="dropdown-item" href="#" onclick="buildList(9)">9</a><a class="dropdown-item" href="#" onclick="buildList(10)">10</a><a class="dropdown-item" href="#" onclick="buildList(11)">11</a><a class="dropdown-item"
+                                        href="#" onclick="buildList(12)">12</a><a class="dropdown-item" href="#" onclick="buildList(13)">13</a></div>
                             </div>
                         </div>
                         <div class="col"><button class="btn btn-danger" type="button" style="background: #FE2626;border-width: 0px;">Notify All</button></div>
