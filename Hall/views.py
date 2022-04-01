@@ -7,10 +7,14 @@ from Login.models import Profile
 from Hall.models import hallPresence
 from .form import EntryForm
 from .form import ExitForm
+from django.contrib.auth.decorators import login_required
+import pytz 
 # Create your views here.
 import datetime
 from django.contrib.auth.models import User
 from Login.models import Profile
+
+@login_required
 def entry_view(request,id):
     for x in hallPresence.objects.all():
         if (str(x.user) == str(request.user.username) and x.in_hall == True):
@@ -24,7 +28,7 @@ def entry_view(request,id):
             room_number = MyLoginForm.cleaned_data['room_number']
             #object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
-            time=datetime.datetime.now()
+            time=datetime.datetime.now(pytz.timezone('Asia/Calcutta'))
             f="False"
             l=False
             if(laptop=='Yes'):
