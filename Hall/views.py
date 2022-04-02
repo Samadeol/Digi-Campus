@@ -30,7 +30,8 @@ def entry_view(request,id):
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
             room_number = MyLoginForm.cleaned_data['room_number']
             laptop=MyLoginForm.cleaned_data['laptop']
-            time = timezone.localtime()
+            time = datetime.datetime.now()
+            time = time + datetime.datetime(0,0,0,5,30,0)
             print(time)
             f="False"
             l=False
