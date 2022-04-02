@@ -14,6 +14,8 @@ import datetime
 from django.contrib.auth.models import User
 from Login.models import Profile
 
+IST = pytz.timezone('Asia/Kolkata')
+
 @login_required
 def entry_view(request,id):
     if(request.user.profile.is_student==False):
@@ -28,16 +30,14 @@ def entry_view(request,id):
             hall_number = id
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
             room_number = MyLoginForm.cleaned_data['room_number']
-            #object=Profile.objects.get(roll_no=user_visiting)
             laptop=MyLoginForm.cleaned_data['laptop']
-            time=datetime.datetime.now()
-            print(time)
+            time=datetime.datetime.now(IST)
             f="False"
             l=False
             if(laptop=='Yes'):
                 l=True
             for students in Profile.objects.all():
-                if user_visiting == students.roll_no and  room_number == students.room_no and id==students.hall_no:
+               if user_visiting == students.roll_no and  room_number == students.room_no and id==students.hall_no:
                     z=hallPresence(hall_numnber=hall_number, user=request.user,user_visiting=user_visiting,in_hall=True,laptop=l,timeEntered=time,first_name = request.user.profile.first_name, last_name = request.user.profile.last_name, roll_no = request.user.profile.roll_no, mobile_no = request.user.profile.mobile_no,room_visiting=room_number)
                     z.save()
                     f="True"
