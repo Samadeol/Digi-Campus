@@ -1,5 +1,6 @@
 from django.http import Http404, HttpResponse
 from django.shortcuts import render
+from django.utils import timezone
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import hallPresenceSerializer
@@ -13,8 +14,6 @@ import pytz
 import datetime
 from django.contrib.auth.models import User
 from Login.models import Profile
-
-IST = pytz.timezone('Asia/Kolkata')
 
 @login_required
 def entry_view(request,id):
@@ -31,7 +30,7 @@ def entry_view(request,id):
             user_visiting = int(MyLoginForm.cleaned_data['user_visiting'])
             room_number = MyLoginForm.cleaned_data['room_number']
             laptop=MyLoginForm.cleaned_data['laptop']
-            time=datetime.datetime.now(IST)
+            time = timezone.now() 
             f="False"
             l=False
             if(laptop=='Yes'):
