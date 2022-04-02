@@ -1,0 +1,7 @@
+import datetime
+
+time = datetime.datetime.now()
+delta = datetime.timedelta(minutes=1440)
+time += delta
+#time = datetime.datetime(time.year,time.month,time.day,time.hour+24,time.minute,time.second)
+print(time)
