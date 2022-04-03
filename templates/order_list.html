@@ -38,6 +38,7 @@
     function buildList() {
         let j=0
         let k=0
+
         var wrapper = document.getElementById('Addition');
         wrapper.innerHTML = "";
         var url = 'https://digi-campus.herokuapp.com/api/order-list';
@@ -45,11 +46,9 @@
             .then((resp) => resp.json())
             .then(function(data) {
                 var list = data;
-                for(p in list){
-                    k=k+1;
-                }
-                let i=k;
-                while (i>=1) {
+                
+                
+                for(var i in list) {
                     var temp_1 = {{user.profile.roll_no}};
                     var temp_2=list[i].rollno
                     if(temp_1==temp_2){
@@ -68,8 +67,7 @@
                         if(list[i].quantity_6!=0) document.getElementById("new"+i).innerHTML+='<li style="margin-top: 8px;margin-bottom: 8px;" ><div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;"><div class="row"><div class="col"><div class="card"><div class="card-body bg-white" ><h4 class="card-title" >'+list[i].item_6+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].quantity_6+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].price_6+'</h4></div></div></div></div></div></li>'
                         wrapper.innerHTML+= '</ul></div></div></div>'
                     }
-                    j=j+1;
-                    i=i-1;
+                  
                 }
                 
             });
