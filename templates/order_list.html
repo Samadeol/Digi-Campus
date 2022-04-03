@@ -37,6 +37,7 @@
      
     function buildList() {
         let j=0
+        let k=0
         var wrapper = document.getElementById('Addition');
         wrapper.innerHTML = "";
         var url = 'https://digi-campus.herokuapp.com/api/order-list';
@@ -44,7 +45,10 @@
             .then((resp) => resp.json())
             .then(function(data) {
                 var list = data;
-                i=list.length
+                for(p in list){
+                    k=k+1;
+                }
+                let i=k;
                 while (i>=1) {
                     var temp_1 = {{user.profile.roll_no}};
                     var temp_2=list[i].rollno
