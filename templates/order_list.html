@@ -44,8 +44,8 @@
             .then((resp) => resp.json())
             .then(function(data) {
                 var list = data;
-               
-                for (var i in list) {
+                i=list.length
+                while (i>=1) {
                     var temp_1 = {{user.profile.roll_no}};
                     var temp_2=list[i].rollno
                     if(temp_1==temp_2){
@@ -65,6 +65,7 @@
                         wrapper.innerHTML+= '</ul></div></div></div>'
                     }
                     j=j+1;
+                    i=i-1;
                 }
                 
             });
