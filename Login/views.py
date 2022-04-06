@@ -78,7 +78,7 @@ def dashboard_view(request):
     hall.append("NA")
     hall.append("NA")
 
-    for object in hallPresence.objects.all().order_by(-id):
+    for object in hallPresence.objects.all().order_by('-id'):
             if (object.roll_no==request.user.profile.roll_no and object.in_hall==False and prime<3):
                 room[prime] = object.room_visiting
                 time_enter[prime] = (object.timeEntered)
