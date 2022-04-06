@@ -2,16 +2,16 @@ import datetime
 from Login.models import Profile
 from apscheduler.schedulers.background import BackgroundScheduler
 
-start = datetime.time(17, 6, 0)
-end = datetime.time(17, 6, 30)
+start = datetime.time(17, 10, 0)
+end = datetime.time(17, 10, 30)
 current = datetime.datetime.now().time()
 
 def start():
 
     global start, end, current
     
-    start = datetime.time(17,6,0)
-    end = datetime.time(17,6,30)
+    start = datetime.time(17,10,0)
+    end = datetime.time(17,10,30)
     current = (datetime.datetime.now()+datetime.timedelta(minutes=330)).time()
 
     scheduler = BackgroundScheduler()
@@ -21,9 +21,10 @@ def start():
 def update_func():
 
     global start, end, current
-
+    print("wow")
     current=(datetime.datetime.now()+datetime.timedelta(minutes=330)).time()
     if(start<= current<= end):
+        print("why not")
         for obj in  Profile.objects.all():
             obj.e_0 = obj.e_1
             obj.e_1 = obj.e_2
