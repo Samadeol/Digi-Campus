@@ -59,8 +59,6 @@ def dashboard_view(request):
     #     'Present_Month':obj.expense_current
 
     # }
-    
-    i=0
     count=hallPresence.objects.all().count()
     prime=0
     room=[]
@@ -81,14 +79,13 @@ def dashboard_view(request):
     hall.append("NA")
 
     while(count>0 and prime<3):
-        object=hallPresence.objects.get(id=count)
-        if (object.roll_no==request.user.profile.roll_no and object.in_hall==False):
-            room[prime] = object.room_visiting
-            time_enter[prime] = (object.timeEntered)
-            time_exit[prime] = (object.timeExit)
-            hall[prime]=str(object.hall_numnber)
-            prime=prime+1
-        count=count-1
+        for object in hallPresence.objects.all():
+            if (object.roll_no==request.user.profile.roll_no and object.in_hall==False):
+                room[prime] = object.room_visiting
+                time_enter[prime] = (object.timeEntered)
+                time_exit[prime] = (object.timeExit)
+                hall[prime]=str(object.hall_numnber)
+                prime=prime+1
     
     context={
         "Room_1":room[0],
