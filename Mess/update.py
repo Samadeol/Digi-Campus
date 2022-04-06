@@ -31,3 +31,4 @@ def update():
         obj.e_7 = obj.e_8
         obj.e_8 = obj.e_9
         obj.e_9 = 0
+        obj.save()
