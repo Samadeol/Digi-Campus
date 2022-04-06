@@ -2,16 +2,16 @@ import datetime
 from Login.models import Profile
 from apscheduler.schedulers.background import BackgroundScheduler
 
-start = datetime.time(17, 10, 0)
-end = datetime.time(17, 10, 30)
+start = datetime.time(17, 12, 0)
+end = datetime.time(17, 12, 30)
 current = datetime.datetime.now().time()
 
 def start():
 
     global start, end, current
     
-    start = datetime.time(17,10,0)
-    end = datetime.time(17,10,30)
+    start = datetime.time(17,12,0)
+    end = datetime.time(17,12,30)
     current = (datetime.datetime.now()+datetime.timedelta(minutes=330)).time()
 
     scheduler = BackgroundScheduler()
