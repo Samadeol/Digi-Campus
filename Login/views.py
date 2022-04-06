@@ -78,9 +78,8 @@ def dashboard_view(request):
     hall.append("NA")
     hall.append("NA")
 
-    while(count>0 and prime<3):
-        for object in hallPresence.objects.all():
-            if (object.roll_no==request.user.profile.roll_no and object.in_hall==False):
+    for object in hallPresence.objects.all():
+            if (object.roll_no==request.user.profile.roll_no and object.in_hall==False and prime<3):
                 room[prime] = object.room_visiting
                 time_enter[prime] = (object.timeEntered)
                 time_exit[prime] = (object.timeExit)
