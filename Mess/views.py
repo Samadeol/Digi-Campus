@@ -220,17 +220,3 @@ def main_extras_delete(request,pk):
 def order_list_view(request):
     return render(request,"order_list.html",{})
 
-
-def switch():
-    for obj in  Profile.objects.all():
-        obj.e_0 = obj.e_1
-        obj.e_1 = obj.e_2
-        obj.e_2 = obj.e_3
-        obj.e_3 = obj.e_4
-        obj.e_4 = obj.e_5
-        obj.e_5 = obj.e_6
-        obj.e_6 = obj.e_7
-        obj.e_7 = obj.e_8
-        obj.e_8 = obj.e_9
-        obj.e_9 = 0
-
