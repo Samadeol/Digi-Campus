@@ -46,10 +46,13 @@
             .then((resp) => resp.json())
             .then(function(data) {
                 let list = data.slice().sort((a, b) => b.id - a.id);
+                var count =1;
                 for(var i in list) {
                     var temp_1 = {{user.profile.roll_no}};
                     var temp_2=list[i].rollno
                     if(temp_1==temp_2){
+                        count=count+1;
+                        if(count%3==1) wrapper.innerHTML+='<div class="container" style="margin-top: 30px;padding-bottom: 34px;" id="Addition"><div class="row">'
                     //if(toString({{user.profile.roll_no}})==list[i].rollno):
                         //if(j%3==0)wrapper.innerHTML+='<div class="container" style="margin-top: 30px;padding-bottom: 34px;" id="Addition_+j+">'
 
@@ -122,19 +125,18 @@
                 </div>
             </div>
         </div>
-    </div >
-    
-    <div class="container" style="margin-top: 30px;padding-bottom: 34px;" id="Addition">
-        {% comment %} <div class="row"> {% endcomment %}
+    </div id = "Addition">
+    {% comment %} <div class="container" style="margin-top: 30px;padding-bottom: 34px;" id="Addition"> {% endcomment %}
+        {% comment %} <div class="row">
      
-            {% comment %} <div class="col-xxl-4" style="margin-bottom: 10px;margin-top: 10px;padding-left: 20px;min-height: auto;height: 700px;">
+            <div class="col-xxl-4" style="margin-bottom: 10px;margin-top: 10px;padding-left: 20px;min-height: auto;height: 700px;">
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
                             Recent Order</h4>
                         <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
-                        <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;" > {% endcomment %} 
-                     {% comment %}        <li style="margin-top: 8px;margin-bottom: 8px;" >
+                        <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;" >
+                     <li style="margin-top: 8px;margin-bottom: 8px;" >
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
                                     <div class="row">
                                         <div class="col">
