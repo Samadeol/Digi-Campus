@@ -218,5 +218,55 @@ def main_extras_delete(request,pk):
 
 @login_required
 def order_list_view(request):
-    return render(request,"order_list.html",{})
+    order=messOrder.objects.filter(rollno=request.user.roll_no).order_by('-orderedDate')
+    context=[]
+    name=[]
+    quantity=[]
+    price=[]
+    i=1;
+    for object in order:
+        if(i>6):
+            break
+        i=i+1
+        name.append(object.item_1)
+        name.append(object.item_2)
+        name.append(object.item_3)
+        name.append(object.item_4)
+        name.append(object.item_5)
+        name.append(object.item_6)
+        quantity.append(object.quantity_1)
+        quantity.append(object.quantity_2)
+        quantity.append(object.quantity_3)
+        quantity.append(object.quantity_4)
+        quantity.append(object.quantity_5)
+        quantity.append(object.quantity_6)
+        price.append(object.price_1)
+        price.append(object.price_2)
+        price.append(object.price_3)
+        price.append(object.price_4)
+        price.append(object.price_5)
+        price.append(object.price_6)
+        
+
+    context={}
+    
+    name_1=[]
+    quantity_1=[]
+    price_1=[]
+    for i in range(36):
+        name_1.append("Name_"+i)
+        context[name_1[i]]=name[i]
+
+    for j in range(36):
+        quantity_1.append("Quantity_"+j)
+        context[quantity_1[j]]=quantity[j]
+
+    for k in range(36):
+        price_1.append("Price_"+k)
+        context[price_1[k]]=price[k]
+
+
+    
+
+    return render(request,"order_list.html",context)
 
