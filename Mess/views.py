@@ -254,15 +254,15 @@ def order_list_view(request):
     quantity_1=[]
     price_1=[]
     for i in range(36):
-        name_1.append("Name_"+i)
+        name_1.append("Name_"+str(i))
         context[name_1[i]]=name[i]
 
     for j in range(36):
-        quantity_1.append("Quantity_"+j)
+        quantity_1.append("Quantity_"+str(j))
         context[quantity_1[j]]=quantity[j]
 
     for k in range(36):
-        price_1.append("Price_"+k)
+        price_1.append("Price_"+str(k))
         context[price_1[k]]=price[k]
 
 
