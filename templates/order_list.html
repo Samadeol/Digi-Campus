@@ -45,9 +45,7 @@
         fetch(url)
             .then((resp) => resp.json())
             .then(function(data) {
-                var list = data;
-                
-                
+                let list = data.slice().sort((a, b) => b.id - a.id);
                 for(var i in list) {
                     var temp_1 = {{user.profile.roll_no}};
                     var temp_2=list[i].rollno
@@ -58,8 +56,6 @@
                         wrapper.innerHTML+='<div class="col-xxl-4" style="margin-bottom: 10px;margin-top: 10px;padding-left: 20px;min-height: auto;height: 700px;"><div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;"><div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;"><h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;"> Recent Order</h4> <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">'+list[i].orderedDate+'</h6><ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;" id="new'+i+'">'
                                     
                         if(list[i].quantity_1!=0) document.getElementById("new"+i).innerHTML+='<li style="margin-top: 8px;margin-bottom: 8px;" ><div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;"><div class="row"><div class="col"><div class="card"><div class="card-body bg-white" ><h4 class="card-title" >'+list[i].item_1+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].quantity_1+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].price_1+'</h4></div></div></div></div></div></li>'
-                                        
-
                         if(list[i].quantity_2!=0) document.getElementById("new"+i).innerHTML+='<li style="margin-top: 8px;margin-bottom: 8px;" ><div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;"><div class="row"><div class="col"><div class="card"><div class="card-body bg-white" ><h4 class="card-title" >'+list[i].item_2+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].quantity_2+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].price_2+'</h4></div></div></div></div></div></li>'
                         if(list[i].quantity_3!=0) document.getElementById("new"+i).innerHTML+='<li style="margin-top: 8px;margin-bottom: 8px;" ><div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;"><div class="row"><div class="col"><div class="card"><div class="card-body bg-white" ><h4 class="card-title" >'+list[i].item_3+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].quantity_3+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].price_3+'</h4></div></div></div></div></div></li>'
                         if(list[i].quantity_4!=0) document.getElementById("new"+i).innerHTML+='<li style="margin-top: 8px;margin-bottom: 8px;" ><div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;"><div class="row"><div class="col"><div class="card"><div class="card-body bg-white" ><h4 class="card-title" >'+list[i].item_4+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].quantity_4+'</h4></div></div></div><div class="col"><div class="card"><div class="card-body"><h4 class="card-title">'+list[i].price_4+'</h4></div></div></div></div></div></li>'
@@ -127,7 +123,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div >
     
     <div class="container" style="margin-top: 30px;padding-bottom: 34px;" id="Addition">
         {% comment %} <div class="row"> {% endcomment %}

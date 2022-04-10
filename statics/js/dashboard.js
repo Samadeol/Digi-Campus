@@ -1,10 +1,22 @@
-function update() { let e = document.querySelector("canvas").chart; var t = e.data.datasets[0].label; if (console.log(t), "monthly" == t) { var a = [18, 30, 0, 50, 35, 10, 20]; let e = document.querySelector("canvas").chart;
-        e.data.datasets[0].label = "weekly", e.data.labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], e.data.datasets[0].data = a, e.update() } else { a = [300, 240, 250, 314, 298];
-        e.data.labels = ["Nov", "Dec", "Jan", "Feb", "Mar"], e.data.datasets[0].label = "monthly", e.data.datasets[0].data = a, e.update() } }
+function update() {
+    let e = document.querySelector("canvas").chart;
+    var t = e.data.datasets[0].label;
+    if (console.log(t), "monthly" == t) {
+        var a = [18, 30, 0, 50, 35, 10, 20];
+        let e = document.querySelector("canvas").chart;
+        e.data.datasets[0].label = "weekly", e.data.labels = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"], e.data.datasets[0].data = a, e.update()
+    } else {
+        a = [300, 240, 250, 314, 298];
+        e.data.labels = ["Nov", "Dec", "Jan", "Feb", "Mar"], e.data.datasets[0].label = "monthly", e.data.datasets[0].data = a, e.update()
+    }
+}
 
 function give_title() { return "monthly" == document.querySelector("canvas").chart.data.datasets[0].label ? "Show data of this week" : "Show data of this month" }
 document.addEventListener("DOMContentLoaded", (function() {
-    [].slice.call(document.querySelectorAll("[data-bss-tooltip]")).map((function(e) { return new bootstrap.Tooltip(e) })); var e = document.querySelectorAll("[data-bss-chart]"); for (var t of e) t.chart = new Chart(t, JSON.parse(t.dataset.bssChart)) }), !1), $(document).ready((function() { $("[data-bs-toggle=tooltip]").mouseenter((function() { $(this).attr("title", give_title()) })) }));
+    [].slice.call(document.querySelectorAll("[data-bss-tooltip]")).map((function(e) { return new bootstrap.Tooltip(e) }));
+    var e = document.querySelectorAll("[data-bss-chart]");
+    for (var t of e) t.chart = new Chart(t, JSON.parse(t.dataset.bssChart))
+}), !1), $(document).ready((function() { $("[data-bs-toggle=tooltip]").mouseenter((function() { $(this).attr("title", give_title()) })) }));
 const qrcode = window.qrcode,
     video = document.createElement("video"),
     canvasElement = document.getElementById("qr-canvas"),
