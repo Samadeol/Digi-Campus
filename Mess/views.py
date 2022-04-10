@@ -218,7 +218,7 @@ def main_extras_delete(request,pk):
 
 @login_required
 def order_list_view(request):
-    order=messOrder.objects.filter(rollno=request.user.Profile.roll_no).order_by('-orderedDate')
+    order=messOrder.objects.filter(rollno=request.user.profile.roll_no).order_by('-orderedDate')
     context=[]
     name=[]
     quantity=[]
