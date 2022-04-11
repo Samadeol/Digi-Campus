@@ -135,6 +135,7 @@
                     <div class="card-body">
                         <canvas id="myChart" style="width:100%;max-width:700px"></canvas>
                         <script>
+                            var ma = Math.max({{user.profile.e_0}},{{user.profile.e_1}},{{user.profile.e_2}},{{user.profile.e_3}},{{user.profile.e_4}},{{user.profile.e_5}},{{user.profile.e_6}},{{user.profile.e_7}},{{user.profile.e_8}},{{user.profile.e_9}})
                             var xyValues = [
                             {x:1, y:{{user.profile.e_0}}},
                             {x:2, y:{{user.profile.e_1}}},
@@ -146,7 +147,7 @@
                             {x:8, y:{{user.profile.e_7}}},
                             {x:9, y:{{user.profile.e_8}}},
                             {x:10, y:{{user.profile.e_9}}},
-                          
+                            
                           ];
                           
                           new Chart("myChart", {
@@ -162,7 +163,7 @@
                               legend: {display: false},
                               scales: {
                                 xAxes: [{ticks: {min:0 , max:10}}],
-                                yAxes: [{ticks: {min: 0, max:{{user.profile.e_0}}+{{user.profile.e_1}}+{{user.profile.e_2}}+{{user.profile.e_3}}+{{user.profile.e_4}}+{{user.profile.e_5}}+{{user.profile.e_6}}+{{user.profile.e_7}}+{{user.profile.e_8}}+{{user.profile.e_9}}}}],
+                                yAxes: [{ticks: {min: 0, max:ma}}],
                               }
                             }
                           });
