@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
 </head>
-<script>
+{% comment %} <script>
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -71,7 +71,7 @@
                 
             });
     }
-</script>   
+</script>    {% endcomment %}
 <body onload="buildList()"> 
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);background: rgb(224,226,253);">
     <div class="col" style="position: sticky;top: 0;z-index: 100;">
@@ -227,21 +227,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_3}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_3}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_3}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -254,21 +254,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_4}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_4}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_4}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,21 +281,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_5}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_5}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_5}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -308,21 +308,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_6}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_6}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_6}}</h4>
                                                 </div>
                                             </div>
                                         </div>
