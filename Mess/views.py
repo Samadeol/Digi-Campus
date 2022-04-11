@@ -223,7 +223,8 @@ def order_list_view(request):
     name=[]
     quantity=[]
     price=[]
-    i=1;
+    date=[]
+    i=1
     for object in order:
         if(i>6):
             break
@@ -234,18 +235,44 @@ def order_list_view(request):
         name.append(object.item_4)
         name.append(object.item_5)
         name.append(object.item_6)
+        date.append(object.orderedDate)
         quantity.append(object.quantity_1)
         quantity.append(object.quantity_2)
         quantity.append(object.quantity_3)
         quantity.append(object.quantity_4)
         quantity.append(object.quantity_5)
         quantity.append(object.quantity_6)
-        price.append(object.price_1)
-        price.append(object.price_2)
-        price.append(object.price_3)
-        price.append(object.price_4)
-        price.append(object.price_5)
-        price.append(object.price_6)
+        if(object.quantity_1==0):
+            price.append(0)
+        else:
+            price.append(object.price_1*object.quantity_1)
+        
+        if(object.quantity_2==0):
+            price.append(0)
+        else:
+            price.append(object.price_2*object.quantity_2)
+        if(object.quantity_3==0):
+            price.append(0)
+        else:
+            price.append(object.price_3*object.quantity_3)
+        
+        if(object.quantity_4==0):
+            price.append(0)
+        else:
+            price.append(object.price_4*object.quantity_4)
+
+        if(object.quantity_5==0):
+            price.append(0)
+        else:
+            price.append(object.price_5*object.quantity_5)
+
+        if(object.quantity_6==0):
+            price.append(0)
+        else:
+            price.append(object.price_6*object.quantity_6)
+
+        
+    
         
 
     context={}
@@ -253,6 +280,8 @@ def order_list_view(request):
     name_1=[]
     quantity_1=[]
     price_1=[]
+    date_1=[]
+    
     for i in range(36):
         name_1.append("Name_"+str(i))
         context[name_1[i]]=name[i]
@@ -264,6 +293,10 @@ def order_list_view(request):
     for k in range(36):
         price_1.append("Price_"+str(k))
         context[price_1[k]]=price[k]
+
+    for l in range(6):
+        date_1.append("Date_"+str(l))
+        context[date_1[l]]=date[l]
 
 
     

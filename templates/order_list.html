@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
     <link rel="stylesheet" href="{% static 'css/styles.min.css' %}">
 </head>
-<script>
+{% comment %} <script>
     function getCookie(name) {
         let cookieValue = null;
         if (document.cookie && document.cookie !== '') {
@@ -71,7 +71,7 @@
                 
             });
     }
-</script>   
+</script>    {% endcomment %}
 <body onload="buildList()"> 
 <body style="height: 1080px;border-width: 1px;border-color: rgb(255,255,255);background: rgb(224,226,253);">
     <div class="col" style="position: sticky;top: 0;z-index: 100;">
@@ -101,32 +101,33 @@
             <div class="col">
                 <ul class="nav nav-tabs" style="background: #ffffff;">
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html" style="font-family: 'Nunito Sans', sans-serif;">
+                        <a class="nav-link" href="{%url 'dashboard_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
                             <i class="fas fa-border-all"></i> Dashboard
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="mess.html" style="font-family: 'Nunito Sans', sans-serif;">
+                        <a class="nav-link active" href="{%url 'mess_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
                             <i class="fas fa-utensils"></i> Mess
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="qr_code.html" style="font-family: 'Nunito Sans', sans-serif;">
+                        <a class="nav-link" href="{%url 'qrcode_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
                             <i class="fas fa-qrcode"></i> QR Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'order_list_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
+                            <i class="fas fa-hamburger"></i> Recent Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{%url 'logout_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
-        <div class="row" style="box-shadow: 0px 1px 4px;margin-right: 0px;">
-            <div class="col" style="background: #ffffff;">
-                <div class="container" style="margin-left: -16px;background: rgba(255,255,255,0);">
-                    <div class="btn-group" role="group"><a class="btn btn-light" role="button" style="margin-right: 4px;border-radius: 4px;border-top-right-radius: 4px;border-bottom-right-radius: 4px;" href="#menu_object">Menu</a><a class="btn btn-light" role="button" style="margin-left: 4px;margin-right: 4px;border-radius: 4px;"
-                            href="#add_extras_object">Add
-                            Extras</a><a class="btn btn-light" role="button" style="margin-left: 4px;margin-right: 4px;border-radius: 4px;" href="#checkout_object">Checkout</a></div>
-                </div>
-            </div>
-        </div>
-    </div>
+  
     <div id="Addition"></div>
     <div class="container" style="margin-top: 30px;padding-bottom: 34px;">
         <div class="row">
@@ -135,8 +136,8 @@
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
-                            Recent Order</h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
+                            Recent Order 1</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">{{Date_0}}</h6>
                         <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;" >
                             <li style="margin-top: 8px;margin-bottom: 8px;" >
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
@@ -227,21 +228,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_3}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_3}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_3}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -254,21 +255,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_4}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_4}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_4}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,54 +282,28 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_5}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_5}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_5}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li style="margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -337,8 +312,8 @@
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
-                            Recent Order</h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
+                            Recent Order 2</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">{{Date_1}}</h6>
                         <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;">
                             <li style="margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
@@ -346,21 +321,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_6}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_6}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_6}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -373,21 +348,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_7}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_7}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_7}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -400,21 +375,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_8}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_8}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_8}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -427,21 +402,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_9}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_9}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_9}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -454,21 +429,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_10}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_10}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_10}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -481,54 +456,28 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_11}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_11}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_11}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li style="margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            
                         </ul>
                     </div>
                 </div>
@@ -537,8 +486,8 @@
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
-                            Recent Order</h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
+                            Recent Order 3</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">{{Date_2}}</h6>
                         <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;">
                             <li style="margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
@@ -546,21 +495,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_12}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_12}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_12}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -573,21 +522,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_13}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_13}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_13}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -600,21 +549,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_14}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_14}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_14}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -627,21 +576,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_15}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_15}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_15}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -654,21 +603,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_16}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_16}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_16}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -681,54 +630,28 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_17}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_17}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_17}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li style="margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                           
                         </ul>
                     </div>
                 </div>
@@ -742,8 +665,8 @@
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
-                            Recent Order</h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
+                            Recent Order 4</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">{{Date_3}}</h6>
                         <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;">
                             <li style="margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
@@ -751,21 +674,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_18}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_18}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_18}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -778,21 +701,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_19}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_19}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_19}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -805,21 +728,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_20}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_20}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_20}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -832,21 +755,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_21}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_21}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_21}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -859,21 +782,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_22}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_22}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_22}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -886,54 +809,29 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_23}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_23}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_23}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li style="margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            
+                                
                         </ul>
                     </div>
                 </div>
@@ -942,8 +840,8 @@
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
-                            Recent Order</h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
+                            Recent Order 5</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">{{Date_4}}</h6>
                         <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;">
                             <li style="margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
@@ -951,21 +849,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_24}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_24}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_24}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -978,21 +876,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_25}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_25}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_25}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1005,21 +903,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_26}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_26}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_26}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1032,21 +930,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_27}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_27}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_27}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1059,21 +957,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_28}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_28}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_28}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1086,54 +984,29 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_29}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_29}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_29}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li style="margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                            
+                                                  
                         </ul>
                     </div>
                 </div>
@@ -1142,8 +1015,8 @@
                 <div class="card" style="border-width: 0px;background: rgba(255,255,255,0);height: 650px;">
                     <div class="card-body d-flex flex-column align-self-start" style="background: #f5f8ff;border-radius: 28px;width: 100%;">
                         <h4 class="card-title" style="font-family: Nunito, sans-serif;font-weight: bold;font-size: 42px;margin-left: 16px;">
-                            Recent Order</h4>
-                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">THURSDAY'S LUNCH</h6>
+                            Recent Order 6</h4>
+                        <h6 class="text-muted card-subtitle mb-2" style="font-family: Nunito, sans-serif;margin-left: 16px;">{{Date_5}}</h6>
                         <ul class="list-unstyled" style="max-height: 600px;overflow-y: auto;-webkit-overflow-scrolling: touch;margin-left: 16px;padding-right: 16px;margin-bottom: 8px;height: 600px;">
                             <li style="margin-top: 8px;margin-bottom: 8px;">
                                 <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
@@ -1151,21 +1024,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_30}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_30}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_30}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1178,21 +1051,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_31}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_31}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_31}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1205,21 +1078,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_32}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_32}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_32}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1232,21 +1105,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_33}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_33}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_33}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1259,21 +1132,21 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_34}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_34}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_34}}</h4>
                                                 </div>
                                             </div>
                                         </div>
@@ -1286,54 +1159,29 @@
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
+                                                    <h4 class="card-title">{{Name_35}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
+                                                    <h4 class="card-title">{{Quantity_35}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="card">
                                                 <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
+                                                    <h4 class="card-title">{{Price_35}}</h4>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </li>
-                            <li style="margin-top: 8px;margin-bottom: 8px;">
-                                <div class="card bg-white" style="background: rgb(179,182,252);margin-bottom: 0;margin-top: 0;border-radius: 19px;margin-left: 0;margin-right: 0;border-width: 0px;">
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body bg-white">
-                                                    <h4 class="card-title">Dal</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">1</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <h4 class="card-title">₹10</h4>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
+                           
+                                         
                         </ul>
                     </div>
                 </div>

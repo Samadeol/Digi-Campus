@@ -49,8 +49,16 @@
                 style="font-family: 'Nunito Sans', sans-serif;">
                 <i class="fas fa-qrcode"></i>
                 QR Code</a></li>
-                <li class="nav-item"><a class="nav-link" href="{%url 'logout_view' %}"  style="font-family: 'Nunito Sans', sans-serif;" text-align="right">
-                    <i class="fas fa-qrcode"></i>Logout</a></li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'order_list_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
+                        <i class="fas fa-hamburger"></i> Recent Orders
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{%url 'logout_view' %}" style="font-family: 'Nunito Sans', sans-serif;">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </a>
+                </li>
     </ul>
     {% comment %} <div class="row">
         <div class="col" style="background: #f4db60;">
