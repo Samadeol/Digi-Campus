@@ -223,7 +223,8 @@ def order_list_view(request):
     name=[]
     quantity=[]
     price=[]
-    i=1;
+    date=[]
+    i=1
     for object in order:
         if(i>6):
             break
@@ -234,6 +235,7 @@ def order_list_view(request):
         name.append(object.item_4)
         name.append(object.item_5)
         name.append(object.item_6)
+        date.append(object.orderedDate)
         quantity.append(object.quantity_1)
         quantity.append(object.quantity_2)
         quantity.append(object.quantity_3)
@@ -253,6 +255,8 @@ def order_list_view(request):
     name_1=[]
     quantity_1=[]
     price_1=[]
+    date_1=[]
+    
     for i in range(36):
         name_1.append("Name_"+str(i))
         context[name_1[i]]=name[i]
@@ -264,6 +268,10 @@ def order_list_view(request):
     for k in range(36):
         price_1.append("Price_"+str(k))
         context[price_1[k]]=price[k]
+
+    for l in range(6):
+        date_1.append("Date_"+str(l))
+        context[date_1[l]]=date[l]
 
 
     
