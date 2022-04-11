@@ -242,12 +242,37 @@ def order_list_view(request):
         quantity.append(object.quantity_4)
         quantity.append(object.quantity_5)
         quantity.append(object.quantity_6)
-        price.append(object.price_1*object.quantity_1)
-        price.append(object.price_2*object.quantity_2)
-        price.append(object.price_3*object.quantity_3)
-        price.append(object.price_4*object.quantity_4)
-        price.append(object.price_5*object.quantity_5)
-        price.append(object.price_6*object.quantity_6)
+        if(object.quantity_1==0):
+            price.append(0)
+        else:
+            price.append(object.price_1*object.quantity_1)
+        
+        if(object.quantity_2==0):
+            price.append(0)
+        else:
+            price.append(object.price_2*object.quantity_2)
+        if(object.quantity_3==0):
+            price.append(0)
+        else:
+            price.append(object.price_3*object.quantity_3)
+        
+        if(object.quantity_4==0):
+            price.append(0)
+        else:
+            price.append(object.price_4*object.quantity_4)
+
+        if(object.quantity_5==0):
+            price.append(0)
+        else:
+            price.append(object.price_5*object.quantity_5)
+
+        if(object.quantity_6==0):
+            price.append(0)
+        else:
+            price.append(object.price_6*object.quantity_6)
+
+        
+    
         
 
     context={}
