@@ -24,9 +24,8 @@ from Hall.views import entry_view, security_view
 from Login.views import dashboard_view
 from Login.views import qrcode_view
 #from Hall.views import exit_view
-from Login.views import logout_view,check_view,change_password_view
+from Login.views import logout_view,check_view
 from Mess.views import confirm_view, hash_view, manager_view, mess_view, order_list_view, order_list_view
-
 #from Mess.views import confirm_view
 urlpatterns = [
     # path('qr',include('qrscan.urls')),
@@ -45,8 +44,7 @@ urlpatterns = [
     path('security',security_view,name="security_view"),
     path('inter/',check_view,name="check_view"),
     path('api/security/',include('Hall.urls')),
-    path('mess/order_list/',order_list_view, name="order_list_view"),
-    
+    path('mess/order_list/',order_list_view, name="order_list_view")
     
     #path('confirm/',confirm_view,name='confirm_view'),
 ]
