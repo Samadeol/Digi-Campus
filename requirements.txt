@@ -9,7 +9,7 @@ click-didyoumean==0.3.0
 click-plugins==1.1.1
 click-repl==0.2.0
 colorama==0.4.4
-Django==4.0.3
+Django==4.0.4
 django-apscheduler==0.6.2
 django-crispy-forms==1.14.0
 djangorestframework==3.13.1
