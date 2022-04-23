@@ -1,3 +1,5 @@
+from pyexpat.errors import messages
+from turtle import update
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth import authenticate
 from django.http import Http404,HttpResponse
@@ -11,6 +13,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from django.http import HttpResponse, HttpResponseNotFound
 from Hall.models import hallPresence
+from django.contrib.auth.forms import PasswordChangeForm
+from django.contrib.auth import update_session_auth_hash
 
 from Login.models import Profile 
 # Create your views here.
@@ -48,7 +52,23 @@ from Login.models import Profile
 def profile_view(request):
     if(request.user.profile.is_student==False):
         return HttpResponse("<h1>Page not found</h1>")
-    return render(request,"profile.html")
+    form=PasswordChangeForm(request.user,request.POST)
+    if request.method=="POST":
+        
+        if form.is_valid():
+            user=form.save()
+            update_session_auth_hash(request,user)
+            messages.success(request,"Your password was successfully updated!")
+            return render(request,'change_password.html')
+        else:
+            messages.error(request,"Please correct the error below")
+    else:
+        form-PasswordChangeForm(request.user)
+
+    return render(request,'profile.html',{
+        'form':form
+    })
+   
 
 @login_required
 def dashboard_view(request):
@@ -126,4 +146,8 @@ def check_view(request):
     
     else:
         return redirect('../security')
+
+
+   
+
    
