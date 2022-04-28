@@ -282,23 +282,39 @@ def order_list_view(request):
     price_1=[]
     date_1=[]
     
-    for i in range(36):
+    for i in range(len(name)):
         name_1.append("Name_"+str(i))
         context[name_1[i]]=name[i]
 
-    for j in range(36):
+    for i in range(len(name),36):
+        name_1.append("Name_"+str(i))
+        context[name_1[i]]="-"
+           
+    for j in range(len(quantity)):
         quantity_1.append("Quantity_"+str(j))
         context[quantity_1[j]]=quantity[j]
+    
+    for j in range(len(quantity),36):
+        quantity_1.append("Quantity_"+str(j))
+        context[quantity_1[j]]="-"
 
-    for k in range(36):
+    for k in range(len(price)):
         price_1.append("Price_"+str(k))
         context[price_1[k]]=price[k]
+    
+    for k in range(len(price),36):
+        price_1.append("Price_"+str(k))
+        context[price_1[k]]="-"
 
-    for l in range(6):
+    for l in range(len(date)):
         date_1.append("Date_"+str(l))
         context[date_1[l]]=date[l]
 
+    for l in range(len(date),6):
+        date_1.append("Date_"+str(l))
+        context[date_1[l]]="--/--/----"
 
+    
     
 
     return render(request,"order_list.html",context)
